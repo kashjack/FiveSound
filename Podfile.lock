@@ -1,0 +1,101 @@
+PODS:
+  - BmobSDK (2.4.1)
+  - Bugly (2.5.5)
+  - ESPullToRefresh (2.9.2)
+  - FSPagerView (0.8.3)
+  - HandyJSON (5.0.2)
+  - JXPagingView/Paging (2.0.6)
+  - JXSegmentedView (1.1.0)
+  - Kingfisher (4.10.1)
+  - LYEmptyView (1.3.1)
+  - mob_pushsdk (3.0.1):
+    - mob_pushsdk/MobPush (= 3.0.1)
+    - MOBFoundation
+  - mob_pushsdk/MobPush (3.0.1):
+    - MOBFoundation
+  - mob_sharesdk (4.3.9):
+    - mob_sharesdk/ShareSDK (= 4.3.9)
+    - MOBFoundation (>= 3.2.9)
+  - mob_sharesdk/ShareSDK (4.3.9):
+    - MOBFoundation (>= 3.2.9)
+  - mob_sharesdk/ShareSDKPlatforms/WeChat (4.3.9):
+    - mob_sharesdk/ShareSDK
+    - MOBFoundation (>= 3.2.9)
+  - MOBFoundation (3.2.17)
+  - PKHUD (5.3.0)
+  - ReachabilitySwift (5.0.0)
+  - RxCocoa (5.1.1):
+    - RxRelay (~> 5)
+    - RxSwift (~> 5)
+  - RxRelay (5.1.1):
+    - RxSwift (~> 5)
+  - RxSwift (5.1.1)
+  - SnapKit (4.2.0)
+  - SwiftyJSON (5.0.0)
+
+DEPENDENCIES:
+  - BmobSDK
+  - Bugly
+  - ESPullToRefresh
+  - FSPagerView
+  - HandyJSON
+  - JXPagingView/Paging
+  - JXSegmentedView
+  - Kingfisher
+  - LYEmptyView
+  - mob_pushsdk
+  - mob_sharesdk
+  - mob_sharesdk/ShareSDKPlatforms/WeChat
+  - PKHUD
+  - ReachabilitySwift
+  - RxCocoa
+  - RxSwift
+  - SnapKit
+  - SwiftyJSON
+
+SPEC REPOS:
+  trunk:
+    - BmobSDK
+    - Bugly
+    - ESPullToRefresh
+    - FSPagerView
+    - HandyJSON
+    - JXPagingView
+    - JXSegmentedView
+    - Kingfisher
+    - LYEmptyView
+    - mob_pushsdk
+    - mob_sharesdk
+    - MOBFoundation
+    - PKHUD
+    - ReachabilitySwift
+    - RxCocoa
+    - RxRelay
+    - RxSwift
+    - SnapKit
+    - SwiftyJSON
+
+SPEC CHECKSUMS:
+  BmobSDK: 930525437e6602f7146108e11a9796604a1edbb9
+  Bugly: eded937bbb1f731cacf689c2d934ddbd9ab34f83
+  ESPullToRefresh: efed00d52597065e9a84e1e52fa444fdb1a1dee0
+  FSPagerView: 670405b2f18e2a87fa37f20b00de783e562c25a8
+  HandyJSON: 9e4e236f5d2dbefad5155a77417bbea438201c03
+  JXPagingView: 5851fb8cc964d0cbd93e9611077f7bc1fca05fee
+  JXSegmentedView: 072a2979323f98fc5d0e0e5dc2342549ae8a5c8f
+  Kingfisher: c148cd7b47ebde9989f6bc7c27dcaa79d81279a0
+  LYEmptyView: b6d418cfa38b78df0cf243f9a9c25ccbdc399922
+  mob_pushsdk: 5f266bfce36dcfda9abf2651da898735cca7a725
+  mob_sharesdk: ce760a34f154bad7a586ec5e7c9d6dd423aa084c
+  MOBFoundation: 37e2c100051fd710976b1f8d00643d28f31fcaca
+  PKHUD: 98f3e4bc904b9c916f1c5bb6d765365b5357291b
+  ReachabilitySwift: 985039c6f7b23a1da463388634119492ff86c825
+  RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
+  RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
+  RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
+  SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
+  SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
+
+PODFILE CHECKSUM: c000d8852439e2bcbbe6f7825a02abc4c4329c6b
+
+COCOAPODS: 1.9.3

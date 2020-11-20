@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="80" id="KGk-i7-Jjw" customClass="JKSettingHeaderTableViewCell" customModule="Neck" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbO-PF-hsO">
+                        <rect key="frame" x="15" y="30" width="245" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="20" id="RJ1-UQ-Ghk"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_right" translatesAutoresizingMaskIntoConstraints="NO" id="oUg-U6-r7R">
+                        <rect key="frame" x="350" y="30" width="10" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="10" id="dmB-nD-HNO"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_mine_head" translatesAutoresizingMaskIntoConstraints="NO" id="lYd-Tp-hf6" customClass="WUImageView" customModule="Neck" customModuleProvider="target">
+                        <rect key="frame" x="275" y="10" width="60" height="60"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="60" id="9P5-2j-iSt"/>
+                            <constraint firstAttribute="width" constant="60" id="B8X-Np-2VW"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="oUg-U6-r7R" secondAttribute="trailing" constant="15" id="9eo-OW-o05"/>
+                    <constraint firstItem="oUg-U6-r7R" firstAttribute="leading" secondItem="lYd-Tp-hf6" secondAttribute="trailing" constant="15" id="Ave-ue-W65"/>
+                    <constraint firstItem="lYd-Tp-hf6" firstAttribute="centerY" secondItem="zbO-PF-hsO" secondAttribute="centerY" id="OSy-Ue-lIN"/>
+                    <constraint firstItem="zbO-PF-hsO" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="30" id="RkD-Gs-zMG"/>
+                    <constraint firstItem="oUg-U6-r7R" firstAttribute="bottom" secondItem="zbO-PF-hsO" secondAttribute="bottom" id="V1V-ft-GPj"/>
+                    <constraint firstItem="lYd-Tp-hf6" firstAttribute="leading" secondItem="zbO-PF-hsO" secondAttribute="trailing" constant="15" id="Vjk-HO-vKf"/>
+                    <constraint firstItem="zbO-PF-hsO" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="YJW-be-LEh"/>
+                    <constraint firstItem="oUg-U6-r7R" firstAttribute="top" secondItem="zbO-PF-hsO" secondAttribute="top" id="kMR-yq-XUU"/>
+                    <constraint firstAttribute="bottom" secondItem="zbO-PF-hsO" secondAttribute="bottom" constant="30" id="tfT-96-CoZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgVForIcon" destination="lYd-Tp-hf6" id="I7h-C7-qcw"/>
+                <outlet property="labForTitle" destination="zbO-PF-hsO" id="Hjr-Tx-iBd"/>
+            </connections>
+            <point key="canvasLocation" x="168.84057971014494" y="143.30357142857142"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="icon_mine_head" width="59" height="59"/>
+        <image name="icon_right" width="5.5" height="9.5"/>
+    </resources>
+</document>

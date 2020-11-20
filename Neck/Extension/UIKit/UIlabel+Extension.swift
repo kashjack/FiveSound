@@ -1,0 +1,68 @@
+//
+//  UILabel+Extension.swift
+//  HomePlus
+//
+//  Created by xp on 2018/4/25.
+//  Copyright © 2018年 worldunion. All rights reserved.
+//
+
+import UIKit
+
+public extension UILabel {
+    
+    convenience init(text: String = "text", textColor: UIColor = .black, font: UIFont = .boldSystemFont(ofSize: 13), textAlignment: NSTextAlignment = .left, frame: CGRect = .zero) {
+        self.init()
+        self.text = text
+        self.textColor = textColor
+        self.font = font
+        self.numberOfLines = 0
+        self.textAlignment = textAlignment
+        self.frame = frame
+    }
+    
+    /// 获取内容高度
+    func getcontenHeight(width: CGFloat) -> CGFloat {
+        guard let statusLabelText: NSString = self.text as NSString? else { return 0 }
+        
+        let size = CGSize(width: width, height: CGFloat(MAXFLOAT))
+        
+        let dic: [NSAttributedString.Key : Any] = [NSAttributedString.Key.font : self.font ?? UIFont.fontContent]
+        
+        return statusLabelText.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: dic, context:nil).size.height+0.5
+    }
+    
+    /// 设置label的行距, 要在label有值得情况下设置
+    ///
+    /// - Parameter space: 行距
+    func setLineSpace(space: CGFloat) {
+        guard let labelText = self.text else { return }
+        let attributeString = NSMutableAttributedString.init(string: labelText)
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.lineSpacing = space
+        
+        attributeString.addAttributes([NSAttributedString.Key.paragraphStyle: paragraphStyle], range: NSMakeRange(0, labelText.length))
+        self.attributedText = attributeString
+    }
+    
+    /// 设置字间距, 要在label有值得情况下设置
+    ///
+    /// - Parameter space: 字间距
+    func setWordSpace(space: CGFloat) {
+        guard let labelText = self.text else { return }
+        
+        let attributeString = NSMutableAttributedString.init(string: labelText, attributes: [NSAttributedString.Key.kern: space])
+        self.attributedText = attributeString
+    }
+    
+    /// 设置行间距，字间距, 要在label有值得情况下设置
+    ///
+    /// - Parameters:
+    ///   - lineSpace: 行间距
+    ///   - wordSpace: 字间距
+    func setSpace(lineSpace: CGFloat, wordSpace: CGFloat) {
+        self.setLineSpace(space: lineSpace)
+        self.setWordSpace(space: wordSpace)
+    }
+    
+}
+
