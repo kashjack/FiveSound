@@ -8,8 +8,6 @@
 
 import UIKit
 
-extension JXPagingListContainerView: JXSegmentedViewListContainer {}
-
 class JKViewController: UIViewController {
 
     private lazy var leftBarButton: UIButton = {
@@ -41,10 +39,7 @@ class JKViewController: UIViewController {
 
     // MARK:  setUI
     private func setUI() {
-        if self is JKHomePageViewController ||
-            self is JKHomePageListViewController ||
-            self is JKLoginViewController ||
-            self is JKMineViewController
+        if self is JKHomePageViewController
         {
             self.navigationController?.setNavigationBarHidden(true, animated: false)
         }

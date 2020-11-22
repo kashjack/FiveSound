@@ -18,16 +18,15 @@ class JKStackManager: NSObject {
 
     // MARK: 初始化栈管理器
     func setupTabbarController() {
-        let tabBarController = JKTabBarController()
-        tabBarController.delegate = self
-        JKStackManager.keyWindow.rootViewController = tabBarController
+        let navController = JKNavigationController.init(rootViewController: JKHomePageViewController())
+        JKStackManager.keyWindow.rootViewController = navController
     }
 
 
     static func logout() {
-        JKStackManager.showHomePage()
-        let vc = JKNavigationController.init(rootViewController: JKLoginViewController())
-        JKViewController.topViewController()?.present(vc, animated: true, completion: nil)
+//        JKStackManager.showHomePage()
+//        let vc = JKNavigationController.init(rootViewController: JKLoginViewController())
+//        JKViewController.topViewController()?.present(vc, animated: true, completion: nil)
 //        UIView.transition(with: JKStackManager.keyWindow, duration: 0.35, options: UIView.AnimationOptions.transitionCrossDissolve, animations: {
 //            let oldState = UIView.areAnimationsEnabled
 //            UIView.setAnimationsEnabled(false)
@@ -42,18 +41,5 @@ class JKStackManager: NSObject {
         tabBarController.selectedIndex = 0
         navc.popToRootViewController(animated: true)
     }
-
-
-
 }
 
-extension JKStackManager : UITabBarControllerDelegate{
-    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
-        guard let nav = viewController as? JKNavigationController else { return true }
-        if nav.viewControllers.first is JKMineViewController {
-            return JKUserInfo.isLoginOrPushLogin()
-        }else{
-            return true
-        }
-    }
-}

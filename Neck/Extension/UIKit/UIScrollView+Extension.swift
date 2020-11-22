@@ -58,15 +58,7 @@ extension UIScrollView{
 
     // MARK:  无数据，网络错误空页面
     func setEmptyView(image: UIImage?, titleStr: String, btnTitleStr: String, btnClickAction: @escaping (() -> Void)){
-        let view = LYEmptyView.emptyActionView(with: image, titleStr: titleStr, detailStr: "", btnTitleStr: btnTitleStr, btnClick: btnClickAction)!
-        view.actionBtnBorderColor = UIColor.gray
-        view.actionBtnBorderWidth = 0.5
-        view.actionBtnTitleColor = UIColor.darkGray
-        view.actionBtnCornerRadius = 15
-        view.actionBtnHeight = 30
-        view.actionBtnWidth = 100
-        view.actionBtnFont = UIFont.systemFont(ofSize: 14)
-        self.ly_emptyView = view
+       
     }
 
     open override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {

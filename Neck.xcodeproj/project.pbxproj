@@ -7,28 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5585B68124A9985D00A3442B /* JKHomePageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585B68024A9985D00A3442B /* JKHomePageListViewController.swift */; };
-		5585B68624A9DFB800A3442B /* JKArticleWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5585B68524A9DFB800A3442B /* JKArticleWebViewController.swift */; };
-		558F9B3A24A83FA70036BC52 /* JKArticleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F9B3824A83FA70036BC52 /* JKArticleTableViewCell.swift */; };
-		558F9B3B24A83FA70036BC52 /* JKArticleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 558F9B3924A83FA70036BC52 /* JKArticleTableViewCell.xib */; };
 		558F9B3D24A87AFD0036BC52 /* JKHandyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 558F9B3C24A87AFD0036BC52 /* JKHandyJSON.swift */; };
-		55CE1D2F24C8379700ABE341 /* JKMineViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE1D2D24C8379700ABE341 /* JKMineViewController.swift */; };
-		55CE1D3024C8379700ABE341 /* JKMineViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CE1D2E24C8379700ABE341 /* JKMineViewController.xib */; };
 		55CE1D3224C83D3200ABE341 /* JKVerticalButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE1D3124C83D3200ABE341 /* JKVerticalButton.swift */; };
-		55CE1D3724C8439000ABE341 /* JKLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE1D3524C8439000ABE341 /* JKLoginViewController.swift */; };
-		55CE1D3824C8439000ABE341 /* JKLoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CE1D3624C8439000ABE341 /* JKLoginViewController.xib */; };
-		55CE1D5124D1222100ABE341 /* JKSettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE1D4F24D1222100ABE341 /* JKSettingViewController.swift */; };
-		55CE1D5624D1600100ABE341 /* JKSettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE1D5424D1600100ABE341 /* JKSettingTableViewCell.swift */; };
-		55CE1D5724D1600100ABE341 /* JKSettingTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CE1D5524D1600100ABE341 /* JKSettingTableViewCell.xib */; };
-		55CE1D5A24D2BD4B00ABE341 /* JKSettingHeaderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55CE1D5824D2BD4A00ABE341 /* JKSettingHeaderTableViewCell.swift */; };
-		55CE1D5B24D2BD4B00ABE341 /* JKSettingHeaderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CE1D5924D2BD4B00ABE341 /* JKSettingHeaderTableViewCell.xib */; };
-		55CE1D5D24D3C6CB00ABE341 /* JKSettingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55CE1D5C24D3C6CB00ABE341 /* JKSettingViewController.xib */; };
 		55E83EAD24A08C27002EB229 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55E83EAC24A08C27002EB229 /* Assets.xcassets */; };
 		55E83EB024A08C27002EB229 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 55E83EAE24A08C27002EB229 /* LaunchScreen.storyboard */; };
 		55E83EBA24A0912F002EB229 /* AppDelegate+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83EB924A0912F002EB229 /* AppDelegate+Extension.swift */; };
 		55E83EC324A091E0002EB229 /* JKHomePageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83EC124A091E0002EB229 /* JKHomePageViewController.swift */; };
-		55E83EC724A091F0002EB229 /* JKCommunityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83EC524A091F0002EB229 /* JKCommunityViewController.swift */; };
-		55E83EC824A091F0002EB229 /* JKCommunityViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 55E83EC624A091F0002EB229 /* JKCommunityViewController.xib */; };
 		55E83F0F24A09226002EB229 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83ECF24A09225002EB229 /* UIFont+Extension.swift */; };
 		55E83F1024A09226002EB229 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83ED024A09225002EB229 /* UIColor+Extension.swift */; };
 		55E83F1124A09226002EB229 /* UIButton+Touch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83ED224A09225002EB229 /* UIButton+Touch.swift */; };
@@ -69,40 +53,23 @@
 		55E83F6024A0BD93002EB229 /* WUPredicate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5B24A0BD92002EB229 /* WUPredicate.swift */; };
 		55E83F6124A0BD93002EB229 /* WUHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5C24A0BD92002EB229 /* WUHelper.swift */; };
 		55E83F6224A0BD93002EB229 /* JKSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5D24A0BD92002EB229 /* JKSizeHelper.swift */; };
-		55E83F6324A0BD93002EB229 /* JKUserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5E24A0BD92002EB229 /* JKUserInfo.swift */; };
 		55E83F6424A0BD93002EB229 /* WULoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5F24A0BD92002EB229 /* WULoadingView.swift */; };
-		55F0822D24A1D6E100155506 /* JKHomePageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0822C24A1D6E100155506 /* JKHomePageView.swift */; };
 		55F0823024A1D79B00155506 /* JKHomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0822F24A1D79B00155506 /* JKHomePageViewModel.swift */; };
-		55F0823224A1D83B00155506 /* JKBmobHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0823124A1D83B00155506 /* JKBmobHelper.swift */; };
 		55F0823524A1E23000155506 /* JKHomePageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0823424A1E23000155506 /* JKHomePageModel.swift */; };
+		81AA73CC256A9DB5001B1D3A /* JKHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */; };
+		81AA73E0256AA704001B1D3A /* JKHomePageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA73DF256AA704001B1D3A /* JKHomePageButton.swift */; };
 		A1F7DD8ABF6EA22BFFDFAC29 /* Pods_Neck.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85956F4D4CFE46E94AA3B560 /* Pods_Neck.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5585B68024A9985D00A3442B /* JKHomePageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageListViewController.swift; sourceTree = "<group>"; };
-		5585B68524A9DFB800A3442B /* JKArticleWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKArticleWebViewController.swift; sourceTree = "<group>"; };
-		558F9B3824A83FA70036BC52 /* JKArticleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKArticleTableViewCell.swift; sourceTree = "<group>"; };
-		558F9B3924A83FA70036BC52 /* JKArticleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKArticleTableViewCell.xib; sourceTree = "<group>"; };
 		558F9B3C24A87AFD0036BC52 /* JKHandyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHandyJSON.swift; sourceTree = "<group>"; };
-		55CE1D2D24C8379700ABE341 /* JKMineViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKMineViewController.swift; sourceTree = "<group>"; };
-		55CE1D2E24C8379700ABE341 /* JKMineViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKMineViewController.xib; sourceTree = "<group>"; };
 		55CE1D3124C83D3200ABE341 /* JKVerticalButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKVerticalButton.swift; sourceTree = "<group>"; };
-		55CE1D3524C8439000ABE341 /* JKLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKLoginViewController.swift; sourceTree = "<group>"; };
-		55CE1D3624C8439000ABE341 /* JKLoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKLoginViewController.xib; sourceTree = "<group>"; };
-		55CE1D4F24D1222100ABE341 /* JKSettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKSettingViewController.swift; sourceTree = "<group>"; };
-		55CE1D5424D1600100ABE341 /* JKSettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKSettingTableViewCell.swift; sourceTree = "<group>"; };
-		55CE1D5524D1600100ABE341 /* JKSettingTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKSettingTableViewCell.xib; sourceTree = "<group>"; };
-		55CE1D5824D2BD4A00ABE341 /* JKSettingHeaderTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKSettingHeaderTableViewCell.swift; sourceTree = "<group>"; };
-		55CE1D5924D2BD4B00ABE341 /* JKSettingHeaderTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JKSettingHeaderTableViewCell.xib; sourceTree = "<group>"; };
-		55CE1D5C24D3C6CB00ABE341 /* JKSettingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JKSettingViewController.xib; sourceTree = "<group>"; };
 		55E83EA024A08C23002EB229 /* Neck.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Neck.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55E83EAC24A08C27002EB229 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		55E83EAF24A08C27002EB229 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		55E83EB124A08C27002EB229 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		55E83EB924A0912F002EB229 /* AppDelegate+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "AppDelegate+Extension.swift"; sourceTree = "<group>"; };
 		55E83EC124A091E0002EB229 /* JKHomePageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageViewController.swift; sourceTree = "<group>"; };
-		55E83EC524A091F0002EB229 /* JKCommunityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKCommunityViewController.swift; sourceTree = "<group>"; };
-		55E83EC624A091F0002EB229 /* JKCommunityViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKCommunityViewController.xib; sourceTree = "<group>"; };
 		55E83ECF24A09225002EB229 /* UIFont+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
 		55E83ED024A09225002EB229 /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		55E83ED124A09225002EB229 /* UINavigationController+FDFullscreenPopGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationController+FDFullscreenPopGesture.h"; sourceTree = "<group>"; };
@@ -145,13 +112,12 @@
 		55E83F5B24A0BD92002EB229 /* WUPredicate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WUPredicate.swift; sourceTree = "<group>"; };
 		55E83F5C24A0BD92002EB229 /* WUHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WUHelper.swift; sourceTree = "<group>"; };
 		55E83F5D24A0BD92002EB229 /* JKSizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKSizeHelper.swift; sourceTree = "<group>"; };
-		55E83F5E24A0BD92002EB229 /* JKUserInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKUserInfo.swift; sourceTree = "<group>"; };
 		55E83F5F24A0BD92002EB229 /* WULoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WULoadingView.swift; sourceTree = "<group>"; };
-		55F0822C24A1D6E100155506 /* JKHomePageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageView.swift; sourceTree = "<group>"; };
 		55F0822F24A1D79B00155506 /* JKHomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageViewModel.swift; sourceTree = "<group>"; };
-		55F0823124A1D83B00155506 /* JKBmobHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKBmobHelper.swift; sourceTree = "<group>"; };
 		55F0823424A1E23000155506 /* JKHomePageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageModel.swift; sourceTree = "<group>"; };
 		7B6FCF5949AD85DA6561974D /* Pods-Neck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neck.release.xcconfig"; path = "Target Support Files/Pods-Neck/Pods-Neck.release.xcconfig"; sourceTree = "<group>"; };
+		81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKHomePageViewController.xib; sourceTree = "<group>"; };
+		81AA73DF256AA704001B1D3A /* JKHomePageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageButton.swift; sourceTree = "<group>"; };
 		85956F4D4CFE46E94AA3B560 /* Pods_Neck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F3F2BFC0B8067E24E2ECD5AD /* Pods-Neck.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neck.debug.xcconfig"; path = "Target Support Files/Pods-Neck/Pods-Neck.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -195,63 +161,8 @@
 		5585B68424A9DFAC00A3442B /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				5585B68524A9DFB800A3442B /* JKArticleWebViewController.swift */,
 			);
 			path = ViewController;
-			sourceTree = "<group>";
-		};
-		55CE1D3324C8435B00ABE341 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				55CE1D3424C8436B00ABE341 /* ViewController */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		55CE1D3424C8436B00ABE341 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				55CE1D3524C8439000ABE341 /* JKLoginViewController.swift */,
-				55CE1D3624C8439000ABE341 /* JKLoginViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		55CE1D4C24D1220100ABE341 /* NextLevel */ = {
-			isa = PBXGroup;
-			children = (
-				55CE1D4D24D1220C00ABE341 /* Setting */,
-			);
-			path = NextLevel;
-			sourceTree = "<group>";
-		};
-		55CE1D4D24D1220C00ABE341 /* Setting */ = {
-			isa = PBXGroup;
-			children = (
-				55CE1D5324D15FE600ABE341 /* View */,
-				55CE1D4E24D1221500ABE341 /* ViewController */,
-			);
-			path = Setting;
-			sourceTree = "<group>";
-		};
-		55CE1D4E24D1221500ABE341 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				55CE1D4F24D1222100ABE341 /* JKSettingViewController.swift */,
-				55CE1D5C24D3C6CB00ABE341 /* JKSettingViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		55CE1D5324D15FE600ABE341 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				55CE1D5824D2BD4A00ABE341 /* JKSettingHeaderTableViewCell.swift */,
-				55CE1D5924D2BD4B00ABE341 /* JKSettingHeaderTableViewCell.xib */,
-				55CE1D5424D1600100ABE341 /* JKSettingTableViewCell.swift */,
-				55CE1D5524D1600100ABE341 /* JKSettingTableViewCell.xib */,
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		55E83E9724A08C23002EB229 = {
@@ -275,10 +186,10 @@
 		55E83EA224A08C23002EB229 /* Neck */ = {
 			isa = PBXGroup;
 			children = (
+				55E83EB724A09035002EB229 /* AppDelegate */,
 				55E83EF024A09225002EB229 /* Expand */,
 				55E83ECD24A09225002EB229 /* Extension */,
 				55E83F5A24A0BD92002EB229 /* Helpers */,
-				55E83EB724A09035002EB229 /* AppDelegate */,
 				55E83F4524A092A7002EB229 /* Macros */,
 				55E83EB824A090E8002EB229 /* Modules */,
 				55E83EAC24A08C27002EB229 /* Assets.xcassets */,
@@ -302,9 +213,6 @@
 			children = (
 				55E83F4F24A095F2002EB229 /* Base */,
 				55E83EBB24A0916C002EB229 /* HomePage */,
-				55E83EBC24A09182002EB229 /* Community */,
-				55E83EBD24A091A1002EB229 /* Mine */,
-				55CE1D3324C8435B00ABE341 /* Login */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -321,46 +229,11 @@
 			path = HomePage;
 			sourceTree = "<group>";
 		};
-		55E83EBC24A09182002EB229 /* Community */ = {
-			isa = PBXGroup;
-			children = (
-				55E83EBF24A091B6002EB229 /* ViewController */,
-			);
-			path = Community;
-			sourceTree = "<group>";
-		};
-		55E83EBD24A091A1002EB229 /* Mine */ = {
-			isa = PBXGroup;
-			children = (
-				55E83EC024A091BA002EB229 /* ViewController */,
-				55CE1D4C24D1220100ABE341 /* NextLevel */,
-			);
-			path = Mine;
-			sourceTree = "<group>";
-		};
 		55E83EBE24A091B3002EB229 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
 				55E83EC124A091E0002EB229 /* JKHomePageViewController.swift */,
-				5585B68024A9985D00A3442B /* JKHomePageListViewController.swift */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		55E83EBF24A091B6002EB229 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				55E83EC524A091F0002EB229 /* JKCommunityViewController.swift */,
-				55E83EC624A091F0002EB229 /* JKCommunityViewController.xib */,
-			);
-			path = ViewController;
-			sourceTree = "<group>";
-		};
-		55E83EC024A091BA002EB229 /* ViewController */ = {
-			isa = PBXGroup;
-			children = (
-				55CE1D2D24C8379700ABE341 /* JKMineViewController.swift */,
-				55CE1D2E24C8379700ABE341 /* JKMineViewController.xib */,
+				81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -463,9 +336,7 @@
 				55E83F5B24A0BD92002EB229 /* WUPredicate.swift */,
 				55E83F5C24A0BD92002EB229 /* WUHelper.swift */,
 				55E83F5D24A0BD92002EB229 /* JKSizeHelper.swift */,
-				55E83F5E24A0BD92002EB229 /* JKUserInfo.swift */,
 				55E83F5F24A0BD92002EB229 /* WULoadingView.swift */,
-				55F0823124A1D83B00155506 /* JKBmobHelper.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -473,9 +344,7 @@
 		55F0822B24A1D6C100155506 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				55F0822C24A1D6E100155506 /* JKHomePageView.swift */,
-				558F9B3824A83FA70036BC52 /* JKArticleTableViewCell.swift */,
-				558F9B3924A83FA70036BC52 /* JKArticleTableViewCell.xib */,
+				81AA73DF256AA704001B1D3A /* JKHomePageButton.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -517,7 +386,6 @@
 				55E83E9D24A08C23002EB229 /* Frameworks */,
 				55E83E9E24A08C23002EB229 /* Resources */,
 				8A9409FF95765C90306462B0 /* [CP] Embed Pods Frameworks */,
-				3258F4EA804CA9F66EB69514 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -567,38 +435,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55CE1D3024C8379700ABE341 /* JKMineViewController.xib in Resources */,
-				55CE1D5724D1600100ABE341 /* JKSettingTableViewCell.xib in Resources */,
-				558F9B3B24A83FA70036BC52 /* JKArticleTableViewCell.xib in Resources */,
-				55CE1D5B24D2BD4B00ABE341 /* JKSettingHeaderTableViewCell.xib in Resources */,
 				55E83EB024A08C27002EB229 /* LaunchScreen.storyboard in Resources */,
 				55E83EAD24A08C27002EB229 /* Assets.xcassets in Resources */,
-				55E83EC824A091F0002EB229 /* JKCommunityViewController.xib in Resources */,
-				55CE1D3824C8439000ABE341 /* JKLoginViewController.xib in Resources */,
-				55CE1D5D24D3C6CB00ABE341 /* JKSettingViewController.xib in Resources */,
+				81AA73CC256A9DB5001B1D3A /* JKHomePageViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3258F4EA804CA9F66EB69514 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Neck/Pods-Neck-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Neck/Pods-Neck-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Neck/Pods-Neck-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		8A9409FF95765C90306462B0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -646,9 +491,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55E83F1524A09226002EB229 /* UIImage+Extension.swift in Sources */,
-				5585B68124A9985D00A3442B /* JKHomePageListViewController.swift in Sources */,
 				55E83F0F24A09226002EB229 /* UIFont+Extension.swift in Sources */,
-				55E83EC724A091F0002EB229 /* JKCommunityViewController.swift in Sources */,
 				55E83F2C24A09226002EB229 /* Array+Extension.swift in Sources */,
 				55E83F1224A09226002EB229 /* UIlabel+Extension.swift in Sources */,
 				55CE1D3224C83D3200ABE341 /* JKVerticalButton.swift in Sources */,
@@ -656,44 +499,35 @@
 				558F9B3D24A87AFD0036BC52 /* JKHandyJSON.swift in Sources */,
 				55E83F2024A09226002EB229 /* Date+Extension.swift in Sources */,
 				55E83F2724A09226002EB229 /* Double+Extension.swift in Sources */,
-				55CE1D3724C8439000ABE341 /* JKLoginViewController.swift in Sources */,
 				55E83F2B24A09226002EB229 /* Nibloadable.swift in Sources */,
-				55CE1D5624D1600100ABE341 /* JKSettingTableViewCell.swift in Sources */,
-				55CE1D5124D1222100ABE341 /* JKSettingViewController.swift in Sources */,
 				55E83F6224A0BD93002EB229 /* JKSizeHelper.swift in Sources */,
 				55E83F1324A09226002EB229 /* UIButton+Extension.swift in Sources */,
-				5585B68624A9DFB800A3442B /* JKArticleWebViewController.swift in Sources */,
 				55F0823024A1D79B00155506 /* JKHomePageViewModel.swift in Sources */,
 				55E83F2224A09226002EB229 /* NSObject+Extension.swift in Sources */,
-				55E83F6324A0BD93002EB229 /* JKUserInfo.swift in Sources */,
+				81AA73E0256AA704001B1D3A /* JKHomePageButton.swift in Sources */,
 				55E83F4924A092A7002EB229 /* AppConst.swift in Sources */,
 				55E83F1824A09226002EB229 /* WKWebView+Extension.swift in Sources */,
 				55E83F5524A0965D002EB229 /* JKNavigationViewController.swift in Sources */,
 				55E83EBA24A0912F002EB229 /* AppDelegate+Extension.swift in Sources */,
 				55E83F1424A09226002EB229 /* UIView+Extension.swift in Sources */,
 				55E83F1124A09226002EB229 /* UIButton+Touch.swift in Sources */,
-				55F0822D24A1D6E100155506 /* JKHomePageView.swift in Sources */,
 				55E83F1A24A09226002EB229 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
 				55E83F2624A09226002EB229 /* Int+Extension.swift in Sources */,
 				55E83F1B24A09226002EB229 /* UIBarButtonItem+Extension.swift in Sources */,
 				55E83F2824A09226002EB229 /* TimeInterval+Extension.swift in Sources */,
-				55CE1D2F24C8379700ABE341 /* JKMineViewController.swift in Sources */,
 				55F0823524A1E23000155506 /* JKHomePageModel.swift in Sources */,
 				55E83F2A24A09226002EB229 /* MutableAttributeString+Extension.swift in Sources */,
-				55F0823224A1D83B00155506 /* JKBmobHelper.swift in Sources */,
 				55E83EC324A091E0002EB229 /* JKHomePageViewController.swift in Sources */,
 				55E83F1724A09226002EB229 /* WULabel+Extension.swift in Sources */,
 				55E83F6424A0BD93002EB229 /* WULoadingView.swift in Sources */,
 				55E83F1F24A09226002EB229 /* UITableView+Extension.swift in Sources */,
 				55E83F1E24A09226002EB229 /* UITextField+Extension.swift in Sources */,
-				558F9B3A24A83FA70036BC52 /* JKArticleTableViewCell.swift in Sources */,
 				55E83F6124A0BD93002EB229 /* WUHelper.swift in Sources */,
 				55E83F4A24A092A7002EB229 /* Macros.swift in Sources */,
 				55E83F2124A09226002EB229 /* NotificationCenterExtension.swift in Sources */,
 				55E83F5924A09ED9002EB229 /* AppDelegate.swift in Sources */,
 				55E83F2924A09226002EB229 /* UserDefaults+Extension.swift in Sources */,
 				55E83F2324A09226002EB229 /* DispatchQueue+Extension.swift in Sources */,
-				55CE1D5A24D2BD4B00ABE341 /* JKSettingHeaderTableViewCell.swift in Sources */,
 				55E83F1024A09226002EB229 /* UIColor+Extension.swift in Sources */,
 				55E83F1924A09226002EB229 /* UICollectionView+Extension.swift in Sources */,
 				55E83F1C24A09226002EB229 /* UIScrollView+Extension.swift in Sources */,

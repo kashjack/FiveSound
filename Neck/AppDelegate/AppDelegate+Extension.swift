@@ -29,17 +29,7 @@ extension AppDelegate {
         JKStackManager.shared.setupTabbarController()
     }
 
-    // MARK:  Bmob
-    func setUpBmob() {
-        Bmob.register(withAppKey: kBmobAppId)
-    }
 
-    // MARK:  Bugly
-    func setBugly() {
-//        #if DEBUG
-        Bugly.start(withAppId: kBuglyAppId)
-//        #endif
-    }
 
     // MARK:  防止上线出错
     func setUpBaseUrl() {

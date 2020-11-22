@@ -11,9 +11,7 @@ import UIKit
 class JKTabBarController: UITabBarController {
 
     private let VCArr = [
-        JKHomePageViewController(),
-        JKCommunityViewController(),
-        JKMineViewController()
+        JKHomePageViewController()
     ]
     private let titleArr = ["首页", "社区", "我的"]
 

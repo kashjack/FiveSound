@@ -9,6 +9,7 @@
 import UIKit
 
 class JKNavigationController: UINavigationController {
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,6 +27,8 @@ class JKNavigationController: UINavigationController {
         interactivePopGestureRecognizer?.isEnabled = (viewControllers.count > 0)
         super.pushViewController(viewController, animated: animated)
     }
+
+    
 
 
 }

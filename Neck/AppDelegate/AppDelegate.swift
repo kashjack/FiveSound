@@ -20,9 +20,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.setHotReload()
         self.setUpUIStack()
-        self.setShareSDK()
-        self.setUpBmob()
-        self.setBugly()
 //        self.setInitSetting()
         return true
     }

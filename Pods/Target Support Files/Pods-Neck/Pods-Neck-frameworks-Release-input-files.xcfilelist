@@ -1,11 +1,7 @@
 ${PODS_ROOT}/Target Support Files/Pods-Neck/Pods-Neck-frameworks.sh
 ${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework
-${BUILT_PRODUCTS_DIR}/FSPagerView/FSPagerView.framework
 ${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework
-${BUILT_PRODUCTS_DIR}/JXPagingView/JXPagingView.framework
-${BUILT_PRODUCTS_DIR}/JXSegmentedView/JXSegmentedView.framework
 ${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework
-${BUILT_PRODUCTS_DIR}/LYEmptyView/LYEmptyView.framework
 ${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework
 ${BUILT_PRODUCTS_DIR}/ReachabilitySwift/Reachability.framework
 ${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework

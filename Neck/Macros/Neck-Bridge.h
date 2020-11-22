@@ -10,25 +10,6 @@
 #define Neck_Bridge_h
 
 
-// 空页面
-#import <LYEmptyView/LYEmptyViewHeader.h>
-
-//#import "UINavigationController+FDFullscreenPopGesture.h"
-
-#import <Bugly/Bugly.h>
-
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKConnector/ShareSDKConnector.h>
-//Mob推送
-#import <MobPush/MobPush.h>
-#import <MobPush/UIViewController+MobPush.h>
-//微信SDK头文件
-#import "WXApi.h"
-//Bmob
-#import <BmobSDK/Bmob.h>
-
-#endif /* WUKnowledge_Bridge_h */
-
 
 
 //网络状态
@@ -47,5 +28,4 @@
 @import SnapKit;
 
 
-@import JXPagingView;
-@import JXSegmentedView;
+#endif 
