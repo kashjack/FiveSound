@@ -40,6 +40,9 @@ class JKViewController: UIViewController {
     // MARK:  setUI
     private func setUI() {
         if self is JKHomePageViewController
+            || self is JKFABAViewController
+            || self is JKRadioViewController
+            || self is JKMemoryViewController
         {
             self.navigationController?.setNavigationBarHidden(true, animated: false)
         }

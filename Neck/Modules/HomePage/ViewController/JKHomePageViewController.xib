@@ -11,6 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKHomePageViewController" customModule="Neck" customModuleProvider="target">
             <connections>
+                <outlet property="btn1" destination="YSS-6e-7nE" id="ftb-nC-e2s"/>
+                <outlet property="btn2" destination="iBT-7V-XHg" id="X5W-1H-BeK"/>
+                <outlet property="btn3" destination="YdG-F1-5my" id="6Aj-P6-bYM"/>
+                <outlet property="btn4" destination="XRa-dN-cnI" id="oNz-vu-v1S"/>
+                <outlet property="btn5" destination="JGR-Ma-cwR" id="kcS-We-lq3"/>
                 <outlet property="view" destination="iN0-l3-epB" id="tqd-yo-MLi"/>
             </connections>
         </placeholder>
@@ -22,6 +27,17 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_homePage" translatesAutoresizingMaskIntoConstraints="NO" id="FB6-sk-aPb" customClass="bg">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSS-6e-7nE" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
+                    <rect key="frame" x="30" y="270" width="85" height="115"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="height" constant="-30" id="WUy-Ev-SOX"/>
+                    </constraints>
+                    <state key="normal" image="homePage_1_nor"/>
+                    <state key="highlighted" image="homePage_1_sel"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_1"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBT-7V-XHg" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="145" y="270" width="85" height="115"/>
                     <state key="normal" image="homePage_2_nor"/>
@@ -38,24 +54,6 @@
                         <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_3"/>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSS-6e-7nE" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
-                    <rect key="frame" x="30" y="270" width="85" height="115"/>
-                    <constraints>
-                        <constraint firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="height" constant="-30" id="WUy-Ev-SOX"/>
-                    </constraints>
-                    <state key="normal" image="homePage_1_nor"/>
-                    <state key="highlighted" image="homePage_1_sel"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_1"/>
-                    </userDefinedRuntimeAttributes>
-                </button>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehV-Nf-XKZ">
-                    <rect key="frame" x="186.5" y="385" width="2" height="282"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="2" id="6Oc-QU-FGb"/>
-                    </constraints>
-                </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRa-dN-cnI" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="87.5" y="435" width="85" height="115"/>
                     <state key="normal" image="homePage_4_nor"/>
@@ -72,6 +70,13 @@
                         <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_5"/>
                     </userDefinedRuntimeAttributes>
                 </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehV-Nf-XKZ">
+                    <rect key="frame" x="186.5" y="385" width="2" height="282"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="2" id="6Oc-QU-FGb"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
