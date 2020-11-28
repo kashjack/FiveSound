@@ -153,6 +153,8 @@
 		<key>NSTemporaryExceptionAllowsInsecureHTTPLoads</key>
 		<true/>
 	</dict>
+	<key>NSBluetoothAlwaysUsageDescription</key>
+	<string>Is bluetooth allowed for this app？</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>

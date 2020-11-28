@@ -92,11 +92,6 @@ class JKViewController: UIViewController {
         nav.popViewController(animated: animated)
     }
 
-    // MARK:  Dismiss
-    public func Dismiss(_ animated: Bool = true) {
-        self.dismiss(animated: animated, completion: nil)
-    }
-
     // MARK:  弹框
     func alertDiaLog(title: String, message: String, preferredStyle: UIAlertController.Style, actionTitles: [String], actions: [((UIAlertAction) -> Void)?]) {
         guard actionTitles.count == actions.count else { return }

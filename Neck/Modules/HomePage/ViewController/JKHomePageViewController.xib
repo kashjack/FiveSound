@@ -16,6 +16,7 @@
                 <outlet property="btn3" destination="YdG-F1-5my" id="6Aj-P6-bYM"/>
                 <outlet property="btn4" destination="XRa-dN-cnI" id="oNz-vu-v1S"/>
                 <outlet property="btn5" destination="JGR-Ma-cwR" id="kcS-We-lq3"/>
+                <outlet property="btnForConnect" destination="9nb-72-sII" id="Mn3-g6-b0v"/>
                 <outlet property="view" destination="iN0-l3-epB" id="tqd-yo-MLi"/>
             </connections>
         </placeholder>
@@ -77,6 +78,14 @@
                         <constraint firstAttribute="width" constant="2" id="6Oc-QU-FGb"/>
                     </constraints>
                 </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nb-72-sII">
+                    <rect key="frame" x="295" y="0.0" width="80" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="O0r-in-L5P"/>
+                        <constraint firstAttribute="width" constant="80" id="qZs-8O-yBk"/>
+                    </constraints>
+                    <state key="normal" title="connect"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -96,7 +105,9 @@
                 <constraint firstItem="ehV-Nf-XKZ" firstAttribute="top" secondItem="iBT-7V-XHg" secondAttribute="bottom" id="LV4-Cd-Jh8"/>
                 <constraint firstItem="JGR-Ma-cwR" firstAttribute="top" secondItem="XRa-dN-cnI" secondAttribute="top" id="OLH-Kg-RhN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ehV-Nf-XKZ" secondAttribute="bottom" id="Sl9-Ml-uwY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9nb-72-sII" secondAttribute="trailing" id="U6g-uJ-hZe"/>
                 <constraint firstAttribute="bottom" secondItem="FB6-sk-aPb" secondAttribute="bottom" id="VEO-S7-7Fm"/>
+                <constraint firstItem="9nb-72-sII" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="YAh-Zp-EWo"/>
                 <constraint firstItem="JGR-Ma-cwR" firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="width" id="b7G-Vq-33i"/>
                 <constraint firstItem="iBT-7V-XHg" firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="width" id="ccg-DV-tQ1"/>
                 <constraint firstItem="YdG-F1-5my" firstAttribute="leading" secondItem="iBT-7V-XHg" secondAttribute="trailing" constant="30" id="dVP-io-yy5"/>
@@ -108,7 +119,7 @@
                 <constraint firstItem="ehV-Nf-XKZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vuF-lU-HMp"/>
                 <constraint firstItem="YSS-6e-7nE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="w0s-cF-nJn"/>
             </constraints>
-            <point key="canvasLocation" x="-65" y="72"/>
+            <point key="canvasLocation" x="-66.400000000000006" y="71.514242878560722"/>
         </view>
     </objects>
     <designables>

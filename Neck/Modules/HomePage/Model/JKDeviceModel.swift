@@ -8,8 +8,8 @@
 
 import UIKit
 
-class JKBannerModel: JKHandyJSON {
-    var imageUrl: String = ""
+class JKDeviceModel: JKHandyJSON {
+
 }
 
 

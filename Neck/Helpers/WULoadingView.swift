@@ -25,7 +25,7 @@ class WULoadingView : UIView {
         }
         var images:[UIImage] = []
         for i in 1...20 {
-            images.append(UIImage.init(named: "loading_\(i).png")!)
+//            images.append(UIImage.init(named: "loading_\(i).png")!)
         }
         imageV.animationImages = images
         imageV.startAnimating()

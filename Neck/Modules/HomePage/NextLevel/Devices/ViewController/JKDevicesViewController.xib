@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKDevicesViewController" customModule="Neck" customModuleProvider="target">
+            <connections>
+                <outlet property="btnForBack" destination="nrg-aR-coQ" id="bkp-DY-FuG"/>
+                <outlet property="view" destination="Amd-iA-KWM" id="JGk-eU-5OG"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Amd-iA-KWM">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_memory" translatesAutoresizingMaskIntoConstraints="NO" id="Sci-UF-Rct">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrg-aR-coQ">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="ZYO-nU-znn"/>
+                        <constraint firstAttribute="width" constant="60" id="rUj-ZH-7Di"/>
+                    </constraints>
+                    <state key="normal" image="icon_back"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="mww-8D-ufO"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="Sci-UF-Rct" secondAttribute="bottom" id="4pI-BJ-983"/>
+                <constraint firstItem="Sci-UF-Rct" firstAttribute="top" secondItem="Amd-iA-KWM" secondAttribute="top" id="ATw-EV-jVn"/>
+                <constraint firstItem="nrg-aR-coQ" firstAttribute="leading" secondItem="mww-8D-ufO" secondAttribute="leading" id="LJJ-ty-egQ"/>
+                <constraint firstItem="Sci-UF-Rct" firstAttribute="leading" secondItem="mww-8D-ufO" secondAttribute="leading" id="mze-zU-ZLP"/>
+                <constraint firstItem="nrg-aR-coQ" firstAttribute="top" secondItem="mww-8D-ufO" secondAttribute="top" id="r9F-JQ-gm4"/>
+                <constraint firstAttribute="trailing" secondItem="Sci-UF-Rct" secondAttribute="trailing" id="tw9-xo-wT4"/>
+            </constraints>
+            <point key="canvasLocation" x="16" y="101"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="bg_memory" width="375" height="667"/>
+        <image name="icon_back" width="14" height="14"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
