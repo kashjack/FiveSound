@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKFABAViewController" customModule="Neck" customModuleProvider="target">
             <connections>
+                <outlet property="btnForBack" destination="9Gq-qp-EqO" id="IqR-vR-mNJ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,12 +23,22 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_memory" translatesAutoresizingMaskIntoConstraints="NO" id="dZD-xp-s85">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gq-qp-EqO">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="2gT-ok-cgM"/>
+                        <constraint firstAttribute="width" constant="60" id="opc-ld-KD3"/>
+                    </constraints>
+                    <state key="normal" image="icon_back"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="dZD-xp-s85" secondAttribute="bottom" id="1Z2-U6-O9M"/>
                 <constraint firstItem="dZD-xp-s85" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="B11-aG-CnR"/>
+                <constraint firstItem="9Gq-qp-EqO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aAB-Y3-HvK"/>
+                <constraint firstItem="9Gq-qp-EqO" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="sY4-Nu-DHF"/>
                 <constraint firstAttribute="trailing" secondItem="dZD-xp-s85" secondAttribute="trailing" id="ul8-5x-osq"/>
                 <constraint firstItem="dZD-xp-s85" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yLL-BQ-zYq"/>
             </constraints>
@@ -36,6 +47,7 @@
     </objects>
     <resources>
         <image name="bg_memory" width="375" height="667"/>
+        <image name="icon_back" width="14" height="14"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

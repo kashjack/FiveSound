@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKRadioViewController" customModule="Neck" customModuleProvider="target">
             <connections>
+                <outlet property="btnForBack" destination="fRs-bb-RYL" id="wmB-X1-kUd"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -22,13 +23,23 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_memory" translatesAutoresizingMaskIntoConstraints="NO" id="Ss3-XC-1tj">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fRs-bb-RYL">
+                    <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="avi-NV-GDH"/>
+                        <constraint firstAttribute="width" constant="60" id="cG5-Kn-S8f"/>
+                    </constraints>
+                    <state key="normal" image="icon_back"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ss3-XC-1tj" secondAttribute="trailing" id="Hof-er-Kom"/>
                 <constraint firstItem="Ss3-XC-1tj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="KVd-ZB-Nwv"/>
+                <constraint firstItem="fRs-bb-RYL" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Zma-Qq-NgG"/>
                 <constraint firstAttribute="bottom" secondItem="Ss3-XC-1tj" secondAttribute="bottom" id="efE-rj-jzc"/>
+                <constraint firstItem="fRs-bb-RYL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="hBo-0F-pMf"/>
                 <constraint firstItem="Ss3-XC-1tj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="rwj-Lf-Ftn"/>
             </constraints>
             <point key="canvasLocation" x="16" y="101"/>
@@ -36,6 +47,7 @@
     </objects>
     <resources>
         <image name="bg_memory" width="375" height="667"/>
+        <image name="icon_back" width="14" height="14"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
