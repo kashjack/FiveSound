@@ -29,9 +29,5 @@ target 'Neck' do
   pod 'ESPullToRefresh'
   pod 'PKHUD'
 
-  # BlueTooth
-  pod 'BluetoothKit'
-
-
 
 end

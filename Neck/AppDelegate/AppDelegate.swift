@@ -18,9 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.backgroundColor = .white
         self.window?.makeKeyAndVisible()
 
-        self.setHotReload()
         self.setUpUIStack()
-//        self.setInitSetting()
+        self.setBlueTooth()
         return true
     }
 

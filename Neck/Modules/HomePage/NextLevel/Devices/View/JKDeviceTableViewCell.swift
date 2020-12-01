@@ -7,8 +7,19 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 class JKDeviceTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var labForName: UILabel!
+    
+    var peripheral: CBPeripheral? {
+        didSet {
+            guard let peripheral = self.peripheral else { return }
+            self.labForName.text = peripheral.name ?? "Unknow device"
+        }
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

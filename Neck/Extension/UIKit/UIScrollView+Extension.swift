@@ -14,9 +14,9 @@ extension UIScrollView{
     var header: ESRefreshHeaderAnimator {
         get {
             let h = ESRefreshHeaderAnimator.init(frame: CGRect.zero)
-            h.pullToRefreshDescription = "下拉刷新"
-            h.releaseToRefreshDescription = "松开获取最新数据"
-            h.loadingDescription = "下拉刷新..."
+            h.pullToRefreshDescription = "Pull to refresh device"
+            h.releaseToRefreshDescription = "Release to refresh device"
+            h.loadingDescription = "Loading..."
             return h
         }
     }

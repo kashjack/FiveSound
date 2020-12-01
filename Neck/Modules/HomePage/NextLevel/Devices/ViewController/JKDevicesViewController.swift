@@ -7,35 +7,51 @@
 //
 
 import UIKit
+import CoreBluetooth
 
 class JKDevicesViewController: JKViewController {
     
     @IBOutlet weak var btnForBack: UIButton!
     
     private lazy var tableView: UITableView = {
-        let tableView = UITableView()
+        let tableView = UITableView.init(frame: CGRect.zero, style: UITableView.Style.grouped)
+        tableView.separatorStyle = .none
+        tableView.backgroundColor = UIColor.clear
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.registerNibCell(JKDeviceTableViewCell.nameOfClass)
-        tableView.backgroundColor = UIColor.init(white: 0, alpha: 0.3)
         return tableView
     }()
+    
+    private let publishDataSource = PublishSubject<[CBPeripheral]>()
+    private var dataSource = [CBPeripheral]()
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUI()
         self.setAction()
+        self.requestData()
     }
 
     // MARK:  setUI
     private func setUI() {
+
         let visualEffect = UIBlurEffect(style: .light)
         let blurView = UIVisualEffectView(effect: visualEffect)
-        blurView.alpha = 1
-        self.tableView.addSubview(blurView)
+        blurView.alpha = 0.4
+        self.view.addSubview(blurView)
+        blurView.snp.makeConstraints { (make) in
+            make.left.bottom.right.equalToSuperview()
+            make.top.equalTo(self.btnForBack.snp.bottom)
+        }
+        
         self.view.addSubview(self.tableView)
         self.tableView.snp.makeConstraints { (make) in
             make.left.bottom.right.equalToSuperview()
             make.top.equalTo(self.btnForBack.snp.bottom)
         }
+
     }
     
     // MARK:  setAction
@@ -44,6 +60,55 @@ class JKDevicesViewController: JKViewController {
             guard let self = self else { return }
             self.dismiss(animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
+        
+        JKBlueToothHelper.shared.deviceUpdate = {[weak self] (peripheral) in
+            guard let self = self else { return }
+            for oldPeripheral in self.dataSource {
+                if oldPeripheral.identifier == peripheral.identifier {
+                    return
+                }
+            }
+            self.publishDataSource.onNext(self.dataSource + [peripheral])
+        }
+
+        self.tableView.addHeaderWithRefreshingBlock {
+            JKBlueToothHelper.shared.scanDevice()
+            self.dataSource.removeAll()
+            DispatchQueue.main.after(1) { [weak self] in
+                guard let self = self else { return }
+                self.tableView.endrefresh()
+            }
+        }
+        
+        self.publishDataSource.subscribe(onNext: {[weak self] (element) in
+            guard let self = self else { return }
+            self.dataSource = element
+            self.tableView.reloadData()
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
+    }
+    
+    // MARK:  requestData
+    private func requestData() {
+        JKBlueToothHelper.shared.scanDevice()
     }
 
+}
+
+extension JKDevicesViewController : UITableViewDelegate, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: JKDeviceTableViewCell.nameOfClass) as! JKDeviceTableViewCell
+        cell.peripheral = self.dataSource[indexPath.row]
+        return cell
+    }
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return self.dataSource.count
+    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        JKBlueToothHelper.shared.connectDevice(peripheral: self.dataSource[indexPath.row])
+    }
+    func numberOfSections(in tableView: UITableView) -> Int { return 1 }
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return 0.1 }
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 0.1 }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {  return UIView() }
+    func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? { return UIView() }
 }

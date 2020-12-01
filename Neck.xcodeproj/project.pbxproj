@@ -281,11 +281,11 @@
 		55E83EBB24A0916C002EB229 /* HomePage */ = {
 			isa = PBXGroup;
 			children = (
-				5585B68224A9DEFD00A3442B /* NextLevel */,
 				55F0823324A1E22600155506 /* Model */,
 				55F0822E24A1D73000155506 /* ViewModel */,
 				55F0822B24A1D6C100155506 /* View */,
 				55E83EBE24A091B3002EB229 /* ViewController */,
+				5585B68224A9DEFD00A3442B /* NextLevel */,
 			);
 			path = HomePage;
 			sourceTree = "<group>";

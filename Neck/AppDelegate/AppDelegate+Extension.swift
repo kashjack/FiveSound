@@ -29,7 +29,10 @@ extension AppDelegate {
         JKStackManager.shared.setupTabbarController()
     }
 
-
+    // MARK:  蓝牙
+    func setBlueTooth() {
+        JKBlueToothHelper.shared.createCentralManager()
+    }
 
     // MARK:  防止上线出错
     func setUpBaseUrl() {

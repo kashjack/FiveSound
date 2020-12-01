@@ -37,6 +37,7 @@ extension String {
         return self.addingPercentEncoding(withAllowedCharacters: .urlHostAllowed) ?? ""
     }
     
+    
 }
 
 extension String {
