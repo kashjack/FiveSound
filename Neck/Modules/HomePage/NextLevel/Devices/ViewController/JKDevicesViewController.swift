@@ -20,6 +20,9 @@ class JKDevicesViewController: JKViewController {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.registerNibCell(JKDeviceTableViewCell.nameOfClass)
+        tableView.registerNibHeaderFooter(JKDeviceTableViewHeader.nameOfClass)
+        tableView.estimatedRowHeight = UITableView.automaticDimension
+        tableView.estimatedSectionHeaderHeight = UITableView.automaticDimension
         return tableView
     }()
     
@@ -112,10 +115,34 @@ extension JKDevicesViewController : UITableViewDelegate, UITableViewDataSource{
         }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        JKBlueToothHelper.shared.connectDevice(peripheral: self.dataSource[indexPath.row])
+        tableView.deselectRow(at: indexPath, animated: true)
+        if indexPath.section == 0 {
+            JKBlueToothHelper.shared.cancelConnection()
+        }else{
+            JKBlueToothHelper.shared.connectDevice(peripheral: self.dataSource[indexPath.row])
+        }
+        WULoadingView.show(view: self.view, isUserInteractionEnabled: false)
+        JKBlueToothHelper.shared.connectStatesUpdate = {[weak self] states in
+            guard let self = self else { return }
+            WULoadingView.hide()
+            if states == .connect {
+                JKBlueToothHelper.shared.centralManager.stopScan()
+                self.dataSource.remove(at: indexPath.row)
+                self.tableView.reloadData()
+                WULoadingView.show("Connected")
+            }
+            else if states == .disconnect {
+                WULoadingView.show("Disconnected")
+                JKBlueToothHelper.shared.scanDevice()
+            }
+        }
     }
     func numberOfSections(in tableView: UITableView) -> Int { return 2 }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 0.1 }
-    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {  return UIView() }
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let header = self.tableView.dequeueReusableHeaderFooterView(withIdentifier: JKDeviceTableViewHeader.nameOfClass) as! JKDeviceTableViewHeader
+        header.labForTitle.text = ["Paired device", "Devices found"][section]
+        return header
+    }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? { return UIView() }
 }

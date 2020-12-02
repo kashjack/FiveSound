@@ -9,20 +9,20 @@
 import UIKit
 import CoreBluetooth
 
+enum ConnectStates {
+    case connect
+    case disconnect
+}
+
 class JKBlueToothHelper: NSObject {
     
     static let shared = JKBlueToothHelper()
-    
     var centralManager: CBCentralManager!
-    
     var connectPeripheral: CBPeripheral?
-
-    var writeCh: CBCharacteristic?
     var notifyCh: CBCharacteristic?
-    
     var data: Data?
-    
     var deviceUpdate: ((CBPeripheral) -> Void)?
+    var connectStatesUpdate: ((ConnectStates) -> Void)?
     
     func createCentralManager() {
         self.centralManager = CBCentralManager.init(delegate: self, queue: DispatchQueue.main)
@@ -38,12 +38,17 @@ class JKBlueToothHelper: NSObject {
         self.centralManager.connect(peripheral, options: nil)
         self.centralManager.stopScan()
     }
+
+    // MARK:  断开蓝牙设备
+    func cancelConnection() {
+        guard let peripheral = JKBlueToothHelper.shared.connectPeripheral else { return }
+        JKBlueToothHelper.shared.centralManager.cancelPeripheralConnection(peripheral)
+    }
     
     // MARK:  写数据
-    func writeCharacteristice(value: Data) {
+    func writeCharacteristice(value: [UInt8]) {
         guard let characteristic = JKBlueToothHelper.shared.notifyCh else { return }
-        printLog([UInt8](value))
-        JKBlueToothHelper.shared.connectPeripheral?.writeValue(value, for: characteristic, type: .withResponse)
+        JKBlueToothHelper.shared.connectPeripheral?.writeValue(Data(value), for: characteristic, type: .withResponse)
     }
     
     // MARK: 订阅通知
@@ -99,6 +104,9 @@ extension JKBlueToothHelper: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
 //        printLog("连接成功了---\(String(describing: peripheral.name))")
         JKBlueToothHelper.shared.connectPeripheral = peripheral
+        if let closure = self.connectStatesUpdate {
+            closure(.connect)
+        }
         peripheral.delegate = self
         peripheral.discoverServices(nil)
     }
@@ -108,6 +116,10 @@ extension JKBlueToothHelper: CBCentralManagerDelegate {
     }
     //断开外设的委托
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
+        JKBlueToothHelper.shared.connectPeripheral = nil
+        if let closure = self.connectStatesUpdate {
+            closure(.disconnect)
+        }
         printLog("断开了")
     }
     
@@ -141,10 +153,7 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                     printLog(characteristic.uuid)
                 }
                 printLog(characteristic.uuid.uuidString)
-                if characteristic.uuid.uuidString == "FF13" {
-                    JKBlueToothHelper.shared.writeCh = characteristic
-                }
-                else if characteristic.uuid.uuidString == "FFF1" {
+                if characteristic.uuid.uuidString == "FFF1" {
                     JKBlueToothHelper.shared.notifyCh = characteristic
                     peripheral.setNotifyValue(true, for: characteristic)
                 }

@@ -41,10 +41,7 @@ class JKHomePageViewController: JKViewController {
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
                 self.index += 1
-                JKBlueToothHelper.shared.writeCharacteristice(value: Data([85, 170, 1, 2, 3, self.index, (250-self.index)]))
-//                self.navigationController?.pushViewController(JKMemoryViewController(), animated: true)
-//                JKBlueToothHelper.shared.writeCharacteristice(value: <#T##Data#>)
-                
+                JKBlueToothHelper.shared.writeCharacteristice(value: [85, 170, 1, 2, 3, self.index, (250-self.index)])
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
@@ -79,12 +76,11 @@ class JKHomePageViewController: JKViewController {
         self.btnForConnect.rx.tap.subscribe(onNext: {[weak self] element in
             guard let self = self else { return }
             let vc = JKDevicesViewController()
-            vc.modalPresentationStyle = .fullScreen
+            vc.modalPresentationStyle = .overFullScreen
             self.present(vc, animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
 
     }
     
- 
 }
 
