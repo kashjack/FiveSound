@@ -97,17 +97,24 @@ class JKDevicesViewController: JKViewController {
 extension JKDevicesViewController : UITableViewDelegate, UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: JKDeviceTableViewCell.nameOfClass) as! JKDeviceTableViewCell
-        cell.peripheral = self.dataSource[indexPath.row]
+        if indexPath.section == 0 {
+            cell.peripheral = JKBlueToothHelper.shared.connectPeripheral
+        }else{
+            cell.peripheral = self.dataSource[indexPath.row]
+        }
         return cell
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.dataSource.count
+        if section == 0 {
+            return JKBlueToothHelper.shared.connectPeripheral == nil ? 0 : 1
+        }else{
+            return self.dataSource.count
+        }
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         JKBlueToothHelper.shared.connectDevice(peripheral: self.dataSource[indexPath.row])
     }
-    func numberOfSections(in tableView: UITableView) -> Int { return 1 }
-    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat { return 0.1 }
+    func numberOfSections(in tableView: UITableView) -> Int { return 2 }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 0.1 }
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {  return UIView() }
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? { return UIView() }

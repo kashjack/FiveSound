@@ -31,13 +31,22 @@
                     </constraints>
                     <state key="normal" image="icon_back"/>
                 </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon_logo" translatesAutoresizingMaskIntoConstraints="NO" id="E8H-J2-cMc">
+                    <rect key="frame" x="165.5" y="0.0" width="44" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="BMb-6G-Pht"/>
+                        <constraint firstAttribute="width" constant="44" id="GiZ-2l-jGD"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="mww-8D-ufO"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Sci-UF-Rct" secondAttribute="bottom" id="4pI-BJ-983"/>
                 <constraint firstItem="Sci-UF-Rct" firstAttribute="top" secondItem="Amd-iA-KWM" secondAttribute="top" id="ATw-EV-jVn"/>
+                <constraint firstItem="E8H-J2-cMc" firstAttribute="centerX" secondItem="Amd-iA-KWM" secondAttribute="centerX" id="CF9-4o-4DS"/>
                 <constraint firstItem="nrg-aR-coQ" firstAttribute="leading" secondItem="mww-8D-ufO" secondAttribute="leading" id="LJJ-ty-egQ"/>
+                <constraint firstItem="E8H-J2-cMc" firstAttribute="top" secondItem="mww-8D-ufO" secondAttribute="top" id="khW-YV-gtv"/>
                 <constraint firstItem="Sci-UF-Rct" firstAttribute="leading" secondItem="mww-8D-ufO" secondAttribute="leading" id="mze-zU-ZLP"/>
                 <constraint firstItem="nrg-aR-coQ" firstAttribute="top" secondItem="mww-8D-ufO" secondAttribute="top" id="r9F-JQ-gm4"/>
                 <constraint firstAttribute="trailing" secondItem="Sci-UF-Rct" secondAttribute="trailing" id="tw9-xo-wT4"/>
@@ -48,6 +57,7 @@
     <resources>
         <image name="bg_memory" width="375" height="667"/>
         <image name="icon_back" width="14" height="14"/>
+        <image name="icon_logo" width="60" height="60"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
