@@ -12,6 +12,14 @@ class JKRadioViewController: JKViewController {
 
     @IBOutlet weak var btnForBack: UIButton!
     
+    @IBOutlet weak var btn8750: UIButton!
+    @IBOutlet weak var btn9070: UIButton!
+    @IBOutlet weak var btn9210: UIButton!
+    @IBOutlet weak var btn9890: UIButton!
+    @IBOutlet weak var btn10250: UIButton!
+    @IBOutlet weak var btn10790: UIButton!
+    
+    @IBOutlet weak var btnForFaba: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +34,14 @@ class JKRadioViewController: JKViewController {
                 self.navigationController?.popViewController(animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
+        
+        self.btnForFaba.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {[weak self] element in
+                guard let self = self else { return }
+                self.navigationController?.pushViewController(JKFABAViewController(), animated: true)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+
 
     }
 

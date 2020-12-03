@@ -10,7 +10,7 @@
 #define Neck_Bridge_h
 
 
-
+#import "UINavigationController+FDFullscreenPopGesture.h"
 
 //网络状态
 @import Reachability;

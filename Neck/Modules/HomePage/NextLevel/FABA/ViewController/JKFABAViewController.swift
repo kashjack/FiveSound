@@ -11,6 +11,12 @@ import UIKit
 class JKFABAViewController: JKViewController {
 
     @IBOutlet weak var btnForBack: UIButton!
+    @IBOutlet weak var slider: UISlider!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.fd_interactivePopDisabled = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,18 +33,13 @@ class JKFABAViewController: JKViewController {
                 self.navigationController?.popViewController(animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
+        
+        self.slider.rx.value.asObservable()
+            .subscribe(onNext: {
+                JKSettingHelper.setVoiceValue(value: UInt8($0))
+            }).disposed(by: self.disposeBag)
+        
 
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

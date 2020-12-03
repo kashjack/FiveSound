@@ -40,8 +40,7 @@ class JKHomePageViewController: JKViewController {
         self.btn1.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                self.index += 1
-                JKBlueToothHelper.shared.writeCharacteristice(value: [85, 170, 1, 2, 3, self.index, (250-self.index)])
+                self.navigationController?.pushViewController(JKMemoryViewController(type: .aux), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
@@ -55,7 +54,7 @@ class JKHomePageViewController: JKViewController {
         self.btn3.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                self.navigationController?.pushViewController(JKMemoryViewController(), animated: true)
+                self.navigationController?.pushViewController(JKMemoryViewController(type: .usb), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
@@ -69,7 +68,7 @@ class JKHomePageViewController: JKViewController {
         self.btn5.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                self.navigationController?.pushViewController(JKMemoryViewController(), animated: true)
+                self.navigationController?.pushViewController(JKMemoryViewController(type: .sd), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         

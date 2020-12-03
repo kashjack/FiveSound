@@ -24,6 +24,7 @@ class JKBlueToothHelper: NSObject {
     var deviceUpdate: ((CBPeripheral) -> Void)?
     var connectStatesUpdate: ((ConnectStates) -> Void)?
     
+    
     func createCentralManager() {
         self.centralManager = CBCentralManager.init(delegate: self, queue: DispatchQueue.main)
     }
