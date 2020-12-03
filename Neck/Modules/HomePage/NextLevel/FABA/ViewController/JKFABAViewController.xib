@@ -24,6 +24,9 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_memory" translatesAutoresizingMaskIntoConstraints="NO" id="dZD-xp-s85">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zt_4" translatesAutoresizingMaskIntoConstraints="NO" id="8fL-XF-bHr">
+                    <rect key="frame" x="60" y="0.0" width="111" height="44"/>
+                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9Gq-qp-EqO">
                     <rect key="frame" x="0.0" y="0.0" width="60" height="44"/>
                     <constraints>
@@ -75,16 +78,23 @@
                     <color key="textColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="zt_4" translatesAutoresizingMaskIntoConstraints="NO" id="8fL-XF-bHr">
-                    <rect key="frame" x="132" y="0.0" width="111" height="44"/>
-                </imageView>
+                <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cbe-Aa-fcd">
+                    <rect key="frame" x="272" y="0.0" width="88" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="KVg-0K-6RX"/>
+                        <constraint firstAttribute="width" constant="88" id="wrZ-ip-gbs"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <state key="normal" title="C O N N E C T" image="icon_2">
+                        <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="v3H-Eq-ewD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="0Ys-Ib-gjJ"/>
                 <constraint firstAttribute="bottom" secondItem="dZD-xp-s85" secondAttribute="bottom" id="1Z2-U6-O9M"/>
-                <constraint firstItem="8fL-XF-bHr" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="1sY-2k-gl9"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="avr-bo-Bqy" secondAttribute="trailing" constant="15" id="2xf-kJ-TVR"/>
                 <constraint firstItem="avr-bo-Bqy" firstAttribute="bottom" secondItem="CDM-fH-xOa" secondAttribute="bottom" id="3g0-gH-0R4"/>
                 <constraint firstItem="avr-bo-Bqy" firstAttribute="top" secondItem="CDM-fH-xOa" secondAttribute="top" id="4y7-TY-vyH"/>
@@ -99,7 +109,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="QKK-qP-T5f" secondAttribute="trailing" id="MSI-0j-rjC"/>
                 <constraint firstItem="63m-KM-hlM" firstAttribute="width" secondItem="avr-bo-Bqy" secondAttribute="width" id="Pj8-Vg-aym"/>
                 <constraint firstItem="CDM-fH-xOa" firstAttribute="top" secondItem="QKK-qP-T5f" secondAttribute="bottom" id="VeO-zi-DFH"/>
+                <constraint firstItem="Cbe-Aa-fcd" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="ZRR-P6-PNS"/>
                 <constraint firstItem="9Gq-qp-EqO" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="aAB-Y3-HvK"/>
+                <constraint firstItem="8fL-XF-bHr" firstAttribute="leading" secondItem="9Gq-qp-EqO" secondAttribute="trailing" id="aDu-WM-PZK"/>
                 <constraint firstItem="v3H-Eq-ewD" firstAttribute="top" secondItem="9Gq-qp-EqO" secondAttribute="bottom" constant="20" id="g4X-dp-7rc"/>
                 <constraint firstItem="63m-KM-hlM" firstAttribute="bottom" secondItem="bGn-hE-orc" secondAttribute="bottom" id="oKb-qC-6ui"/>
                 <constraint firstItem="CDM-fH-xOa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="15" id="ow7-mc-wDb"/>
@@ -111,6 +123,7 @@
                 <constraint firstAttribute="trailing" secondItem="dZD-xp-s85" secondAttribute="trailing" id="ul8-5x-osq"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="63m-KM-hlM" secondAttribute="trailing" constant="15" id="vFe-Eb-RQo"/>
                 <constraint firstItem="ozk-nR-Fhg" firstAttribute="leading" secondItem="v3H-Eq-ewD" secondAttribute="trailing" id="wWj-nq-LNj"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Cbe-Aa-fcd" secondAttribute="trailing" constant="15" id="xA3-UY-iGG"/>
                 <constraint firstItem="dZD-xp-s85" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="yLL-BQ-zYq"/>
             </constraints>
             <point key="canvasLocation" x="15.199999999999999" y="100.29985007496252"/>
@@ -120,6 +133,7 @@
         <image name="3_icon_1" width="252" height="347.5"/>
         <image name="3_icon_2" width="20" height="20"/>
         <image name="bg_memory" width="375" height="667"/>
+        <image name="icon_2" width="20" height="20"/>
         <image name="icon_back" width="14" height="14"/>
         <image name="zt_4" width="111" height="19.5"/>
         <image name="zt_4_1" width="85" height="8.5"/>
