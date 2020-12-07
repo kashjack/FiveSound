@@ -37,6 +37,7 @@ class JKFABAViewController: JKViewController {
 
         self.setUI()
         self.setAction()
+        self.setReceiveData()
 
     }
     
@@ -88,6 +89,8 @@ class JKFABAViewController: JKViewController {
             make.width.height.equalTo(40)
         }
         
+        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
+
         self.moveView.addGestureRecognizer(self.pan)
         self.pan.addTarget(self, action: #selector(dragView(pan:)))
 
@@ -100,7 +103,6 @@ class JKFABAViewController: JKViewController {
         if JKSettingHelper.shared.currentVoiceValue == UInt8(self.slider.value) {
             return
         }
-        printLog(JKSettingHelper.shared.currentVoiceValue)
         JKSettingHelper.shared.currentVoiceValue = UInt8(self.slider.value)
         JKSettingHelper.setVoiceValue()
     }
@@ -115,7 +117,6 @@ class JKFABAViewController: JKViewController {
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
-        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
 
         self.slider1.rx.value.asObservable().subscribe(onNext:  { [weak self] value in
             guard let self = self else { return }
@@ -140,6 +141,14 @@ class JKFABAViewController: JKViewController {
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
     }
+    
+    private func setReceiveData(){
+        JKBlueToothHelper.shared.receiveUpdate = { [weak self] type in
+            guard let self = self else { return }
+            self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
+        }
+    }
+    
     
     // MARK:  拖动view事件
     @objc private func dragView(pan: UIPanGestureRecognizer) {

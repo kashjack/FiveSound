@@ -14,6 +14,11 @@ enum ConnectStates {
     case disconnect
 }
 
+enum ReceiveDataType {
+    case voice
+    case none
+}
+
 class JKBlueToothHelper: NSObject {
     
     static let shared = JKBlueToothHelper()
@@ -23,6 +28,7 @@ class JKBlueToothHelper: NSObject {
     var data: Data?
     var deviceUpdate: ((CBPeripheral) -> Void)?
     var connectStatesUpdate: ((ConnectStates) -> Void)?
+    var receiveUpdate: ((ReceiveDataType) -> Void)?
     
     
     func createCentralManager() {
@@ -171,10 +177,22 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
     func peripheral(_ peripheral: CBPeripheral, didUpdateValueFor characteristic: CBCharacteristic, error: Error?) {
         //打印出characteristic的UUID和值
         //!注意，value的类型是NSData，具体开发时，会根据外设协议制定的方式去解析数据
-        if let data = characteristic.value {
-            let bytes = [UInt8](data)
-            printLog(bytes)
+        guard let data = characteristic.value else { return }
+        let bytes = [UInt8](data)
+        printLog(bytes)
+        var type: ReceiveDataType = .none
+        if bytes.count == 8 {
+            if bytes[0] == 85 && bytes[1] == 170 && bytes[2] == 2 && bytes[3] == 130 && bytes[4] == 4 {
+                // 音量
+                JKSettingHelper.shared.currentVoiceValue = bytes[6]
+                type = .voice
+            }
         }
+        
+        if let closure = self.receiveUpdate {
+            closure(type)
+        }
+     
     }
     
     func peripheral(_ peripheral: CBPeripheral, didDiscoverDescriptorsFor characteristic: CBCharacteristic, error: Error?) {

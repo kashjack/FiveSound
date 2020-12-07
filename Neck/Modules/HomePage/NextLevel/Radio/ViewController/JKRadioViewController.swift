@@ -21,13 +21,25 @@ class JKRadioViewController: JKViewController {
     @IBOutlet weak var btnForFaba: UIButton!
     @IBOutlet weak var btnForUp: UIButton!
     @IBOutlet weak var btnForDown: UIButton!
+    @IBOutlet weak var slider: UISlider!
     
     private var timer: DispatchSourceTimer?
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.setUI()
         self.setAction()
+        self.setReceiveData()
+    }
+    
+    // MARK:  setUI
+    private func setUI() {
+        self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
+        self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
+        self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
+        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
+
     }
     
     // MARK:  setAction
@@ -69,6 +81,22 @@ class JKRadioViewController: JKViewController {
             .disposed(by: self.disposeBag)
 
 
+    }
+    
+    
+    @objc func valueChange() {
+        if JKSettingHelper.shared.currentVoiceValue == UInt8(self.slider.value) {
+            return
+        }
+        JKSettingHelper.shared.currentVoiceValue = UInt8(self.slider.value)
+        JKSettingHelper.setVoiceValue()
+    }
+    
+    private func setReceiveData(){
+        JKBlueToothHelper.shared.receiveUpdate = { [weak self] type in
+            guard let self = self else { return }
+            self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
+        }
     }
 
     // MARK:  开始循环

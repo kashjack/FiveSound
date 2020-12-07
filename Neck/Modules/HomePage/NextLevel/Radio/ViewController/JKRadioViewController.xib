@@ -20,6 +20,7 @@
                 <outlet property="btnForDown" destination="eRa-Wn-Rl8" id="QOI-kI-fRE"/>
                 <outlet property="btnForFaba" destination="iyC-Hn-Cl7" id="ROd-Ib-Qb1"/>
                 <outlet property="btnForUp" destination="0KI-8z-fXS" id="8Zw-JX-nDT"/>
+                <outlet property="slider" destination="hSW-Lx-g0s" id="sya-lH-Tqg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -113,7 +114,7 @@
                         <constraint firstAttribute="width" constant="50" id="jr6-YI-dDk"/>
                     </constraints>
                 </imageView>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-Lx-g0s">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="20" minValue="0.0" maxValue="40" translatesAutoresizingMaskIntoConstraints="NO" id="hSW-Lx-g0s" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="48" y="144" width="279" height="51"/>
                     <color key="tintColor" red="0.47843137250000001" green="0.039215686270000001" blue="0.67843137249999996" alpha="1" colorSpace="calibratedRGB"/>
                 </slider>
@@ -518,6 +519,11 @@
             <point key="canvasLocation" x="15.199999999999999" y="100.29985007496252"/>
         </view>
     </objects>
+    <designables>
+        <designable name="hSW-Lx-g0s">
+            <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+    </designables>
     <resources>
         <image name="3_icon_2" width="20" height="20"/>
         <image name="3_icon_3" width="20" height="20"/>
