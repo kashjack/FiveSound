@@ -11,6 +11,9 @@
 
 
 #import "UINavigationController+FDFullscreenPopGesture.h"
+//Bmob
+#import <BmobSDK/Bmob.h>
+
 
 //网络状态
 @import Reachability;

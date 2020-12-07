@@ -20,6 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.setUpUIStack()
         self.setBlueTooth()
+        self.setUpBmob()
         return true
     }
 

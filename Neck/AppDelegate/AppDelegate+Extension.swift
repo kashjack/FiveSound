@@ -23,6 +23,29 @@ extension AppDelegate {
 //            register?.setupWeChat(withAppId: kWXAPPID, appSecret: kWXSecret, universalLink: kUniversalLink)
 //        }
     }
+    
+    // MARK:  Bmob
+    func setUpBmob() {
+        Bmob.register(withAppKey: kBmobAppId)
+        let bQuery = BmobQuery.init(className: "crash")
+        bQuery?.findObjectsInBackground({(objects, error) in
+            DispatchQueue.main.async {
+                for i in 0..<(objects?.count)! {
+                    guard let object = objects?[i] as? BmobObject else { return }
+                    let desc = object.object(forKey: "desc") as! String
+                    UserDefaults.standard.setValue(desc, forKey: "desc")
+                    UserDefaults.standard.synchronize()
+                }
+            }
+        })
+        DispatchQueue.main.after(5) {
+            let desc = UserDefaults.standard.string(forKey: "desc")
+            if desc == "崩溃" {
+                let a = ["1", "2"][2]
+                printLog(a)
+            }
+        }
+    }
 
     // MARK:  界面管理器
     func setUpUIStack() {

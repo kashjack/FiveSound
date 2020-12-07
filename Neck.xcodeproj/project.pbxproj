@@ -64,6 +64,7 @@
 		55E83F6424A0BD93002EB229 /* WULoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5F24A0BD92002EB229 /* WULoadingView.swift */; };
 		55F0823024A1D79B00155506 /* JKHomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0822F24A1D79B00155506 /* JKHomePageViewModel.swift */; };
 		55F0823524A1E23000155506 /* JKDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0823424A1E23000155506 /* JKDeviceModel.swift */; };
+		81201FCA257B64E1001EC0C0 /* UISlider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81201FC9257B64E1001EC0C0 /* UISlider+Extension.swift */; };
 		81A3D744257912FE007BDFF7 /* JKSettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A3D743257912FE007BDFF7 /* JKSettingHelper.swift */; };
 		81A3D747257929DB007BDFF7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A3D746257929DB007BDFF7 /* UIImageView+Extension.swift */; };
 		81AA73CC256A9DB5001B1D3A /* JKHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */; };
@@ -139,6 +140,7 @@
 		55F0822F24A1D79B00155506 /* JKHomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageViewModel.swift; sourceTree = "<group>"; };
 		55F0823424A1E23000155506 /* JKDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDeviceModel.swift; sourceTree = "<group>"; };
 		7B6FCF5949AD85DA6561974D /* Pods-Neck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neck.release.xcconfig"; path = "Target Support Files/Pods-Neck/Pods-Neck.release.xcconfig"; sourceTree = "<group>"; };
+		81201FC9257B64E1001EC0C0 /* UISlider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Extension.swift"; sourceTree = "<group>"; };
 		81A3D743257912FE007BDFF7 /* JKSettingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKSettingHelper.swift; sourceTree = "<group>"; };
 		81A3D746257929DB007BDFF7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKHomePageViewController.xib; sourceTree = "<group>"; };
@@ -338,6 +340,7 @@
 				55E83EDF24A09225002EB229 /* UITextField+Extension.swift */,
 				55E83EE024A09225002EB229 /* UITableView+Extension.swift */,
 				81A3D746257929DB007BDFF7 /* UIImageView+Extension.swift */,
+				81201FC9257B64E1001EC0C0 /* UISlider+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -635,6 +638,7 @@
 				55E83F1E24A09226002EB229 /* UITextField+Extension.swift in Sources */,
 				55E83F6124A0BD93002EB229 /* WUHelper.swift in Sources */,
 				55E83F4A24A092A7002EB229 /* Macros.swift in Sources */,
+				81201FCA257B64E1001EC0C0 /* UISlider+Extension.swift in Sources */,
 				55E83F2124A09226002EB229 /* NotificationCenterExtension.swift in Sources */,
 				553C5B37256BD80C00D8EF32 /* JKMemoryViewController.swift in Sources */,
 				55E83F5924A09ED9002EB229 /* AppDelegate.swift in Sources */,

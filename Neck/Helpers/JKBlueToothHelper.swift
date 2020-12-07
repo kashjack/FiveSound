@@ -203,6 +203,6 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
             printLog("错误信息：\(error)")
             return
         }
-        printLog("写入数据成功")
+//        printLog("写入数据成功")
     }
 }
