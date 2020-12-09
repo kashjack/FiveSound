@@ -130,6 +130,36 @@ extension JKDevicesViewController : UITableViewDelegate, UITableViewDataSource{
                 self.dataSource.remove(at: indexPath.row)
                 self.tableView.reloadData()
                 WULoadingView.show("Connected")
+                DispatchQueue.main.after(1) {[weak self] in
+                    guard let self = self else { return }
+                    self.dismiss(animated: false) {
+                        JKViewController.topViewController()?.navigationController?.pushViewController(JKRadioViewController(), animated: true)
+                    }
+//                    let intArr2: [UInt8] = [0x55, 0xaa, 2, 0x82, 4, 0x28, 0xe, 0x42]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr2)
+//                    let intArr3: [UInt8] = [0x55, 0xaa, 0, 1, 3, 0xfc]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr3)
+//                    let intArr4: [UInt8] = [0x55, 0xaa, 1, 0x81, 3, 5, 0x76]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr4)
+//                    let intArr5: [UInt8] = [0x55, 0xaa, 0, 2, 0xd, 0xf1]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr5)
+//                    let intArr6: [UInt8] = [0x55, 0xaa, 4, 0x84, 2, 0, 0x48, 0x26, 3, 5]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr6)
+//                    let intArr7: [UInt8] = [0x55, 0xaa, 0, 2, 0x11, 0xed]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr7)
+//                    let intArr8: [UInt8] = [0x55, 0xaa, 1, 0x82, 0x11, 0, 0x6c]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr8)
+//                    let intArr9: [UInt8] = [0x55, 0xaa, 0, 2, 0x13, 0xeb]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr9)
+//                    let intArr10: [UInt8] = [0x55, 0xaa, 1, 0x82, 0x13, 0, 0x6a]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr10)
+//                    let intArr11: [UInt8] = [0x55, 0xaa, 0, 2, 0xe, 0]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr11)
+//                    let intArr12: [UInt8] = [0x55, 0xaa, 1, 0x82, 0xe, 1, 0x6e]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr12)
+//                    let intArr13: [UInt8] = [0x55, 0xaa, 0, 3, 0x20, 0xdd]
+//                    JKBlueToothHelper.shared.writeCharacteristice(value: intArr13)
+                }
             }
             else if states == .disconnect {
                 WULoadingView.show("Disconnected")

@@ -17,6 +17,10 @@ enum ConnectStates {
 enum ReceiveDataType {
     case voice
     case none
+    case mono
+    case loud
+    case channel
+    case faba
 }
 
 class JKBlueToothHelper: NSObject {
@@ -159,13 +163,13 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                 if characteristic.properties == .writeWithoutResponse || characteristic.properties == .write {
                     printLog(characteristic.uuid)
                 }
-                printLog(characteristic.uuid.uuidString)
+//                printLog(characteristic.uuid.uuidString)
                 if characteristic.uuid.uuidString == "FFF1" {
                     JKBlueToothHelper.shared.notifyCh = characteristic
                     peripheral.setNotifyValue(true, for: characteristic)
                 }
                 
-                printLog("service: \(service.uuid)的 Characteristic:\(characteristic.uuid)")
+//                printLog("service: \(service.uuid)的 Characteristic:\(characteristic.uuid)")
                 //获取Characteristic的值，读到数据会进入方法: didUpdateValueForCharacteristic
                 peripheral.readValue(for: characteristic)
                 //搜索Characteristic的Descriptors，读到数据会进入方法： didDiscoverDescriptorsForCharacteristic
@@ -179,15 +183,45 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
         //!注意，value的类型是NSData，具体开发时，会根据外设协议制定的方式去解析数据
         guard let data = characteristic.value else { return }
         let bytes = [UInt8](data)
-        printLog(bytes)
+        printLog("接收数据\(bytes)")
         var type: ReceiveDataType = .none
-        if bytes.count == 8 {
-            if bytes[0] == 85 && bytes[1] == 170 && bytes[2] == 2 && bytes[3] == 130 && bytes[4] == 4 {
-                // 音量
+        if bytes.count == 14 {
+            // FABA
+            if bytes[2] == 4 && bytes[4] == 2 && bytes[5] == 0 && bytes[8] == 0 {
+                JKSettingHelper.shared.currentChannel = Int(bytes[7]) * 256 + Int(bytes[6])
+                printLog(JKSettingHelper.shared.currentChannel)
+                type = .channel
+            }
+        }
+        else if bytes.count == 10 {
+            // 频道
+            if bytes[2] == 4 && bytes[4] == 2 && bytes[5] == 0 && bytes[8] == 0 {
+                JKSettingHelper.shared.currentChannel = Int(bytes[7]) * 256 + Int(bytes[6])
+                printLog(JKSettingHelper.shared.currentChannel)
+                type = .channel
+            }
+        }
+        else if bytes.count == 8 {
+            // 音量
+            if bytes[2] == 2 && bytes[3] == 130 && bytes[4] == 4 {
+                JKSettingHelper.shared.maxVoiceValue = bytes[5]
                 JKSettingHelper.shared.currentVoiceValue = bytes[6]
                 type = .voice
             }
         }
+        else if bytes.count == 7 {
+            // Mono
+            if bytes[2] == 1 && bytes[3] == 130 && bytes[4] == 14 && bytes[5] <= 1{
+                JKSettingHelper.shared.mono = (bytes[5] == 0)
+                type = .mono
+            }
+            // Loud
+            if bytes[2] == 1 && bytes[3] == 130 && bytes[4] == 17 && bytes[5] <= 1{
+                JKSettingHelper.shared.loud = (bytes[5] == 1)
+                type = .loud
+            }
+        }
+        
         
         if let closure = self.receiveUpdate {
             closure(type)

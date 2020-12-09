@@ -11,8 +11,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKMemoryViewController" customModule="Neck" customModuleProvider="target">
             <connections>
+                <outlet property="btn1" destination="1vi-zi-wtA" id="aYD-cL-1Qu"/>
                 <outlet property="btnForBack" destination="ZFV-MC-dHt" id="mB9-0v-u5J"/>
                 <outlet property="btnForFaba" destination="4EX-bQ-o9r" id="Z4q-h1-UhS"/>
+                <outlet property="btnForLoud" destination="e2C-dP-84F" id="l2x-yt-2II"/>
+                <outlet property="btnForSub" destination="lfc-dK-6sP" id="Ucs-pw-j37"/>
                 <outlet property="imgVForTitle" destination="EU4-6q-WsR" id="YgO-lu-h5h"/>
                 <outlet property="imgVForType" destination="esD-XW-qSb" id="WQY-ps-xWr"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -219,7 +222,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3Zh-Gl-s7W" secondAttribute="trailing" constant="35" id="yoL-nu-0kg"/>
                 <constraint firstItem="iRy-9f-KGa" firstAttribute="leading" secondItem="uGJ-fc-1ZT" secondAttribute="trailing" constant="15" id="zPE-Eq-MZi"/>
             </constraints>
-            <point key="canvasLocation" x="-1" y="94"/>
+            <point key="canvasLocation" x="527" y="187"/>
         </view>
     </objects>
     <resources>

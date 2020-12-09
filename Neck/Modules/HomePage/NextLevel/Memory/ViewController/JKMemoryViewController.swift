@@ -21,6 +21,9 @@ class JKMemoryViewController: JKViewController {
     @IBOutlet weak var imgVForTitle: UIImageView!
     @IBOutlet weak var imgVForType: UIImageView!
     @IBOutlet weak var btnForFaba: UIButton!
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btnForSub: UIButton!
+    @IBOutlet weak var btnForLoud: UIButton!
     
     var type: MemoryType = .none
     
@@ -68,6 +71,11 @@ class JKMemoryViewController: JKViewController {
                 self.navigationController?.pushViewController(JKFABAViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
+        
+        self.btn1.rx.tap.subscribe(onNext: {[weak self] element in
+            guard let self = self else { return }
+            self.btn1.isSelected = !self.btn1.isSelected
+        }).disposed(by: self.disposeBag)
 
     }
 
