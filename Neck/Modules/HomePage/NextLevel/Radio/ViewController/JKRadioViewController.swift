@@ -97,9 +97,7 @@ class JKRadioViewController: JKViewController {
         self.btnForLoud.rx.tap.subscribe(onNext: { element in
             JKSettingHelper.setLoud(isSel: self.btnForLoud.isSelected)
         }).disposed(by: self.disposeBag)
-        
-        
-        
+                
         self.btnForUp.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setUpChannel()

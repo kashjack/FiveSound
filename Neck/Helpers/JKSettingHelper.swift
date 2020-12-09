@@ -8,6 +8,20 @@
 
 import UIKit
 
+struct FABA {
+    var fa: UInt8 = 0
+    var fb: UInt8 = 0
+}
+
+enum DeviceStatus {
+    case radio
+    case sd
+    case usb
+    case aux
+    case bt
+    case none
+}
+
 class JKSettingHelper: NSObject {
     
     static let shared = JKSettingHelper()
@@ -21,6 +35,12 @@ class JKSettingHelper: NSObject {
     // Mono Loud
     var mono = false
     var loud = false
+    
+    // Faba
+    var faba = FABA()
+    
+    // DeviceStatus
+    var deviceStatus = DeviceStatus.none
     
 
 
@@ -68,17 +88,21 @@ class JKSettingHelper: NSObject {
     
     // MARK:  设置Faba A
     class func setFabaA(value: UInt8) {
-        let v: UInt8 = value
-        let intArr: [UInt8] = [0x55, 0xaa, 1, 2, 0xa, 0, 0xed]
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 2, 0xb, value, 242 - value]
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
     }
     
     // MARK:  设置Faba B
     class func setFabaB(value: UInt8) {
-        let intArr: [UInt8] = [0x55, 0xaa, 1, 2, 0xb, 0, 0xed]
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 2, 0xa, value, 243 - value]
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
     }
     
+    // MARK:  获取设备信息
+    class func getDeviceInfo() {
+        let deviceArr: [UInt8] = [0x55, 0xaa, 0, 1, 3, 0xfc]
+        JKBlueToothHelper.shared.writeCharacteristice(value: deviceArr)
+    }
     
     
     
@@ -86,6 +110,14 @@ class JKSettingHelper: NSObject {
     class func getRadioInfo() {
         let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
         JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
+//        let arr1: [UInt8] = [0x55, 0xaa, 0, 1, 3, 0xfc]
+//        JKBlueToothHelper.shared.writeCharacteristice(value: arr1)
+//        let arr2: [UInt8] = [0x55, 0xaa, 0, 2, 0xd, 0xf1]
+//        JKBlueToothHelper.shared.writeCharacteristice(value: arr2)
+//        let arr3: [UInt8] = [0x55, 0xaa, 0, 2, 0x13, 0xeb]
+//        JKBlueToothHelper.shared.writeCharacteristice(value: arr3)
+//        let arr4: [UInt8] = [0x55, 0xaa, 0, 3, 0x20, 0xdd]
+//        JKBlueToothHelper.shared.writeCharacteristice(value: arr4)
         let monoArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xe, 0xf0]
         JKBlueToothHelper.shared.writeCharacteristice(value: monoArr)
         let loudArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x11, 0xed]

@@ -28,7 +28,7 @@
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_memory" translatesAutoresizingMaskIntoConstraints="NO" id="dZD-xp-s85">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                 </imageView>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-7" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="QR8-Wc-EjN" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-7" minValue="-7" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="QR8-Wc-EjN" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="98" y="587" width="234" height="61"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="maximumTrackTintColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -101,7 +101,7 @@
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
-                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="-7" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="leb-YM-5DQ" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
+                <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-7" minValue="-7" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="leb-YM-5DQ" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="98" y="527" width="234" height="61"/>
                     <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="maximumTrackTintColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

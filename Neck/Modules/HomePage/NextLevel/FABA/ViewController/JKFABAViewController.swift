@@ -8,10 +8,6 @@
 
 import UIKit
 
-struct FABA {
-    var fa: Int?
-    var fb: Int?
-}
 
 class JKFABAViewController: JKViewController {
 
@@ -124,22 +120,8 @@ class JKFABAViewController: JKViewController {
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
-
-        self.slider1.rx.value.asObservable().subscribe(onNext:  { [weak self] value in
-            guard let self = self else { return }
-            self.moveView.snp.updateConstraints { (make) in
-                make.centerY.equalToSuperview().offset(30 * CGFloat(value))
-            }
-            self.setFabaValue(a: self.slider1.value, b: self.slider2.value)
-        }).disposed(by: self.disposeBag)
-
-        self.slider2.rx.value.asObservable().subscribe(onNext:  { [weak self] value in
-            guard let self = self else { return }
-            self.moveView.snp.updateConstraints { (make) in
-                make.centerX.equalToSuperview().offset(15 * CGFloat(value))
-            }
-            self.setFabaValue(a: self.slider1.value, b: self.slider2.value)
-        }).disposed(by: self.disposeBag)
+        self.slider1.addTarget(self, action: #selector(slide1Action), for: UIControl.Event.valueChanged)
+        self.slider2.addTarget(self, action: #selector(slide2Action), for: UIControl.Event.valueChanged)
         
         self.btnForReset.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
@@ -147,24 +129,50 @@ class JKFABAViewController: JKViewController {
                 self.slider1.value = 0
                 self.slider2.value = 0
                 self.moveView.center = CGPoint.init(x: 75, y: 150)
-                self.setFabaValue(a: self.slider1.value, b: self.slider2.value)
+                self.setFafb()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
+    }
+    
+    @objc private func slide1Action() {
+        self.moveView.snp.updateConstraints { (make) in
+            make.centerY.equalToSuperview().offset(300 / 14 * CGFloat(self.slider1.value))
+        }
+        self.setFafb()
+    }
+    
+    @objc private func slide2Action() {
+        self.moveView.snp.updateConstraints { (make) in
+            make.centerX.equalToSuperview().offset(150 / 14 * CGFloat(self.slider1.value))
+        }
+        self.setFafb()
     }
     
     private func setReceiveData(){
         JKBlueToothHelper.shared.receiveUpdate = { [weak self] type in
             guard let self = self else { return }
-            self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
+            if type == .voice {
+                self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
+            }
+            else if type == .faba {
+                self.slider1.value = Float(JKSettingHelper.shared.faba.fa) - 7
+                self.slider2.value = Float(JKSettingHelper.shared.faba.fb) - 7
+            }
         }
     }
     
-    private func setFabaValue(a: Float, b: Float) {
-//        let faba = FABA.init(fa: Int(a ?? nil), fb: Int(b ?? nil))
-//        JKSettingHelper.setFaba(faba)
+    // MARK:  setFafb
+    private func setFafb() {
+        if self.faba.fa != UInt8(self.slider1.value + 7) {
+            self.faba.fa =  UInt8(self.slider1.value + 7)
+            JKSettingHelper.setFabaA(value: self.faba.fa)
+        }
+        
+        if self.faba.fb != UInt8(self.slider2.value + 7) {
+            self.faba.fb =  UInt8(self.slider2.value + 7)
+            JKSettingHelper.setFabaB(value: self.faba.fb)
+        }
     }
-    
-    
     
     // MARK:  拖动view事件
     @objc private func dragView(pan: UIPanGestureRecognizer) {
@@ -178,7 +186,7 @@ class JKFABAViewController: JKViewController {
         pan.view?.center = CGPoint.init(x: x, y: y)
         self.slider1.value = Float(y) / 300 * 14 - 7
         self.slider2.value = Float(x) / 150 * 14 - 7
-        self.setFabaValue(a: self.slider1.value, b: self.slider2.value)
+        self.setFafb()
     }
 
 }

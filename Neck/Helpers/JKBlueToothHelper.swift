@@ -21,6 +21,7 @@ enum ReceiveDataType {
     case loud
     case channel
     case faba
+    case device
 }
 
 class JKBlueToothHelper: NSObject {
@@ -187,17 +188,16 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
         var type: ReceiveDataType = .none
         if bytes.count == 14 {
             // FABA
-            if bytes[2] == 4 && bytes[4] == 2 && bytes[5] == 0 && bytes[8] == 0 {
-                JKSettingHelper.shared.currentChannel = Int(bytes[7]) * 256 + Int(bytes[6])
-                printLog(JKSettingHelper.shared.currentChannel)
-                type = .channel
+            if bytes[2] == 8 && bytes[3] == 130 && bytes[4] == 15 && bytes[5] == 14 && bytes[6] == 7 && bytes[7] == 14 && bytes[8] == 7 && bytes[9] == 14 && bytes[11] == 14{
+                JKSettingHelper.shared.faba.fa = 14 - bytes[12]
+                JKSettingHelper.shared.faba.fb = bytes[10]
+                type = .faba
             }
         }
         else if bytes.count == 10 {
             // 频道
             if bytes[2] == 4 && bytes[4] == 2 && bytes[5] == 0 && bytes[8] == 0 {
                 JKSettingHelper.shared.currentChannel = Int(bytes[7]) * 256 + Int(bytes[6])
-                printLog(JKSettingHelper.shared.currentChannel)
                 type = .channel
             }
         }
@@ -207,6 +207,11 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                 JKSettingHelper.shared.maxVoiceValue = bytes[5]
                 JKSettingHelper.shared.currentVoiceValue = bytes[6]
                 type = .voice
+            }
+            // Device
+            if bytes[2] == 2 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 4 && bytes[6] == 2 && bytes[7] == 116{
+                JKSettingHelper.shared.deviceStatus = .bt
+                type = .device
             }
         }
         else if bytes.count == 7 {
@@ -219,6 +224,11 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
             if bytes[2] == 1 && bytes[3] == 130 && bytes[4] == 17 && bytes[5] <= 1{
                 JKSettingHelper.shared.loud = (bytes[5] == 1)
                 type = .loud
+            }
+            // Device
+            if bytes[2] == 1 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 5 && bytes[6] == 118{
+                JKSettingHelper.shared.deviceStatus = .radio
+                type = .device
             }
         }
         

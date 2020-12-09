@@ -8,13 +8,6 @@
 
 import UIKit
 
-enum MemoryType {
-    case sd
-    case usb
-    case aux
-    case none
-}
-
 class JKMemoryViewController: JKViewController {
 
     @IBOutlet weak var btnForBack: UIButton!
@@ -25,9 +18,9 @@ class JKMemoryViewController: JKViewController {
     @IBOutlet weak var btnForSub: UIButton!
     @IBOutlet weak var btnForLoud: UIButton!
     
-    var type: MemoryType = .none
+    var type: DeviceStatus = .none
     
-    convenience init(type: MemoryType) {
+    convenience init(type: DeviceStatus) {
         self.init()
         self.type = type
     }
@@ -47,12 +40,10 @@ class JKMemoryViewController: JKViewController {
         else if self.type == .usb {
             self.imgVForTitle.image = UIImage.init(named: "zt_8")
             self.imgVForType.image = UIImage.init(named: "7_icon")
-
         }
         else if self.type == .sd {
             self.imgVForTitle.image = UIImage.init(named: "zt_3")
             self.imgVForType.image = UIImage.init(named: "2_icon_1")
-
         }
     }
     

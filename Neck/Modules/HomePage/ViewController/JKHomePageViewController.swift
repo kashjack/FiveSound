@@ -47,7 +47,7 @@ class JKHomePageViewController: JKViewController {
         self.btn2.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                self.navigationController?.pushViewController(JKFABAViewController(), animated: true)
+                self.navigationController?.pushViewController(JKMemoryViewController(type: .bt), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
