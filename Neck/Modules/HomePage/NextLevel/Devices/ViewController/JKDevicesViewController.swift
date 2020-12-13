@@ -140,10 +140,12 @@ extension JKDevicesViewController : UITableViewDelegate, UITableViewDataSource{
             JKBlueToothHelper.shared.connectDevice(peripheral: self.dataSource[indexPath.row])
         }
         WULoadingView.show(view: self.view, isUserInteractionEnabled: false)
-        JKBlueToothHelper.shared.connectStatesUpdate = {[weak self] states in
+        
+        // MARK:  蓝牙连接状态变化
+        NotificationCenter.default.rx.notification(Notification.Name.init(NotificationNameBlueToothStateChange)).subscribe(onNext: {[weak self](notification) in
             guard let self = self else { return }
             WULoadingView.hide()
-            if states == .connect {
+            if JKBlueToothHelper.shared.connectPeripheral != nil {
                 JKBlueToothHelper.shared.centralManager.stopScan()
                 self.dataSource.remove(at: indexPath.row)
                 self.tableView.reloadData()
@@ -152,11 +154,30 @@ extension JKDevicesViewController : UITableViewDelegate, UITableViewDataSource{
                     JKSettingHelper.getDeviceInfo()
                 }
             }
-            else if states == .disconnect {
+            else {
                 WULoadingView.show("Disconnected")
                 JKBlueToothHelper.shared.scanDevice()
             }
-        }
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
+        
+        
+//        JKBlueToothHelper.shared.connectStatesUpdate = {[weak self] states in
+//            guard let self = self else { return }
+//            WULoadingView.hide()
+//            if states == .connect {
+//                JKBlueToothHelper.shared.centralManager.stopScan()
+//                self.dataSource.remove(at: indexPath.row)
+//                self.tableView.reloadData()
+//                WULoadingView.show("Connected")
+//                DispatchQueue.main.after(1) {
+//                    JKSettingHelper.getDeviceInfo()
+//                }
+//            }
+//            else if states == .disconnect {
+//                WULoadingView.show("Disconnected")
+//                JKBlueToothHelper.shared.scanDevice()
+//            }
+//        }
     }
     func numberOfSections(in tableView: UITableView) -> Int { return 2 }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 0.1 }

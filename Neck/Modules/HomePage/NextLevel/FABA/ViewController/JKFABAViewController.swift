@@ -17,7 +17,10 @@ class JKFABAViewController: JKViewController {
     @IBOutlet weak var slider2: UISlider!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var btnForReset: UIButton!
+    @IBOutlet weak var btnForConnect: UIButton!
 
+    
+    
     private var faba = FABA()
     
     private lazy var moveView: UIView = {
@@ -113,6 +116,12 @@ class JKFABAViewController: JKViewController {
     
     // MARK:  setAction
     private func setAction() {
+        // MARK:  蓝牙连接状态变化
+        NotificationCenter.default.rx.notification(Notification.Name.init(NotificationNameBlueToothStateChange)).subscribe(onNext: {[weak self](notification) in
+            guard let self = self else { return }
+            self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
+        
         self.btnForBack.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }

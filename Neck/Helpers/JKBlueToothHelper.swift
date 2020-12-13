@@ -20,6 +20,7 @@ enum ReceiveDataType {
     case mono
     case loud
     case channel
+    case sixChannel
     case faba
     case device
 }
@@ -32,7 +33,6 @@ class JKBlueToothHelper: NSObject {
     var notifyCh: CBCharacteristic?
     var data: Data?
     var deviceUpdate: ((CBPeripheral) -> Void)?
-    var connectStatesUpdate: ((ConnectStates) -> Void)?
     var receiveUpdate: ((ReceiveDataType) -> Void)?
     
     
@@ -116,9 +116,7 @@ extension JKBlueToothHelper: CBCentralManagerDelegate {
     func centralManager(_ central: CBCentralManager, didConnect peripheral: CBPeripheral) {
 //        printLog("连接成功了---\(String(describing: peripheral.name))")
         JKBlueToothHelper.shared.connectPeripheral = peripheral
-        if let closure = self.connectStatesUpdate {
-            closure(.connect)
-        }
+        NotificationCenter.default.post(Notification.init(name: Notification.Name.init(NotificationNameBlueToothStateChange)))
         peripheral.delegate = self
         peripheral.discoverServices(nil)
     }
@@ -129,12 +127,9 @@ extension JKBlueToothHelper: CBCentralManagerDelegate {
     //断开外设的委托
     func centralManager(_ central: CBCentralManager, didDisconnectPeripheral peripheral: CBPeripheral, error: Error?) {
         JKBlueToothHelper.shared.connectPeripheral = nil
-        if let closure = self.connectStatesUpdate {
-            closure(.disconnect)
-        }
+        NotificationCenter.default.post(Notification.init(name: Notification.Name.init(NotificationNameBlueToothStateChange)))
         printLog("断开了")
     }
-    
 }
 
 extension JKBlueToothHelper: CBPeripheralDelegate {
@@ -169,7 +164,6 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                     JKBlueToothHelper.shared.notifyCh = characteristic
                     peripheral.setNotifyValue(true, for: characteristic)
                 }
-                
 //                printLog("service: \(service.uuid)的 Characteristic:\(characteristic.uuid)")
                 //获取Characteristic的值，读到数据会进入方法: didUpdateValueForCharacteristic
                 peripheral.readValue(for: characteristic)
@@ -186,7 +180,18 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
         let bytes = [UInt8](data)
         printLog("接收数据\(bytes)")
         var type: ReceiveDataType = .none
-        if bytes.count == 14 {
+        
+        if bytes.count == 20 {
+            // 固定频道
+            JKSettingHelper.shared.channel1 = Int(bytes[7]) * 256 + Int(bytes[8])
+            JKSettingHelper.shared.channel2 = Int(bytes[9]) * 256 + Int(bytes[10])
+            JKSettingHelper.shared.channel3 = Int(bytes[11]) * 256 + Int(bytes[12])
+            JKSettingHelper.shared.channel4 = Int(bytes[13]) * 256 + Int(bytes[14])
+            JKSettingHelper.shared.channel5 = Int(bytes[15]) * 256 + Int(bytes[16])
+            JKSettingHelper.shared.channel6 = Int(bytes[17]) * 256 + Int(bytes[18])
+            type = .sixChannel
+        }
+        else if bytes.count == 14 {
             // FABA
             if bytes[2] == 8 && bytes[3] == 130 && bytes[4] == 15 && bytes[5] == 14 && bytes[6] == 7 && bytes[7] == 14 && bytes[8] == 7 && bytes[9] == 14 && bytes[11] == 14{
                 JKSettingHelper.shared.faba.fa = 14 - bytes[12]
@@ -196,7 +201,7 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
         }
         else if bytes.count == 10 {
             // 频道
-            if bytes[2] == 4 && bytes[4] == 2 && bytes[5] == 0 && bytes[8] == 0 {
+            if bytes[2] == 4 && bytes[4] == 2 && bytes[5] == 0 {
                 JKSettingHelper.shared.currentChannel = Int(bytes[7]) * 256 + Int(bytes[6])
                 type = .channel
             }

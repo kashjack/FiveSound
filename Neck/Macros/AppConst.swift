@@ -80,7 +80,7 @@ func printLog<T>( _ message: T, file: String = #file, method: String = #function
 
 // MARK:  通知
 let kRequestErrorNotification = "kRequestErrorNotification"
-let NotificationNameLoginStateChange = "NotificationNameLoginStateChange"
+let NotificationNameBlueToothStateChange = "NotificationNameBlueToothStateChange"
 let NotificationNameBuyLiving = "NotificationNameBuyLiving"
 let NotificationNameScheduled = "NotificationNameScheduled"
 var kBuyNotice = "1.购买后您可观看《世联地产案例大赏》系列所有直播\r\n\r\n2.购买后可永久免费观看回播\r\n\r\n3.直播课程安排解释归世联云学院所有\r\n\r\n4.如有疑问，请添加客服微信：SLYXY66"

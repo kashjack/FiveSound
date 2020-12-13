@@ -13,8 +13,11 @@
             <connections>
                 <outlet property="btn1" destination="1vi-zi-wtA" id="aYD-cL-1Qu"/>
                 <outlet property="btnForBack" destination="ZFV-MC-dHt" id="mB9-0v-u5J"/>
+                <outlet property="btnForConnect" destination="EUh-fz-5Lr" id="fCc-Wf-san"/>
                 <outlet property="btnForFaba" destination="4EX-bQ-o9r" id="Z4q-h1-UhS"/>
                 <outlet property="btnForLoud" destination="e2C-dP-84F" id="l2x-yt-2II"/>
+                <outlet property="btnForNext" destination="u3n-6m-dw4" id="nSq-Kk-urb"/>
+                <outlet property="btnForPrevious" destination="uGJ-fc-1ZT" id="M1W-uS-J0j"/>
                 <outlet property="btnForSub" destination="lfc-dK-6sP" id="Ucs-pw-j37"/>
                 <outlet property="imgVForTitle" destination="EU4-6q-WsR" id="YgO-lu-h5h"/>
                 <outlet property="imgVForType" destination="esD-XW-qSb" id="WQY-ps-xWr"/>
@@ -152,9 +155,10 @@
                         <constraint firstAttribute="height" constant="44" id="m8t-YY-coI"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="C O N N E C T" image="icon_2">
+                    <state key="normal" title="C O N N E C T">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="selected" image="icon_2"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

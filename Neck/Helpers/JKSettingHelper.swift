@@ -42,6 +42,13 @@ class JKSettingHelper: NSObject {
     // DeviceStatus
     var deviceStatus = DeviceStatus.none
     
+    // 固定频率
+    var channel1: Int = 0
+    var channel2: Int = 0
+    var channel3: Int = 0
+    var channel4: Int = 0
+    var channel5: Int = 0
+    var channel6: Int = 0
 
 
     // MARK:  设置音量
@@ -50,9 +57,9 @@ class JKSettingHelper: NSObject {
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
     }
     
-    // MARK:  设置频道
-    class func setChannel() {
-        let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 0x12, 1, 0xe9]
+    // MARK:  设置固定频段
+    class func setChannel(index: UInt8) {
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 17 + index, 1, 234 - index]
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
     }
     
@@ -104,26 +111,36 @@ class JKSettingHelper: NSObject {
         JKBlueToothHelper.shared.writeCharacteristice(value: deviceArr)
     }
     
+    // MARK:  获取BTMusic信息
+    class func getBTMusic() {
+        let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
+        JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
+        
+        let arr1: [UInt8] = [0x55, 0xaa, 1, 1, 2, 4, 0xf8]
+        JKBlueToothHelper.shared.writeCharacteristice(value: arr1)
+        
+        let loudArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x11, 0xed]
+        JKBlueToothHelper.shared.writeCharacteristice(value: loudArr)
+        
+        let startArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x13, 0xeb]
+        JKBlueToothHelper.shared.writeCharacteristice(value: startArr)
+    }
     
     
     // MARK:  获取Radio信息
     class func getRadioInfo() {
         let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
         JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
-//        let arr1: [UInt8] = [0x55, 0xaa, 0, 1, 3, 0xfc]
-//        JKBlueToothHelper.shared.writeCharacteristice(value: arr1)
-//        let arr2: [UInt8] = [0x55, 0xaa, 0, 2, 0xd, 0xf1]
-//        JKBlueToothHelper.shared.writeCharacteristice(value: arr2)
-//        let arr3: [UInt8] = [0x55, 0xaa, 0, 2, 0x13, 0xeb]
-//        JKBlueToothHelper.shared.writeCharacteristice(value: arr3)
-//        let arr4: [UInt8] = [0x55, 0xaa, 0, 3, 0x20, 0xdd]
-//        JKBlueToothHelper.shared.writeCharacteristice(value: arr4)
+        let startArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x13, 0xeb]
+        JKBlueToothHelper.shared.writeCharacteristice(value: startArr)
         let monoArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xe, 0xf0]
         JKBlueToothHelper.shared.writeCharacteristice(value: monoArr)
         let loudArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x11, 0xed]
         JKBlueToothHelper.shared.writeCharacteristice(value: loudArr)
         let channelArr: [UInt8] = [0x55, 0xaa, 0, 4, 2, 0xfa]
         JKBlueToothHelper.shared.writeCharacteristice(value: channelArr)
+        let sixChannelArr: [UInt8] = [0x55, 0xaa, 0, 3, 0x20, 0xdd]
+        JKBlueToothHelper.shared.writeCharacteristice(value: sixChannelArr)
     }
     
     // MARK:  获取Faba信息
@@ -132,6 +149,18 @@ class JKSettingHelper: NSObject {
         JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
         let fabaArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xf, 0xef]
         JKBlueToothHelper.shared.writeCharacteristice(value: fabaArr)
+    }
+    
+    // MARK:  上一首
+    class func previous() {
+        let arr: [UInt8] = [0x55, 0xaa, 1, 3, 1, 1, 0xfa]
+        JKBlueToothHelper.shared.writeCharacteristice(value: arr)
+    }
+    
+    // MARK:  下一首
+    class func next() {
+        let arr: [UInt8] = [0x55, 0xaa, 1, 3, 3, 1, 0xf8]
+        JKBlueToothHelper.shared.writeCharacteristice(value: arr)
     }
 
 }

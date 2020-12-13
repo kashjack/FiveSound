@@ -19,13 +19,12 @@ class JKHomePageViewController: JKViewController {
     @IBOutlet weak var btnForConnect: UIButton!
     
     private var index: UInt8 = 0
-    
+
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUI()
         self.setAction()
-        
     }
 
     // MARK:  setUI
@@ -37,9 +36,20 @@ class JKHomePageViewController: JKViewController {
 
     // MARK:  setAction
     private func setAction() {
+        // MARK:  蓝牙连接状态变化
+        NotificationCenter.default.rx.notification(Notification.Name.init(NotificationNameBlueToothStateChange)).subscribe(onNext: {[weak self](notification) in
+            guard let self = self else { return }
+            self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
+        
+                
         self.btn1.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
+                if JKBlueToothHelper.shared.connectPeripheral == nil {
+                    WULoadingView.show("Bluetooth Disconnected")
+                    return
+                }
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .aux), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -47,6 +57,10 @@ class JKHomePageViewController: JKViewController {
         self.btn2.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
+                if JKBlueToothHelper.shared.connectPeripheral == nil {
+                    WULoadingView.show("Bluetooth Disconnected")
+                    return
+                }
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .bt), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -54,6 +68,10 @@ class JKHomePageViewController: JKViewController {
         self.btn3.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
+                if JKBlueToothHelper.shared.connectPeripheral == nil {
+                    WULoadingView.show("Bluetooth Disconnected")
+                    return
+                }
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .usb), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -61,6 +79,10 @@ class JKHomePageViewController: JKViewController {
         self.btn4.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
+                if JKBlueToothHelper.shared.connectPeripheral == nil {
+                    WULoadingView.show("Bluetooth Disconnected")
+                    return
+                }
                 self.navigationController?.pushViewController(JKRadioViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -68,7 +90,11 @@ class JKHomePageViewController: JKViewController {
         self.btn5.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                self.navigationController?.pushViewController(JKMemoryViewController(type: .sd), animated: true)
+                if JKBlueToothHelper.shared.connectPeripheral == nil {
+                    WULoadingView.show("Bluetooth Disconnected")
+                    return
+                }
+//                self.navigationController?.pushViewController(JKMemoryViewController(type: .sd), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         

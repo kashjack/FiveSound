@@ -13,6 +13,7 @@
             <connections>
                 <outlet property="backView" destination="bcq-wd-woB" id="2b4-hH-ezq"/>
                 <outlet property="btnForBack" destination="9Gq-qp-EqO" id="IqR-vR-mNJ"/>
+                <outlet property="btnForConnect" destination="Cbe-Aa-fcd" id="dG9-1C-LiB"/>
                 <outlet property="btnForReset" destination="0H0-SH-sZ4" id="58k-eL-rI7"/>
                 <outlet property="slider" destination="ozk-nR-Fhg" id="XM9-ej-r9z"/>
                 <outlet property="slider1" destination="leb-YM-5DQ" id="0S8-4G-OgE"/>
@@ -97,9 +98,10 @@
                         <constraint firstAttribute="width" constant="88" id="wrZ-ip-gbs"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="C O N N E C T" image="icon_2">
+                    <state key="normal" title="C O N N E C T">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="selected" image="icon_2"/>
                 </button>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="-7" minValue="-7" maxValue="7" translatesAutoresizingMaskIntoConstraints="NO" id="leb-YM-5DQ" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="98" y="527" width="234" height="61"/>

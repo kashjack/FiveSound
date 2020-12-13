@@ -11,12 +11,12 @@ import UIKit
 class JKRadioViewController: JKViewController {
 
     @IBOutlet weak var btnForBack: UIButton!
-    @IBOutlet weak var btn8750: UIButton!
-    @IBOutlet weak var btn9070: UIButton!
-    @IBOutlet weak var btn9210: UIButton!
-    @IBOutlet weak var btn9890: UIButton!
-    @IBOutlet weak var btn10250: UIButton!
-    @IBOutlet weak var btn10790: UIButton!
+    @IBOutlet weak var btn1: UIButton!
+    @IBOutlet weak var btn2: UIButton!
+    @IBOutlet weak var btn3: UIButton!
+    @IBOutlet weak var btn4: UIButton!
+    @IBOutlet weak var btn5: UIButton!
+    @IBOutlet weak var btn6: UIButton!
     @IBOutlet weak var btnForFaba: UIButton!
     @IBOutlet weak var btnForUp: UIButton!
     @IBOutlet weak var btnForDown: UIButton!
@@ -25,7 +25,8 @@ class JKRadioViewController: JKViewController {
     @IBOutlet weak var btnForMono: UIButton!
     @IBOutlet weak var btnForSub: UIButton!
     @IBOutlet weak var btnForLoud: UIButton!
-    
+    @IBOutlet weak var btnForConnect: UIButton!
+
     @IBOutlet weak var labForChannel: UILabel!
     private lazy var slideView: UIView = {
         let view = UIView()
@@ -65,6 +66,12 @@ class JKRadioViewController: JKViewController {
     
     // MARK:  setAction
     private func setAction() {
+        // MARK:  蓝牙连接状态变化
+        NotificationCenter.default.rx.notification(Notification.Name.init(NotificationNameBlueToothStateChange)).subscribe(onNext: {[weak self](notification) in
+            guard let self = self else { return }
+            self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+        }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
+        
         self.btnForBack.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
@@ -79,10 +86,39 @@ class JKRadioViewController: JKViewController {
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
-        self.btn8750.rx.controlEvent(.touchUpInside)
+        self.btn1.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
-                JKSettingHelper.shared.currentChannel = 17
-                JKSettingHelper.setChannel()
+                JKSettingHelper.setChannel(index: 0)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+        
+        self.btn2.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {
+                JKSettingHelper.setChannel(index: 1)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+        
+        self.btn3.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {
+                JKSettingHelper.setChannel(index: 2)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+        
+        self.btn4.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {
+                JKSettingHelper.setChannel(index: 3)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+        
+        self.btn5.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {
+                JKSettingHelper.setChannel(index: 4)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+        
+        self.btn6.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {
+                JKSettingHelper.setChannel(index: 5)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
@@ -138,6 +174,14 @@ class JKRadioViewController: JKViewController {
                 self.slideView.snp.updateConstraints { (make) in
                     make.left.equalToSuperview().offset(distance)
                 }
+            }
+            else if type == .sixChannel {
+                self.btn1.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel1) / 100), for: UIControl.State.normal)
+                self.btn2.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel2) / 100), for: UIControl.State.normal)
+                self.btn3.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel3) / 100), for: UIControl.State.normal)
+                self.btn4.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel4) / 100), for: UIControl.State.normal)
+                self.btn5.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel5) / 100), for: UIControl.State.normal)
+                self.btn6.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel6) / 100), for: UIControl.State.normal)
             }
         }
     }

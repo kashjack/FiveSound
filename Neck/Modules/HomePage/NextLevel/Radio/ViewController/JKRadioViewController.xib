@@ -11,13 +11,14 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKRadioViewController" customModule="Neck" customModuleProvider="target">
             <connections>
                 <outlet property="backView" destination="0nm-kh-h9D" id="ue3-ru-vc0"/>
-                <outlet property="btn10250" destination="rLM-aR-gms" id="Rrj-Kj-M0a"/>
-                <outlet property="btn10790" destination="1Ui-yu-GST" id="CwF-1P-3Os"/>
-                <outlet property="btn8750" destination="8LQ-MS-5qm" id="TiS-9V-xO7"/>
-                <outlet property="btn9070" destination="mQT-oo-9Qz" id="noT-s3-E3x"/>
-                <outlet property="btn9210" destination="xAY-8Q-Dnx" id="5cl-It-o92"/>
-                <outlet property="btn9890" destination="rYf-vP-75U" id="7MH-U1-wft"/>
+                <outlet property="btn1" destination="8LQ-MS-5qm" id="Hs0-ZV-JDH"/>
+                <outlet property="btn2" destination="mQT-oo-9Qz" id="bRV-E5-UHS"/>
+                <outlet property="btn3" destination="xAY-8Q-Dnx" id="Aoa-Cb-a5p"/>
+                <outlet property="btn4" destination="rYf-vP-75U" id="5HG-Yp-JEv"/>
+                <outlet property="btn5" destination="rLM-aR-gms" id="vzX-7W-ztt"/>
+                <outlet property="btn6" destination="1Ui-yu-GST" id="V7C-Nq-NHJ"/>
                 <outlet property="btnForBack" destination="fRs-bb-RYL" id="wmB-X1-kUd"/>
+                <outlet property="btnForConnect" destination="5TN-ez-7dr" id="JvS-w0-xvT"/>
                 <outlet property="btnForDown" destination="eRa-Wn-Rl8" id="QOI-kI-fRE"/>
                 <outlet property="btnForFaba" destination="iyC-Hn-Cl7" id="ROd-Ib-Qb1"/>
                 <outlet property="btnForLoud" destination="esl-6i-cXM" id="YXt-x5-6zM"/>
@@ -136,7 +137,7 @@
                     <state key="normal" image="icon_back"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMq-MG-700">
-                    <rect key="frame" x="63" y="447" width="20" height="50"/>
+                    <rect key="frame" x="57" y="447" width="20" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="BKR-a2-VnQ"/>
                         <constraint firstAttribute="width" constant="20" id="izP-Zu-WSO"/>
@@ -146,7 +147,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DFM-Lg-kkN">
-                    <rect key="frame" x="63" y="507" width="20" height="50"/>
+                    <rect key="frame" x="57" y="507" width="20" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
@@ -170,50 +171,53 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vx2-aE-LeH">
-                    <rect key="frame" x="63" y="567" width="20" height="50"/>
+                    <rect key="frame" x="57" y="567" width="20" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.44705882352941173" green="0.44705882352941173" blue="0.44705882352941173" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8LQ-MS-5qm">
-                    <rect key="frame" x="93" y="447" width="79" height="50"/>
+                    <rect key="frame" x="87" y="447" width="85" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="85" id="NZa-vi-GYm"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title="87.50">
+                    <state key="normal" title="--">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mQT-oo-9Qz">
-                    <rect key="frame" x="93" y="507" width="79" height="50"/>
+                    <rect key="frame" x="87" y="507" width="85" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title="90.70">
+                    <state key="normal" title="--">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ui-yu-GST">
-                    <rect key="frame" x="233" y="567" width="79" height="50"/>
+                    <rect key="frame" x="233" y="567" width="85" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title=" 107.90 ">
+                    <state key="normal" title="--">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rLM-aR-gms">
-                    <rect key="frame" x="233" y="507" width="79" height="50"/>
+                    <rect key="frame" x="233" y="507" width="85" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title="102.50">
+                    <state key="normal" title="--">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xAY-8Q-Dnx">
-                    <rect key="frame" x="93" y="567" width="79" height="50"/>
+                    <rect key="frame" x="87" y="567" width="85" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title="92.10">
+                    <state key="normal" title="--">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rYf-vP-75U">
-                    <rect key="frame" x="233" y="447" width="79" height="50"/>
+                    <rect key="frame" x="233" y="447" width="85" height="50"/>
                     <fontDescription key="fontDescription" type="system" pointSize="23"/>
-                    <state key="normal" title="98.90">
+                    <state key="normal" title="--">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
                 </button>
@@ -285,9 +289,10 @@
                         <constraint firstAttribute="height" constant="44" id="lxJ-8T-qRa"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="10"/>
-                    <state key="normal" title="C O N N E C T" image="icon_2">
+                    <state key="normal" title="C O N N E C T">
                         <color key="titleColor" red="0.44705882349999998" green="0.44705882349999998" blue="0.44705882349999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </state>
+                    <state key="selected" image="icon_2"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="500" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="brs-Nk-tUm">
                     <rect key="frame" x="65" y="412" width="49" height="20"/>

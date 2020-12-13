@@ -79,12 +79,16 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nb-72-sII">
-                    <rect key="frame" x="295" y="0.0" width="80" height="44"/>
+                    <rect key="frame" x="277" y="0.0" width="88" height="44"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="44" id="O0r-in-L5P"/>
-                        <constraint firstAttribute="width" constant="80" id="qZs-8O-yBk"/>
+                        <constraint firstAttribute="width" constant="88" id="cuh-hh-k17"/>
                     </constraints>
-                    <state key="normal" title="connect"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <state key="normal" title="C O N N E C T">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected" image="icon_2"/>
                 </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
@@ -105,7 +109,7 @@
                 <constraint firstItem="ehV-Nf-XKZ" firstAttribute="top" secondItem="iBT-7V-XHg" secondAttribute="bottom" id="LV4-Cd-Jh8"/>
                 <constraint firstItem="JGR-Ma-cwR" firstAttribute="top" secondItem="XRa-dN-cnI" secondAttribute="top" id="OLH-Kg-RhN"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ehV-Nf-XKZ" secondAttribute="bottom" id="Sl9-Ml-uwY"/>
-                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9nb-72-sII" secondAttribute="trailing" id="U6g-uJ-hZe"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9nb-72-sII" secondAttribute="trailing" constant="10" id="U6g-uJ-hZe"/>
                 <constraint firstAttribute="bottom" secondItem="FB6-sk-aPb" secondAttribute="bottom" id="VEO-S7-7Fm"/>
                 <constraint firstItem="9nb-72-sII" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="YAh-Zp-EWo"/>
                 <constraint firstItem="JGR-Ma-cwR" firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="width" id="b7G-Vq-33i"/>
@@ -156,6 +160,7 @@
         <image name="homePage_4_sel" width="86.5" height="86.5"/>
         <image name="homePage_5_nor" width="86.5" height="86.5"/>
         <image name="homePage_5_sel" width="86.5" height="86.5"/>
+        <image name="icon_2" width="20" height="20"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
