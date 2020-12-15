@@ -42,7 +42,7 @@ public extension UIColor {
     // 主颜色
     static var mainColor: UIColor {
         get {
-            return hexStringToColor("#1FD18F")
+            return hexStringToColor("#7A0AAD")
         }
     }
 

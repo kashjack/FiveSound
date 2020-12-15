@@ -62,9 +62,11 @@
 		55E83F6124A0BD93002EB229 /* WUHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5C24A0BD92002EB229 /* WUHelper.swift */; };
 		55E83F6224A0BD93002EB229 /* JKSizeHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5D24A0BD92002EB229 /* JKSizeHelper.swift */; };
 		55E83F6424A0BD93002EB229 /* WULoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5F24A0BD92002EB229 /* WULoadingView.swift */; };
-		55F0823024A1D79B00155506 /* JKHomePageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0822F24A1D79B00155506 /* JKHomePageViewModel.swift */; };
 		55F0823524A1E23000155506 /* JKDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0823424A1E23000155506 /* JKDeviceModel.swift */; };
 		81201FCA257B64E1001EC0C0 /* UISlider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81201FC9257B64E1001EC0C0 /* UISlider+Extension.swift */; };
+		8167AA1525892B1300AA58A1 /* YHSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167AA1425892B1300AA58A1 /* YHSlider.swift */; };
+		81A160C22588F1D200721463 /* JKTRBAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A160C02588F1D200721463 /* JKTRBAViewController.swift */; };
+		81A160C32588F1D200721463 /* JKTRBAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A160C12588F1D200721463 /* JKTRBAViewController.xib */; };
 		81A3D744257912FE007BDFF7 /* JKSettingHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A3D743257912FE007BDFF7 /* JKSettingHelper.swift */; };
 		81A3D747257929DB007BDFF7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A3D746257929DB007BDFF7 /* UIImageView+Extension.swift */; };
 		81AA73CC256A9DB5001B1D3A /* JKHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */; };
@@ -137,10 +139,12 @@
 		55E83F5C24A0BD92002EB229 /* WUHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WUHelper.swift; sourceTree = "<group>"; };
 		55E83F5D24A0BD92002EB229 /* JKSizeHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JKSizeHelper.swift; sourceTree = "<group>"; };
 		55E83F5F24A0BD92002EB229 /* WULoadingView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WULoadingView.swift; sourceTree = "<group>"; };
-		55F0822F24A1D79B00155506 /* JKHomePageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageViewModel.swift; sourceTree = "<group>"; };
 		55F0823424A1E23000155506 /* JKDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDeviceModel.swift; sourceTree = "<group>"; };
 		7B6FCF5949AD85DA6561974D /* Pods-Neck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neck.release.xcconfig"; path = "Target Support Files/Pods-Neck/Pods-Neck.release.xcconfig"; sourceTree = "<group>"; };
 		81201FC9257B64E1001EC0C0 /* UISlider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Extension.swift"; sourceTree = "<group>"; };
+		8167AA1425892B1300AA58A1 /* YHSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHSlider.swift; sourceTree = "<group>"; };
+		81A160C02588F1D200721463 /* JKTRBAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTRBAViewController.swift; sourceTree = "<group>"; };
+		81A160C12588F1D200721463 /* JKTRBAViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKTRBAViewController.xib; sourceTree = "<group>"; };
 		81A3D743257912FE007BDFF7 /* JKSettingHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKSettingHelper.swift; sourceTree = "<group>"; };
 		81A3D746257929DB007BDFF7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKHomePageViewController.xib; sourceTree = "<group>"; };
@@ -232,6 +236,7 @@
 				553C5B27256BD79F00D8EF32 /* FABA */,
 				553C5B26256BD76900D8EF32 /* Radio */,
 				553C5B25256BD70E00D8EF32 /* Memory */,
+				81A160BE2588F19C00721463 /* TRBA */,
 			);
 			path = NextLevel;
 			sourceTree = "<group>";
@@ -292,7 +297,6 @@
 			isa = PBXGroup;
 			children = (
 				55F0823324A1E22600155506 /* Model */,
-				55F0822E24A1D73000155506 /* ViewModel */,
 				55F0822B24A1D6C100155506 /* View */,
 				55E83EBE24A091B3002EB229 /* ViewController */,
 				5585B68224A9DEFD00A3442B /* NextLevel */,
@@ -424,20 +428,38 @@
 			path = View;
 			sourceTree = "<group>";
 		};
-		55F0822E24A1D73000155506 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				55F0822F24A1D79B00155506 /* JKHomePageViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
 		55F0823324A1E22600155506 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				55F0823424A1E23000155506 /* JKDeviceModel.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		8167AA1325892B0600AA58A1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8167AA1425892B1300AA58A1 /* YHSlider.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		81A160BE2588F19C00721463 /* TRBA */ = {
+			isa = PBXGroup;
+			children = (
+				8167AA1325892B0600AA58A1 /* Views */,
+				81A160BF2588F1A900721463 /* ViewController */,
+			);
+			path = TRBA;
+			sourceTree = "<group>";
+		};
+		81A160BF2588F1A900721463 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81A160C02588F1D200721463 /* JKTRBAViewController.swift */,
+				81A160C12588F1D200721463 /* JKTRBAViewController.xib */,
+			);
+			path = ViewController;
 			sourceTree = "<group>";
 		};
 		9D4F0687257267220007B185 /* Devices */ = {
@@ -547,6 +569,7 @@
 				55E83EAD24A08C27002EB229 /* Assets.xcassets in Resources */,
 				81AA73CC256A9DB5001B1D3A /* JKHomePageViewController.xib in Resources */,
 				553C5B38256BD80C00D8EF32 /* JKMemoryViewController.xib in Resources */,
+				81A160C32588F1D200721463 /* JKTRBAViewController.xib in Resources */,
 				553C5B2E256BD7E500D8EF32 /* JKFABAViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -602,6 +625,7 @@
 			files = (
 				55E83F1524A09226002EB229 /* UIImage+Extension.swift in Sources */,
 				55E83F0F24A09226002EB229 /* UIFont+Extension.swift in Sources */,
+				8167AA1525892B1300AA58A1 /* YHSlider.swift in Sources */,
 				55E83F2C24A09226002EB229 /* Array+Extension.swift in Sources */,
 				55E83F1224A09226002EB229 /* UIlabel+Extension.swift in Sources */,
 				55CE1D3224C83D3200ABE341 /* JKVerticalButton.swift in Sources */,
@@ -615,7 +639,6 @@
 				55E83F2B24A09226002EB229 /* Nibloadable.swift in Sources */,
 				55E83F6224A0BD93002EB229 /* JKSizeHelper.swift in Sources */,
 				55E83F1324A09226002EB229 /* UIButton+Extension.swift in Sources */,
-				55F0823024A1D79B00155506 /* JKHomePageViewModel.swift in Sources */,
 				55E83F2224A09226002EB229 /* NSObject+Extension.swift in Sources */,
 				81AA73E0256AA704001B1D3A /* JKHomePageButton.swift in Sources */,
 				55E83F4924A092A7002EB229 /* AppConst.swift in Sources */,
@@ -644,6 +667,7 @@
 				55E83F5924A09ED9002EB229 /* AppDelegate.swift in Sources */,
 				55E83F2924A09226002EB229 /* UserDefaults+Extension.swift in Sources */,
 				55E83F2324A09226002EB229 /* DispatchQueue+Extension.swift in Sources */,
+				81A160C22588F1D200721463 /* JKTRBAViewController.swift in Sources */,
 				55E83F1024A09226002EB229 /* UIColor+Extension.swift in Sources */,
 				55E83F1924A09226002EB229 /* UICollectionView+Extension.swift in Sources */,
 				55E83F1C24A09226002EB229 /* UIScrollView+Extension.swift in Sources */,
@@ -794,9 +818,11 @@
 			baseConfigurationReference = F3F2BFC0B8067E24E2ECD5AD /* Pods-Neck.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20200622;
-				DEVELOPMENT_TEAM = U8N25GN98X;
+				DEVELOPMENT_TEAM = 6RZC22962P;
 				INFOPLIST_FILE = Neck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -804,8 +830,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kashjack.Neck.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kashjack.fiveSound.www;
 				PRODUCT_NAME = Neck;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Neck/Macros/Neck-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -817,9 +844,11 @@
 			baseConfigurationReference = 7B6FCF5949AD85DA6561974D /* Pods-Neck.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_CODE_COVERAGE = YES;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 20200622;
-				DEVELOPMENT_TEAM = U8N25GN98X;
+				DEVELOPMENT_TEAM = 6RZC22962P;
 				INFOPLIST_FILE = Neck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -827,8 +856,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.kashjack.Neck.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.kashjack.fiveSound.www;
 				PRODUCT_NAME = Neck;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Neck/Macros/Neck-Bridge.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

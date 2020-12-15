@@ -26,11 +26,12 @@ class JKRadioViewController: JKViewController {
     @IBOutlet weak var btnForSub: UIButton!
     @IBOutlet weak var btnForLoud: UIButton!
     @IBOutlet weak var btnForConnect: UIButton!
-
+    @IBOutlet weak var btnForUser: UIButton!
+    
     @IBOutlet weak var labForChannel: UILabel!
     private lazy var slideView: UIView = {
         let view = UIView()
-        view.backgroundColor = UIColor.hexStringToColor("#7A0AAD")
+        view.backgroundColor = UIColor.mainColor
         return view
     }()
     
@@ -50,6 +51,8 @@ class JKRadioViewController: JKViewController {
     
     // MARK:  setUI
     private func setUI() {
+        self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+
         self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
         self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
         self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
@@ -143,6 +146,13 @@ class JKRadioViewController: JKViewController {
         self.btnForDown.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setDownChannel()
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+        
+        self.btnForUser.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {[weak self] element in
+                guard let self = self else { return }
+                self.navigationController?.pushViewController(JKTRBAViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
     }

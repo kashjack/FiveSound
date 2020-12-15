@@ -17,17 +17,17 @@ class WULabel: UILabel,Nibloadable {
 //        }
 //    }
     
-    @IBInspectable var borderColor: UIColor = UIColor() {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
+//    @IBInspectable var borderColor: UIColor = UIColor() {
+//        didSet {
+//            layer.borderColor = borderColor.cgColor
+//        }
+//    }
     
-    @IBInspectable var borderWidth: CGFloat = 0.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
+//    @IBInspectable var borderWidth: CGFloat = 0.0 {
+//        didSet {
+//            layer.borderWidth = borderWidth
+//        }
+//    }
     private var padding = UIEdgeInsets.zero
 
 

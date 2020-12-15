@@ -68,17 +68,17 @@ class WUImageView: UIImageView, Nibloadable {
 //        }
 //    }
     
-    @IBInspectable var borderColor: UIColor = UIColor() {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
+//    @IBInspectable var borderColor: UIColor = UIColor() {
+//        didSet {
+//            layer.borderColor = borderColor.cgColor
+//        }
+//    }
     
-    @IBInspectable var borderWidth: CGFloat = 0.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
+//    @IBInspectable var borderWidth: CGFloat = 0.0 {
+//        didSet {
+//            layer.borderWidth = borderWidth
+//        }
+//    }
 }
 
 extension UIImage {

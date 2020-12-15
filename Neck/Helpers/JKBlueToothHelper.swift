@@ -21,8 +21,9 @@ enum ReceiveDataType {
     case loud
     case channel
     case sixChannel
-    case faba
     case device
+    case fabaTrba
+    case trba
 }
 
 class JKBlueToothHelper: NSObject {
@@ -192,11 +193,13 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
             type = .sixChannel
         }
         else if bytes.count == 14 {
-            // FABA
-            if bytes[2] == 8 && bytes[3] == 130 && bytes[4] == 15 && bytes[5] == 14 && bytes[6] == 7 && bytes[7] == 14 && bytes[8] == 7 && bytes[9] == 14 && bytes[11] == 14{
+            // FABA TRBA
+            if bytes[2] == 8 && bytes[3] == 130 && bytes[4] == 15 && bytes[5] == 14 && bytes[7] == 14 && bytes[9] == 14 && bytes[11] == 14{
                 JKSettingHelper.shared.faba.fa = 14 - bytes[12]
                 JKSettingHelper.shared.faba.fb = bytes[10]
-                type = .faba
+                JKSettingHelper.shared.trba.treble = bytes[8]
+                JKSettingHelper.shared.trba.bass = bytes[6]
+                type = .fabaTrba
             }
         }
         else if bytes.count == 10 {
@@ -214,9 +217,18 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                 type = .voice
             }
             // Device
-            if bytes[2] == 2 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 4 && bytes[6] == 2 && bytes[7] == 116{
+            if bytes[2] == 2 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 4 && bytes[6] == 2 && bytes[7] == 116 {
                 JKSettingHelper.shared.deviceStatus = .bt
                 type = .device
+            }
+            // TARA
+            if bytes[2] == 2 && bytes[3] == 130 && bytes[4] == 8 && bytes[5] == 14 {
+                JKSettingHelper.shared.trba.bass = bytes[6]
+                type = .fabaTrba
+            }
+            if bytes[2] == 2 && bytes[3] == 130 && bytes[4] == 9 && bytes[5] == 14 {
+                JKSettingHelper.shared.trba.treble = bytes[6]
+                type = .fabaTrba
             }
         }
         else if bytes.count == 7 {
@@ -235,6 +247,27 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                 JKSettingHelper.shared.deviceStatus = .radio
                 type = .device
             }
+            //
+            if bytes[2] == 1 && bytes[3] == 130 && (bytes[4] == 5 || bytes[4] == 6){
+                if bytes[5] == 0{
+                    JKSettingHelper.shared.trbaType = "USER"
+                }
+                else if bytes[5] == 1{
+                    JKSettingHelper.shared.trbaType = "POP" // -1 -1
+                }
+                else if bytes[5] == 2{
+                    JKSettingHelper.shared.trbaType = "ROCK" //3. 4
+                }
+                else if bytes[5] == 3{
+                    JKSettingHelper.shared.trbaType = "JAZZ"//0 -1
+                }
+                else if bytes[5] == 4{
+                    JKSettingHelper.shared.trbaType = "CLASSIC" //1 1
+                }
+                type = .trba
+            }
+
+            
         }
         
         

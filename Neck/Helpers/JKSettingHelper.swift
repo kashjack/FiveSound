@@ -13,6 +13,11 @@ struct FABA {
     var fb: UInt8 = 0
 }
 
+struct TRBA {
+    var treble: UInt8 = 0
+    var bass: UInt8 = 0
+}
+
 enum DeviceStatus {
     case radio
     case sd
@@ -39,8 +44,14 @@ class JKSettingHelper: NSObject {
     // Faba
     var faba = FABA()
     
+    // Trba
+    var trba = TRBA()
+    
     // DeviceStatus
     var deviceStatus = DeviceStatus.none
+    
+    // TRBAType
+    var trbaType = "USER"
     
     // 固定频率
     var channel1: Int = 0
@@ -105,6 +116,24 @@ class JKSettingHelper: NSObject {
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
     }
     
+    // MARK:  设置Treble
+    class func setTreble(value: UInt8) {
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 2, 9, value, 244 - value]
+        JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
+    }
+    
+    // MARK:  设置Bass
+    class func setBass(value: UInt8) {
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 2, 8, value, 245 - value]
+        JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
+    }
+    
+    // MARK:  设置TRBA
+    class func setTRBA() {
+        let intArr: [UInt8] = [0x55, 0xaa, 0, 2, 5, 0xf9]
+        JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
+    }
+    
     // MARK:  获取设备信息
     class func getDeviceInfo() {
         let deviceArr: [UInt8] = [0x55, 0xaa, 0, 1, 3, 0xfc]
@@ -129,6 +158,8 @@ class JKSettingHelper: NSObject {
     
     // MARK:  获取Radio信息
     class func getRadioInfo() {
+        let startRadioArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xfa, 0xf7]
+        JKBlueToothHelper.shared.writeCharacteristice(value: startRadioArr)
         let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
         JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
         let startArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x13, 0xeb]
@@ -147,9 +178,21 @@ class JKSettingHelper: NSObject {
     class func getFaBaInfo() {
         let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
         JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
-        let fabaArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xf, 0xef]
-        JKBlueToothHelper.shared.writeCharacteristice(value: fabaArr)
+        let fabaTrbaArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xf, 0xef]
+        JKBlueToothHelper.shared.writeCharacteristice(value: fabaTrbaArr)
     }
+    
+    // MARK:  获取TRBA信息
+    class func getTRBAInfo() {
+        let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
+        JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
+        let fabaTrbaArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xf, 0xef]
+        JKBlueToothHelper.shared.writeCharacteristice(value: fabaTrbaArr)
+        let trbaArr: [UInt8] = [0x55, 0xaa, 0, 2, 6, 0xf8]
+        JKBlueToothHelper.shared.writeCharacteristice(value: trbaArr)
+    }
+    
+    
     
     // MARK:  上一首
     class func previous() {

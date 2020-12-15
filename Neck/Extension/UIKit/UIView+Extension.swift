@@ -21,40 +21,36 @@ extension UIView {
             layer.masksToBounds = true
         }
     }
+    
+    @IBInspectable
+    var borderColor: UIColor{
+        get {
+            return UIColor.init(cgColor: layer.borderColor ?? UIColor.white.cgColor) 
+        }
+        set {
+            layer.borderColor = newValue.cgColor
+        }
+    }
+    
+    @IBInspectable
+    var borderWidth: CGFloat{
+        get {
+            return layer.borderWidth
+        }
+        set {
+            layer.borderWidth = newValue
+        }
+    }
+    
+    
+    
+    
+    
 }
 
 @IBDesignable
 class WUView: UIView,Nibloadable {
-    
-//    var disposeBag = DisposeBag()
 
-//    deinit {
-//        self.disposeBag = DisposeBag()
-//    }
-    
-//    override func prepareForInterfaceBuilder() {
-//        super.prepareForInterfaceBuilder()
-//        self.disposeBag = DisposeBag()
-//    }
-    
-//    @IBInspectable var cornerRadius: CGFloat = 0.0 {
-//        didSet {
-//            layer.cornerRadius = cornerRadius
-//            layer.masksToBounds = true
-//        }
-//    }
-    
-    @IBInspectable var borderColor: UIColor = UIColor() {
-        didSet {
-            layer.borderColor = borderColor.cgColor
-        }
-    }
-    
-    @IBInspectable var borderWidth: CGFloat = 0.0 {
-        didSet {
-            layer.borderWidth = borderWidth
-        }
-    }
     
     func hp_textFiledEditChanged(_ sender:Notification){}
     

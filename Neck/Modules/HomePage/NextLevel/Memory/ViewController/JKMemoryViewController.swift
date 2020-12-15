@@ -20,8 +20,14 @@ class JKMemoryViewController: JKViewController {
     @IBOutlet weak var btnForPrevious: UIButton!
     @IBOutlet weak var btnForNext: UIButton!
     @IBOutlet weak var btnForConnect: UIButton!
-
+    @IBOutlet weak var btnForUser: UIButton!
+    
     var type: DeviceStatus = .none
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+//        JKSettingHelper.getRadioInfo()
+    }
     
     convenience init(type: DeviceStatus) {
         self.init()
@@ -36,6 +42,8 @@ class JKMemoryViewController: JKViewController {
     
     // MARK:  setUI
     private func setUI() {
+        self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+
         if self.type == .aux {
             self.imgVForTitle.image = UIImage.init(named: "zt_1")
             self.imgVForType.image = UIImage.init(named: "icon_1")
@@ -91,7 +99,13 @@ class JKMemoryViewController: JKViewController {
                 JKSettingHelper.next()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
-
+        
+        self.btnForUser.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {[weak self] element in
+                guard let self = self else { return }
+                self.navigationController?.pushViewController(JKTRBAViewController(), animated: true)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
 
     }
 

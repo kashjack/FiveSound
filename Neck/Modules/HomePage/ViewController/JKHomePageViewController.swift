@@ -94,7 +94,7 @@ class JKHomePageViewController: JKViewController {
                     WULoadingView.show("Bluetooth Disconnected")
                     return
                 }
-//                self.navigationController?.pushViewController(JKMemoryViewController(type: .sd), animated: true)
+                self.navigationController?.pushViewController(JKMemoryViewController(type: .sd), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         

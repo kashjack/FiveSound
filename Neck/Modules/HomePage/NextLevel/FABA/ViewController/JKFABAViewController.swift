@@ -44,11 +44,12 @@ class JKFABAViewController: JKViewController {
         self.setUI()
         self.setAction()
         self.setReceiveData()
-
     }
     
     // MARK:  setUI
     private func setUI() {
+        self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+
         for i in 0...14 {
             let viewBlock1 = UIView.init(backGroundColor: UIColor.white)
             self.view.addSubview(viewBlock1)
@@ -69,8 +70,8 @@ class JKFABAViewController: JKViewController {
             }
             
             if i == 0 || i == 7 || i == 14 {
-                viewBlock1.backgroundColor = UIColor.hexStringToColor("#7A0AAD")
-                viewBlock2.backgroundColor = UIColor.hexStringToColor("#7A0AAD")
+                viewBlock1.backgroundColor = UIColor.mainColor
+                viewBlock2.backgroundColor = UIColor.mainColor
             }
         }
         
@@ -95,7 +96,6 @@ class JKFABAViewController: JKViewController {
             make.width.height.equalTo(40)
         }
         
-        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
 
         self.moveView.addGestureRecognizer(self.pan)
         self.pan.addTarget(self, action: #selector(dragView(pan:)))
@@ -103,6 +103,9 @@ class JKFABAViewController: JKViewController {
         self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
         self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
         self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
+        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
+        self.slider1.addTarget(self, action: #selector(slide1Action), for: UIControl.Event.valueChanged)
+        self.slider2.addTarget(self, action: #selector(slide2Action), for: UIControl.Event.valueChanged)
     }
     
     @objc func valueChange() {
@@ -128,9 +131,7 @@ class JKFABAViewController: JKViewController {
                 self.navigationController?.popViewController(animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
-        
-        self.slider1.addTarget(self, action: #selector(slide1Action), for: UIControl.Event.valueChanged)
-        self.slider2.addTarget(self, action: #selector(slide2Action), for: UIControl.Event.valueChanged)
+
         
         self.btnForReset.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
@@ -163,7 +164,7 @@ class JKFABAViewController: JKViewController {
             if type == .voice {
                 self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
             }
-            else if type == .faba {
+            else if type == .fabaTrba {
                 self.slider1.value = Float(JKSettingHelper.shared.faba.fa) - 7
                 self.slider2.value = Float(JKSettingHelper.shared.faba.fb) - 7
             }
