@@ -50,6 +50,7 @@ class JKHomePageViewController: JKViewController {
                     WULoadingView.show("Bluetooth Disconnected")
                     return
                 }
+                JKSettingHelper.setModel(index: 3)
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .aux), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -61,6 +62,7 @@ class JKHomePageViewController: JKViewController {
                     WULoadingView.show("Bluetooth Disconnected")
                     return
                 }
+                JKSettingHelper.setModel(index: 4)
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .bt), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -72,6 +74,7 @@ class JKHomePageViewController: JKViewController {
                     WULoadingView.show("Bluetooth Disconnected")
                     return
                 }
+                JKSettingHelper.setModel(index: 2)
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .usb), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -83,6 +86,7 @@ class JKHomePageViewController: JKViewController {
                     WULoadingView.show("Bluetooth Disconnected")
                     return
                 }
+                JKSettingHelper.setModel(index: 5)
                 self.navigationController?.pushViewController(JKRadioViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -94,6 +98,7 @@ class JKHomePageViewController: JKViewController {
                     WULoadingView.show("Bluetooth Disconnected")
                     return
                 }
+                JKSettingHelper.setModel(index: 1)
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .sd), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)

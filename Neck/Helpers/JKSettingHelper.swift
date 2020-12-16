@@ -68,6 +68,12 @@ class JKSettingHelper: NSObject {
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
     }
     
+    // MARK:  设置模式
+    class func setModel(index: UInt8) {
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 1, 2, index, 252 - index]
+        JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
+    }
+
     // MARK:  设置固定频段
     class func setChannel(index: UInt8) {
         let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 17 + index, 1, 234 - index]
