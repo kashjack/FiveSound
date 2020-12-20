@@ -56,7 +56,9 @@ class JKMemoryViewController: JKViewController {
             self.imgVForTitle.image = UIImage.init(named: "zt_3")
             self.imgVForType.image = UIImage.init(named: "2_icon_1")
         }
-        else {
+        else if self.type == .bt{
+            self.imgVForTitle.image = UIImage.init(named: "zt_3")
+            self.imgVForType.image = UIImage.init(named: "1_icon_1")
             JKSettingHelper.getBTMusic()
         }
     }

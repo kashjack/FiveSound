@@ -76,8 +76,15 @@ class JKSettingHelper: NSObject {
 
     // MARK:  设置固定频段
     class func setChannel(index: UInt8) {
-        let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 17 + index, 1, 234 - index]
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 16 + index, 1, 235 - index]
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
+    }
+    
+    // MARK:  存储固定频段
+    class func setFixationChannel(index: UInt8) {
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 16 + index, 2, 234 - index]
+        JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
+        JKSettingHelper.getRadioInfo()
     }
     
     // MARK:  向上搜索频道
@@ -85,7 +92,7 @@ class JKSettingHelper: NSObject {
         let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 3, 1, 0xf8]
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
     }
-    
+
     // MARK:  向下搜索频道
     class func setDownChannel() {
         let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 1, 1, 0xfa]
@@ -96,6 +103,13 @@ class JKSettingHelper: NSObject {
     class func setMono() {
         let intArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xc, 0xf2]
         JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
+    }
+    
+    // MARK:  设置Band
+    class func setBand() {
+        let intArr: [UInt8] = [0x55, 0xaa, 1, 3, 4, 1, 0xf7]
+        JKBlueToothHelper.shared.writeCharacteristice(value: intArr)
+        JKSettingHelper.getRadioInfo()
     }
     
     // MARK:  设置Sub

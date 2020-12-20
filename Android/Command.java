@@ -188,7 +188,7 @@ public class Command {
         logoutAllByte("commandNoData: ", bArr, true);
         return bArr;
     }
-
+    3 4 1
     public static byte[] commandWithData(int i, int i2, int i3) {
         byte[] bArr = new byte[7];
         bArr[0] = 85;

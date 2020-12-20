@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class JKRadioViewController: JKViewController {
 
@@ -23,11 +24,19 @@ class JKRadioViewController: JKViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var btnForMono: UIButton!
+    @IBOutlet weak var btnForBand: UIButton!
     @IBOutlet weak var btnForSub: UIButton!
     @IBOutlet weak var btnForLoud: UIButton!
     @IBOutlet weak var btnForConnect: UIButton!
     @IBOutlet weak var btnForUser: UIButton!
     
+    private let longPress1 = UILongPressGestureRecognizer()
+    private let longPress2 = UILongPressGestureRecognizer()
+    private let longPress3 = UILongPressGestureRecognizer()
+    private let longPress4 = UILongPressGestureRecognizer()
+    private let longPress5 = UILongPressGestureRecognizer()
+    private let longPress6 = UILongPressGestureRecognizer()
+
     @IBOutlet weak var labForChannel: UILabel!
     private lazy var slideView: UIView = {
         let view = UIView()
@@ -65,6 +74,13 @@ class JKRadioViewController: JKViewController {
             make.width.equalTo(10)
             make.height.equalTo(40)
         }
+        
+        self.btn1.addGestureRecognizer(self.longPress1)
+        self.btn2.addGestureRecognizer(self.longPress2)
+        self.btn3.addGestureRecognizer(self.longPress3)
+        self.btn4.addGestureRecognizer(self.longPress4)
+        self.btn5.addGestureRecognizer(self.longPress5)
+        self.btn6.addGestureRecognizer(self.longPress6)
     }
     
     // MARK:  setAction
@@ -91,42 +107,89 @@ class JKRadioViewController: JKViewController {
 
         self.btn1.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
-                JKSettingHelper.setChannel(index: 0)
-            }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .disposed(by: self.disposeBag)
-        
-        self.btn2.rx.controlEvent(.touchUpInside)
-            .subscribe(onNext: {
                 JKSettingHelper.setChannel(index: 1)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
-        self.btn3.rx.controlEvent(.touchUpInside)
+        self.longPress1.rx.event.subscribe(onNext: { [weak self] (recognizer) in
+            guard let self = self else { return }
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            self.longPress1.state = .ended
+            JKSettingHelper.setFixationChannel(index: 1)
+        }).disposed(by: self.disposeBag)
+        
+        self.btn2.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setChannel(index: 2)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
-        self.btn4.rx.controlEvent(.touchUpInside)
+        self.longPress2.rx.event.subscribe(onNext: { [weak self] (recognizer) in
+            guard let self = self else { return }
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            self.longPress2.state = .ended
+            JKSettingHelper.setFixationChannel(index: 2)
+        }).disposed(by: self.disposeBag)
+        
+        
+        self.btn3.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setChannel(index: 3)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
-        self.btn5.rx.controlEvent(.touchUpInside)
+        self.longPress3.rx.event.subscribe(onNext: { [weak self] (recognizer) in
+            guard let self = self else { return }
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            self.longPress3.state = .ended
+            JKSettingHelper.setFixationChannel(index: 3)
+        }).disposed(by: self.disposeBag)
+        
+        self.btn4.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setChannel(index: 4)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
-        self.btn6.rx.controlEvent(.touchUpInside)
+        self.longPress4.rx.event.subscribe(onNext: { [weak self] (recognizer) in
+            guard let self = self else { return }
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            self.longPress4.state = .ended
+            JKSettingHelper.setFixationChannel(index: 4)
+        }).disposed(by: self.disposeBag)
+        
+        self.btn5.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setChannel(index: 5)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
+        self.longPress5.rx.event.subscribe(onNext: { [weak self] (recognizer) in
+            guard let self = self else { return }
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            self.longPress5.state = .ended
+            JKSettingHelper.setFixationChannel(index: 5)
+        }).disposed(by: self.disposeBag)
+        
+        self.btn6.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {
+                JKSettingHelper.setChannel(index: 6)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+        
+        self.longPress6.rx.event.subscribe(onNext: { [weak self] (recognizer) in
+            guard let self = self else { return }
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate)
+            self.longPress6.state = .ended
+            JKSettingHelper.setFixationChannel(index: 6)
+        }).disposed(by: self.disposeBag)
+        
         self.btnForMono.rx.tap.subscribe(onNext: { element in
             JKSettingHelper.setMono()
+        }).disposed(by: self.disposeBag)
+        
+        self.btnForBand.rx.tap.subscribe(onNext: { element in
+            JKSettingHelper.setBand()
         }).disposed(by: self.disposeBag)
         
         self.btnForSub.rx.tap.subscribe(onNext: { element in
@@ -155,6 +218,7 @@ class JKRadioViewController: JKViewController {
                 self.navigationController?.pushViewController(JKTRBAViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
+        
     }
     
     

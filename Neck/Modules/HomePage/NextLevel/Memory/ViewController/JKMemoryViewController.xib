@@ -58,7 +58,7 @@
                     <rect key="frame" x="159" y="560" width="57" height="57"/>
                     <state key="normal" image="icon_7"/>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks5-it-wUw">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ks5-it-wUw">
                     <rect key="frame" x="15" y="560" width="57" height="57"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="ks5-it-wUw" secondAttribute="height" id="eoA-1r-M5L"/>
@@ -223,7 +223,7 @@
         <image name="kuang_3" width="81" height="23.5"/>
         <image name="loud1" width="42" height="11"/>
         <image name="loud2" width="42" height="11"/>
-        <image name="mono" width="81" height="23.5"/>
+        <image name="mono" width="210" height="70"/>
         <image name="sub1" width="29" height="11"/>
         <image name="sub2" width="29" height="11"/>
         <image name="user1" width="40" height="10.5"/>

@@ -138,7 +138,7 @@ class JKFABAViewController: JKViewController {
                 guard let self = self else { return }
                 self.slider1.value = 0
                 self.slider2.value = 0
-                self.moveView.center = CGPoint.init(x: 75, y: 150)
+                self.moveView.center = CGPoint.init(x: 95, y: 170)
                 self.setFafb()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
@@ -153,7 +153,7 @@ class JKFABAViewController: JKViewController {
     
     @objc private func slide2Action() {
         self.moveView.snp.updateConstraints { (make) in
-            make.centerX.equalToSuperview().offset(150 / 14 * CGFloat(self.slider1.value))
+            make.centerX.equalToSuperview().offset(150 / 14 * CGFloat(self.slider2.value))
         }
         self.setFafb()
     }
@@ -193,7 +193,7 @@ class JKFABAViewController: JKViewController {
         if x > 150 { x = 150}
         if y < 0 { y = 0 }
         if y > 300 { y = 300 }
-        pan.view?.center = CGPoint.init(x: x, y: y)
+        pan.view?.center = CGPoint.init(x: 20 + x, y: 20 + y)
         self.slider1.value = Float(y) / 300 * 14 - 7
         self.slider2.value = Float(x) / 150 * 14 - 7
         self.setFafb()
