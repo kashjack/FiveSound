@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum JKMacro: Int {
-    case UNKNOWN = 0
-    case NEXT_MODE = 
-}
+//enum JKMacro: Int {
+//    case UNKNOWN = 0
+//    case NEXT_MODE =
+//}
