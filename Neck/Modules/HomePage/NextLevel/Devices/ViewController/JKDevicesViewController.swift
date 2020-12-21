@@ -104,7 +104,18 @@ class JKDevicesViewController: JKViewController {
                     self.dismiss(animated: false) {
                         JKViewController.topViewController()?.navigationController?.pushViewController(JKRadioViewController(), animated: true)
                     }
-                }else{
+                }
+                else if JKSettingHelper.shared.deviceStatus == .aux {
+                    self.dismiss(animated: false) {
+                        JKViewController.topViewController()?.navigationController?.pushViewController(JKAUXViewController(), animated: true)
+                    }
+                }
+                else if JKSettingHelper.shared.deviceStatus == .bt{
+                    self.dismiss(animated: false) {
+                        JKViewController.topViewController()?.navigationController?.pushViewController(JKMemoryViewController.init(type: .bt), animated: true)
+                    }
+                }
+                else if JKSettingHelper.shared.deviceStatus == .usb || JKSettingHelper.shared.deviceStatus == .sd{
                     self.dismiss(animated: false) {
                         JKViewController.topViewController()?.navigationController?.pushViewController(JKMemoryViewController.init(type: JKSettingHelper.shared.deviceStatus), animated: true)
                     }
@@ -147,7 +158,9 @@ extension JKDevicesViewController : UITableViewDelegate, UITableViewDataSource{
             WULoadingView.hide()
             if JKBlueToothHelper.shared.connectPeripheral != nil {
                 JKBlueToothHelper.shared.centralManager.stopScan()
-                self.dataSource.remove(at: indexPath.row)
+                if indexPath.row >= self.dataSource.count {
+                    self.dataSource.remove(at: indexPath.row)
+                }
                 self.tableView.reloadData()
                 WULoadingView.show("Connected")
                 DispatchQueue.main.after(1) {
@@ -160,24 +173,6 @@ extension JKDevicesViewController : UITableViewDelegate, UITableViewDataSource{
             }
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
         
-        
-//        JKBlueToothHelper.shared.connectStatesUpdate = {[weak self] states in
-//            guard let self = self else { return }
-//            WULoadingView.hide()
-//            if states == .connect {
-//                JKBlueToothHelper.shared.centralManager.stopScan()
-//                self.dataSource.remove(at: indexPath.row)
-//                self.tableView.reloadData()
-//                WULoadingView.show("Connected")
-//                DispatchQueue.main.after(1) {
-//                    JKSettingHelper.getDeviceInfo()
-//                }
-//            }
-//            else if states == .disconnect {
-//                WULoadingView.show("Disconnected")
-//                JKBlueToothHelper.shared.scanDevice()
-//            }
-//        }
     }
     func numberOfSections(in tableView: UITableView) -> Int { return 2 }
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat { return 0.1 }

@@ -44,6 +44,7 @@ class JKViewController: UIViewController {
             || self is JKRadioViewController
             || self is JKMemoryViewController
             || self is JKTRBAViewController
+            || self is JKAUXViewController
         {
             self.navigationController?.setNavigationBarHidden(true, animated: false)
         }

@@ -89,6 +89,9 @@ class JKRadioViewController: JKViewController {
         NotificationCenter.default.rx.notification(Notification.Name.init(NotificationNameBlueToothStateChange)).subscribe(onNext: {[weak self](notification) in
             guard let self = self else { return }
             self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+            if JKBlueToothHelper.shared.connectPeripheral == nil {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
         
         self.btnForBack.rx.controlEvent(.touchUpInside)

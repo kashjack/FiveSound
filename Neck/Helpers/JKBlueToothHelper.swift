@@ -9,11 +9,6 @@
 import UIKit
 import CoreBluetooth
 
-enum ConnectStates {
-    case connect
-    case disconnect
-}
-
 enum ReceiveDataType {
     case voice
     case none
@@ -24,6 +19,7 @@ enum ReceiveDataType {
     case device
     case fabaTrba
     case trba
+    case playProgress
 }
 
 class JKBlueToothHelper: NSObject {
@@ -56,6 +52,8 @@ class JKBlueToothHelper: NSObject {
     func cancelConnection() {
         guard let peripheral = JKBlueToothHelper.shared.connectPeripheral else { return }
         JKBlueToothHelper.shared.centralManager.cancelPeripheralConnection(peripheral)
+        JKBlueToothHelper.shared.connectPeripheral = nil
+        NotificationCenter.default.post(Notification.init(name: Notification.Name.init(NotificationNameBlueToothStateChange)))
     }
     
     // MARK:  写数据
@@ -94,6 +92,7 @@ extension JKBlueToothHelper: CBCentralManagerDelegate {
         case .unauthorized:
             break
         case .poweredOff:
+            self.cancelConnection()
             break
         case .poweredOn:
             break
@@ -209,6 +208,13 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                 type = .channel
             }
         }
+        else if bytes.count == 9 {
+            // 播放进度
+            if bytes[2] == 3 && bytes[3] == 133 && bytes[4] == 1 && bytes[5] == 0 {
+                JKSettingHelper.shared.playProgress = Int(bytes[6])
+                type = .playProgress
+            }
+        }
         else if bytes.count == 8 {
             // 音量
             if bytes[2] == 2 && bytes[3] == 130 && bytes[4] == 4 {
@@ -245,6 +251,26 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
             // Device
             if bytes[2] == 1 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 5 && bytes[6] == 118{
                 JKSettingHelper.shared.deviceStatus = .radio
+                type = .device
+            }
+            // Device
+            if bytes[2] == 1 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 4 && bytes[6] == 119{
+                JKSettingHelper.shared.deviceStatus = .bt
+                type = .device
+            }
+            // Device
+            if bytes[2] == 1 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 3 && bytes[6] == 120{
+                JKSettingHelper.shared.deviceStatus = .aux
+                type = .device
+            }
+            // Device
+            if bytes[2] == 1 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 2 && bytes[6] == 121{
+                JKSettingHelper.shared.deviceStatus = .sd
+                type = .device
+            }
+            // Device
+            if bytes[2] == 1 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 1 && bytes[6] == 122{
+                JKSettingHelper.shared.deviceStatus = .usb
                 type = .device
             }
             //

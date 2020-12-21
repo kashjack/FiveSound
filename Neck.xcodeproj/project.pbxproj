@@ -64,6 +64,8 @@
 		55E83F6424A0BD93002EB229 /* WULoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E83F5F24A0BD92002EB229 /* WULoadingView.swift */; };
 		55F0823524A1E23000155506 /* JKDeviceModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55F0823424A1E23000155506 /* JKDeviceModel.swift */; };
 		81201FCA257B64E1001EC0C0 /* UISlider+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81201FC9257B64E1001EC0C0 /* UISlider+Extension.swift */; };
+		815215B2258FAE8500C95EFE /* JKAUXViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 815215B0258FAE8500C95EFE /* JKAUXViewController.swift */; };
+		815215B3258FAE8500C95EFE /* JKAUXViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 815215B1258FAE8500C95EFE /* JKAUXViewController.xib */; };
 		8167AA1525892B1300AA58A1 /* YHSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8167AA1425892B1300AA58A1 /* YHSlider.swift */; };
 		81A160C22588F1D200721463 /* JKTRBAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A160C02588F1D200721463 /* JKTRBAViewController.swift */; };
 		81A160C32588F1D200721463 /* JKTRBAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81A160C12588F1D200721463 /* JKTRBAViewController.xib */; };
@@ -142,6 +144,8 @@
 		55F0823424A1E23000155506 /* JKDeviceModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDeviceModel.swift; sourceTree = "<group>"; };
 		7B6FCF5949AD85DA6561974D /* Pods-Neck.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Neck.release.xcconfig"; path = "Target Support Files/Pods-Neck/Pods-Neck.release.xcconfig"; sourceTree = "<group>"; };
 		81201FC9257B64E1001EC0C0 /* UISlider+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISlider+Extension.swift"; sourceTree = "<group>"; };
+		815215B0258FAE8500C95EFE /* JKAUXViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKAUXViewController.swift; sourceTree = "<group>"; };
+		815215B1258FAE8500C95EFE /* JKAUXViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKAUXViewController.xib; sourceTree = "<group>"; };
 		8167AA1425892B1300AA58A1 /* YHSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YHSlider.swift; sourceTree = "<group>"; };
 		81A160C02588F1D200721463 /* JKTRBAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKTRBAViewController.swift; sourceTree = "<group>"; };
 		81A160C12588F1D200721463 /* JKTRBAViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKTRBAViewController.xib; sourceTree = "<group>"; };
@@ -233,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				9D4F0687257267220007B185 /* Devices */,
+				815215AE258FAE4900C95EFE /* AUX */,
 				553C5B27256BD79F00D8EF32 /* FABA */,
 				553C5B26256BD76900D8EF32 /* Radio */,
 				553C5B25256BD70E00D8EF32 /* Memory */,
@@ -436,6 +441,23 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
+		815215AE258FAE4900C95EFE /* AUX */ = {
+			isa = PBXGroup;
+			children = (
+				815215AF258FAE5600C95EFE /* ViewController */,
+			);
+			path = AUX;
+			sourceTree = "<group>";
+		};
+		815215AF258FAE5600C95EFE /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				815215B0258FAE8500C95EFE /* JKAUXViewController.swift */,
+				815215B1258FAE8500C95EFE /* JKAUXViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		8167AA1325892B0600AA58A1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -563,6 +585,7 @@
 			files = (
 				9D4F068C2572674E0007B185 /* JKDevicesViewController.xib in Resources */,
 				55E83EB024A08C27002EB229 /* LaunchScreen.storyboard in Resources */,
+				815215B3258FAE8500C95EFE /* JKAUXViewController.xib in Resources */,
 				9DE0D63C25726A13009DAA73 /* JKDeviceTableViewCell.xib in Resources */,
 				55B0A57E2577637900994221 /* JKDeviceTableViewHeader.xib in Resources */,
 				553C5B33256BD7F600D8EF32 /* JKRadioViewController.xib in Resources */,
@@ -649,6 +672,7 @@
 				55E83F1424A09226002EB229 /* UIView+Extension.swift in Sources */,
 				55E83F1124A09226002EB229 /* UIButton+Touch.swift in Sources */,
 				55E83F1A24A09226002EB229 /* UINavigationController+FDFullscreenPopGesture.m in Sources */,
+				815215B2258FAE8500C95EFE /* JKAUXViewController.swift in Sources */,
 				55E83F2624A09226002EB229 /* Int+Extension.swift in Sources */,
 				55E83F1B24A09226002EB229 /* UIBarButtonItem+Extension.swift in Sources */,
 				55E83F2824A09226002EB229 /* TimeInterval+Extension.swift in Sources */,

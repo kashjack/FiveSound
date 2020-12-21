@@ -1,68 +1,38 @@
 //
-//  JKMemoryViewController.swift
+//  JKAUXViewController.swift
 //  Neck
 //
-//  Created by worldunionYellow on 2020/11/23.
+//  Created by kashjack on 2020/12/21.
 //  Copyright © 2020 worldunionYellow. All rights reserved.
 //
 
 import UIKit
 
-class JKMemoryViewController: JKViewController {
-
+class JKAUXViewController: JKViewController {
+    
     @IBOutlet weak var btnForBack: UIButton!
-    @IBOutlet weak var imgVForTitle: UIImageView!
-    @IBOutlet weak var imgVForType: UIImageView!
-    @IBOutlet weak var btnForFaba: UIButton!
-    @IBOutlet weak var btnForSub: UIButton!
     @IBOutlet weak var btnForLoud: UIButton!
-    @IBOutlet weak var btnForPrevious: UIButton!
-    @IBOutlet weak var btnForPlay: UIButton!
-    @IBOutlet weak var btnForNext: UIButton!
     @IBOutlet weak var btnForConnect: UIButton!
     @IBOutlet weak var btnForUser: UIButton!
+    @IBOutlet weak var btnForFaba: UIButton!
     @IBOutlet weak var slider: JKSlider!
-    @IBOutlet weak var labForCurrent: UILabel!
-    @IBOutlet weak var labForAll: UILabel!
-    @IBOutlet weak var slideForProgress: JKSlider!
-    
-    var type: DeviceStatus = .none
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-    }
-    
-    convenience init(type: DeviceStatus) {
-        self.init()
-        self.type = type
+        JKSettingHelper.getAUXInfo()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
         self.setUI()
         self.setAction()
         self.setReceiveData()
+
     }
     
     // MARK:  setUI
     private func setUI() {
-        if self.type == .usb {
-            self.imgVForTitle.image = UIImage.init(named: "zt_8")
-            self.imgVForType.image = UIImage.init(named: "7_icon")
-        }
-        else if self.type == .sd {
-            self.imgVForTitle.image = UIImage.init(named: "zt_3")
-            self.imgVForType.image = UIImage.init(named: "2_icon_1")
-        }
-        else if self.type == .bt{
-            self.imgVForTitle.image = UIImage.init(named: "zt_2")
-            self.imgVForType.image = UIImage.init(named: "1_icon_1")
-            self.labForCurrent.isHidden = true
-            self.labForAll.isHidden = true
-            self.slideForProgress.isHidden = true
-            JKSettingHelper.getBTMusic()
-        }
-        
         self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
         self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
         self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
@@ -87,25 +57,6 @@ class JKMemoryViewController: JKViewController {
                 self.navigationController?.popViewController(animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
-
-        self.btnForFaba.rx.controlEvent(.touchUpInside)
-            .subscribe(onNext: {[weak self] element in
-                guard let self = self else { return }
-                self.navigationController?.pushViewController(JKFABAViewController(), animated: true)
-            }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .disposed(by: self.disposeBag)
-        
-        self.btnForPrevious.rx.controlEvent(.touchUpInside)
-            .subscribe(onNext: {element in
-                JKSettingHelper.previous()
-            }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .disposed(by: self.disposeBag)
-        
-        self.btnForNext.rx.controlEvent(.touchUpInside)
-            .subscribe(onNext: {element in
-                JKSettingHelper.next()
-            }, onError: nil, onCompleted: nil, onDisposed: nil)
-            .disposed(by: self.disposeBag)
         
         self.btnForUser.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
@@ -113,12 +64,19 @@ class JKMemoryViewController: JKViewController {
                 self.navigationController?.pushViewController(JKTRBAViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
-
+        
+        self.btnForFaba.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {[weak self] element in
+                guard let self = self else { return }
+                self.navigationController?.pushViewController(JKFABAViewController(), animated: true)
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+        
         self.btnForLoud.rx.tap.subscribe(onNext: { element in
             JKSettingHelper.setLoud(isSel: self.btnForLoud.isSelected)
         }).disposed(by: self.disposeBag)
     }
-
+    
     private func setReceiveData(){
         JKBlueToothHelper.shared.receiveUpdate = { [weak self] type in
             guard let self = self else { return }
@@ -127,9 +85,6 @@ class JKMemoryViewController: JKViewController {
             }
             else if type == .loud {
                 self.btnForLoud.isSelected = JKSettingHelper.shared.loud
-            }
-            else if type == .playProgress {
-                self.labForCurrent.text = self.formatTime(time: JKSettingHelper.shared.playProgress)
             }
         }
     }
@@ -142,13 +97,4 @@ class JKMemoryViewController: JKViewController {
         JKSettingHelper.setVoiceValue()
     }
 
-}
-
-
-extension JKMemoryViewController {
-    func formatTime(time: Int) -> String {
-        let ss = time % 60
-        let mm = time / 60
-        return "\(String(format: "%02d", mm)):\(String(format: "%02d", ss))"
-    }
 }

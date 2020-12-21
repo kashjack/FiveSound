@@ -40,6 +40,9 @@ class JKHomePageViewController: JKViewController {
         NotificationCenter.default.rx.notification(Notification.Name.init(NotificationNameBlueToothStateChange)).subscribe(onNext: {[weak self](notification) in
             guard let self = self else { return }
             self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+            if JKBlueToothHelper.shared.connectPeripheral == nil {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
         
                 
@@ -51,17 +54,17 @@ class JKHomePageViewController: JKViewController {
                     return
                 }
                 JKSettingHelper.setModel(index: 3)
-                self.navigationController?.pushViewController(JKMemoryViewController(type: .aux), animated: true)
+                self.navigationController?.pushViewController(JKAUXViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
         self.btn2.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-//                if JKBlueToothHelper.shared.connectPeripheral == nil {
-//                    WULoadingView.show("Bluetooth Disconnected")
-//                    return
-//                }
+                if JKBlueToothHelper.shared.connectPeripheral == nil {
+                    WULoadingView.show("Bluetooth Disconnected")
+                    return
+                }
                 JKSettingHelper.setModel(index: 4)
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .bt), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)

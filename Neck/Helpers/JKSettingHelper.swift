@@ -22,9 +22,9 @@ enum DeviceStatus {
     case radio
     case sd
     case usb
-    case aux
     case bt
     case none
+    case aux
 }
 
 class JKSettingHelper: NSObject {
@@ -60,6 +60,9 @@ class JKSettingHelper: NSObject {
     var channel4: Int = 0
     var channel5: Int = 0
     var channel6: Int = 0
+    
+    // 播放进度
+    var playProgress: Int = 0
 
 
     // MARK:  设置音量
@@ -200,6 +203,12 @@ class JKSettingHelper: NSObject {
         JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
         let fabaTrbaArr: [UInt8] = [0x55, 0xaa, 0, 2, 0xf, 0xef]
         JKBlueToothHelper.shared.writeCharacteristice(value: fabaTrbaArr)
+    }
+    
+    // MARK:  获取AUX信息
+    class func getAUXInfo() {
+        let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
+        JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
     }
     
     // MARK:  获取TRBA信息

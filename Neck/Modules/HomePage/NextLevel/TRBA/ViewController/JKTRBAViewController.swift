@@ -77,6 +77,9 @@ class JKTRBAViewController: JKViewController {
         NotificationCenter.default.rx.notification(Notification.Name.init(NotificationNameBlueToothStateChange)).subscribe(onNext: {[weak self](notification) in
             guard let self = self else { return }
             self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+            if JKBlueToothHelper.shared.connectPeripheral == nil {
+                self.navigationController?.popToRootViewController(animated: true)
+            }
         }, onError: nil, onCompleted: nil, onDisposed: nil).disposed(by: self.disposeBag)
         
         self.btnForBack.rx.controlEvent(.touchUpInside)
@@ -123,8 +126,8 @@ class JKTRBAViewController: JKViewController {
             else if type == .fabaTrba {
                 self.lab1.text = "\(Int(JKSettingHelper.shared.trba.treble) - 7) dB"
                 self.lab2.text = "\(Int(JKSettingHelper.shared.trba.bass) - 7) dB"
-                self.slide1.currentValue = Double(Int(Double(JKSettingHelper.shared.trba.treble) + 0.5))
-                self.slide2.currentValue = Double(Int(Double(JKSettingHelper.shared.trba.bass) + 0.5))
+                self.slide1.currentValue = Double(Int(Double(JKSettingHelper.shared.trba.treble) + 0.5)) - 0.1
+                self.slide2.currentValue = Double(Int(Double(JKSettingHelper.shared.trba.bass) + 0.5)) - 0.1
             }
         }
     }
