@@ -49,10 +49,10 @@ class JKHomePageViewController: JKViewController {
         self.btn1.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                if JKBlueToothHelper.shared.connectPeripheral == nil {
-                    WULoadingView.show("Bluetooth Disconnected")
-                    return
-                }
+//                if JKBlueToothHelper.shared.connectPeripheral == nil {
+//                    WULoadingView.show("Bluetooth Disconnected")
+//                    return
+//                }
                 JKSettingHelper.setModel(index: 3)
                 self.navigationController?.pushViewController(JKAUXViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
@@ -61,10 +61,10 @@ class JKHomePageViewController: JKViewController {
         self.btn2.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                if JKBlueToothHelper.shared.connectPeripheral == nil {
-                    WULoadingView.show("Bluetooth Disconnected")
-                    return
-                }
+//                if JKBlueToothHelper.shared.connectPeripheral == nil {
+//                    WULoadingView.show("Bluetooth Disconnected")
+//                    return
+//                }
                 JKSettingHelper.setModel(index: 4)
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .bt), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
@@ -73,10 +73,10 @@ class JKHomePageViewController: JKViewController {
         self.btn3.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                if JKBlueToothHelper.shared.connectPeripheral == nil {
-                    WULoadingView.show("Bluetooth Disconnected")
-                    return
-                }
+//                if JKBlueToothHelper.shared.connectPeripheral == nil {
+//                    WULoadingView.show("Bluetooth Disconnected")
+//                    return
+//                }
                 JKSettingHelper.setModel(index: 1)
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .usb), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
@@ -85,10 +85,10 @@ class JKHomePageViewController: JKViewController {
         self.btn4.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                if JKBlueToothHelper.shared.connectPeripheral == nil {
-                    WULoadingView.show("Bluetooth Disconnected")
-                    return
-                }
+//                if JKBlueToothHelper.shared.connectPeripheral == nil {
+//                    WULoadingView.show("Bluetooth Disconnected")
+//                    return
+//                }
                 JKSettingHelper.setModel(index: 5)
                 self.navigationController?.pushViewController(JKRadioViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
@@ -97,10 +97,10 @@ class JKHomePageViewController: JKViewController {
         self.btn5.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                if JKBlueToothHelper.shared.connectPeripheral == nil {
-                    WULoadingView.show("Bluetooth Disconnected")
-                    return
-                }
+//                if JKBlueToothHelper.shared.connectPeripheral == nil {
+//                    WULoadingView.show("Bluetooth Disconnected")
+//                    return
+//                }
                 JKSettingHelper.setModel(index: 2)
                 self.navigationController?.pushViewController(JKMemoryViewController(type: .sd), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)

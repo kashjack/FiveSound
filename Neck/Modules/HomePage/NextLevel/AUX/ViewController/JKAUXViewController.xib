@@ -45,41 +45,57 @@
                         <constraint firstAttribute="width" secondItem="t28-dd-Xta" secondAttribute="height" id="QM1-dY-rjD"/>
                     </constraints>
                 </imageView>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-EK-j4W">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LaZ-EK-j4W" customClass="JKButton" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="10" y="64" width="81.5" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="1YL-0s-LPC"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" image="sub1"/>
-                    <state key="selected" image="sub2"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="S U B">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected" image="sub2">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-Fq-VxD">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9SI-Fq-VxD" customClass="JKButton" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="101.5" y="64" width="81" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="A1N-cZ-G7U"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" image="loud2"/>
-                    <state key="selected" image="loud1"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="L O U D">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZD6-3I-Gxe">
+                <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZD6-3I-Gxe" customClass="JKButton" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="284" y="64" width="81" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="sKf-uR-K5R"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" image="user2"/>
-                    <state key="selected" image="user1"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="U S E R">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTU-OG-jB8">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rTU-OG-jB8" customClass="JKButton" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="192.5" y="64" width="81.5" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="1gN-ee-WPo"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <state key="normal" image="eon"/>
-                    <state key="selected" image="eon2"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                    <state key="normal" title="E O N">
+                        <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
                 </button>
                 <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MnY-eA-lxL">
                     <rect key="frame" x="272" y="0.0" width="88" height="44"/>
@@ -158,25 +174,30 @@
         </view>
     </objects>
     <designables>
+        <designable name="9SI-Fq-VxD">
+            <size key="intrinsicContentSize" width="63" height="34"/>
+        </designable>
+        <designable name="LaZ-EK-j4W">
+            <size key="intrinsicContentSize" width="46" height="34"/>
+        </designable>
+        <designable name="ZD6-3I-Gxe">
+            <size key="intrinsicContentSize" width="61" height="34"/>
+        </designable>
         <designable name="Zgg-bk-RXX">
             <size key="intrinsicContentSize" width="-1" height="30"/>
+        </designable>
+        <designable name="rTU-OG-jB8">
+            <size key="intrinsicContentSize" width="47" height="34"/>
         </designable>
     </designables>
     <resources>
         <image name="3_icon_2" width="20" height="20"/>
         <image name="3_icon_3" width="20" height="20"/>
         <image name="bg_memory" width="375" height="667"/>
-        <image name="eon" width="31" height="11"/>
-        <image name="eon2" width="31" height="11"/>
         <image name="icon_1" width="100" height="26.5"/>
         <image name="icon_2" width="20" height="20"/>
         <image name="icon_back" width="14" height="14"/>
-        <image name="loud1" width="42" height="11"/>
-        <image name="loud2" width="42" height="11"/>
-        <image name="sub1" width="29" height="11"/>
         <image name="sub2" width="29" height="11"/>
-        <image name="user1" width="40" height="10.5"/>
-        <image name="user2" width="40" height="10.5"/>
         <image name="zt_1" width="68" height="16.5"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
