@@ -11,7 +11,7 @@ import UIKit
 class JKAUXViewController: JKViewController {
     
     @IBOutlet weak var btnForBack: UIButton!
-    @IBOutlet weak var btnForLoud: UIButton!
+    @IBOutlet weak var btnForLoud: JKButton!
     @IBOutlet weak var btnForConnect: UIButton!
     @IBOutlet weak var btnForUser: UIButton!
     @IBOutlet weak var btnForFaba: UIButton!
@@ -19,6 +19,7 @@ class JKAUXViewController: JKViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setReceiveData()
         JKSettingHelper.getAUXInfo()
         self.updateUI()
     }
@@ -29,7 +30,6 @@ class JKAUXViewController: JKViewController {
         self.setUI()
         self.setAction()
         self.updateUI()
-        self.setReceiveData()
     }
     
     
@@ -80,7 +80,7 @@ class JKAUXViewController: JKViewController {
             .disposed(by: self.disposeBag)
         
         self.btnForLoud.rx.tap.subscribe(onNext: { element in
-            JKSettingHelper.setLoud(isSel: self.btnForLoud.isSelected)
+            JKSettingHelper.setLoud(isSel: !JKSettingHelper.shared.loud)
         }).disposed(by: self.disposeBag)
     }
     
@@ -91,7 +91,7 @@ class JKAUXViewController: JKViewController {
                 self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
             }
             else if type == .loud {
-                self.btnForLoud.isSelected = JKSettingHelper.shared.loud
+                self.btnForLoud.setButtonColor(isSelected: JKSettingHelper.shared.loud)
             }
         }
     }

@@ -15,7 +15,7 @@ class JKMemoryViewController: JKViewController {
     @IBOutlet weak var imgVForType: UIImageView!
     @IBOutlet weak var btnForFaba: UIButton!
     @IBOutlet weak var btnForSub: UIButton!
-    @IBOutlet weak var btnForLoud: UIButton!
+    @IBOutlet weak var btnForLoud: JKButton!
     @IBOutlet weak var btnForPrevious: UIButton!
     @IBOutlet weak var btnForPlay: UIButton!
     @IBOutlet weak var btnForNext: UIButton!
@@ -37,6 +37,16 @@ class JKMemoryViewController: JKViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.updateUI()
+        self.setReceiveData()
+        if self.type == .usb {
+            JKSettingHelper.getUSB()
+        }
+        else if self.type == .sd {
+            JKSettingHelper.getSDCard()
+        }
+        else if self.type == .bt{
+            JKSettingHelper.getBTMusic()
+        }
     }
     
     override func viewDidLoad() {
@@ -45,7 +55,6 @@ class JKMemoryViewController: JKViewController {
         self.updateUI()
         self.startRotate()
         self.setAction()
-        self.setReceiveData()
     }
     
     // MARK:  setUI
@@ -64,7 +73,6 @@ class JKMemoryViewController: JKViewController {
             self.labForCurrent.isHidden = true
             self.labForAll.isHidden = true
             self.slideForProgress.isHidden = true
-            JKSettingHelper.getBTMusic()
         }
         
         self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
@@ -121,7 +129,6 @@ class JKMemoryViewController: JKViewController {
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
-        
         self.btnForNext.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {element in
                 JKSettingHelper.next()
@@ -136,7 +143,7 @@ class JKMemoryViewController: JKViewController {
             .disposed(by: self.disposeBag)
 
         self.btnForLoud.rx.tap.subscribe(onNext: { element in
-            JKSettingHelper.setLoud(isSel: self.btnForLoud.isSelected)
+            JKSettingHelper.setLoud(isSel: !JKSettingHelper.shared.loud)
         }).disposed(by: self.disposeBag)
     }
 
@@ -147,7 +154,7 @@ class JKMemoryViewController: JKViewController {
                 self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
             }
             else if type == .loud {
-                self.btnForLoud.isSelected = JKSettingHelper.shared.loud
+                self.btnForLoud.setButtonColor(isSelected: JKSettingHelper.shared.loud)
             }
             else if type == .playProgress {
                 self.labForCurrent.text = self.formatTime(time: JKSettingHelper.shared.playProgress)

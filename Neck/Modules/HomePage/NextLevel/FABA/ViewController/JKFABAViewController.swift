@@ -32,7 +32,7 @@ class JKFABAViewController: JKViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.fd_interactivePopDisabled = true
+        self.setReceiveData()
         JKSettingHelper.getFaBaInfo()
         self.updateUI()
     }
@@ -43,7 +43,6 @@ class JKFABAViewController: JKViewController {
         self.setUI()
         self.setAction()
         self.updateUI()
-        self.setReceiveData()
     }
     
     // MARK:  setUI
