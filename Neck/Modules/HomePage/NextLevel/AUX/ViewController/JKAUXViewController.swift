@@ -20,25 +20,32 @@ class JKAUXViewController: JKViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         JKSettingHelper.getAUXInfo()
+        self.updateUI()
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setUI()
         self.setAction()
+        self.updateUI()
         self.setReceiveData()
-
     }
+    
     
     // MARK:  setUI
     private func setUI() {
         self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
+    }
+
+    // MARK:  updateUI
+    private func updateUI() {
         self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
         self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
         self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
-        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
     }
+
     
     // MARK:  setAction
     private func setAction() {

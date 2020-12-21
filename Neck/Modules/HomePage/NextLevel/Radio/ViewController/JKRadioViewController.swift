@@ -48,12 +48,14 @@ class JKRadioViewController: JKViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         JKSettingHelper.getRadioInfo()
+        self.updateUI()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.setUI()
+        self.updateUI()
         self.setAction()
         self.setReceiveData()
     }
@@ -62,9 +64,6 @@ class JKRadioViewController: JKViewController {
     private func setUI() {
         self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
 
-        self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
-        self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
-        self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
         self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
         
         self.backView.addSubview(self.slideView)
@@ -81,6 +80,13 @@ class JKRadioViewController: JKViewController {
         self.btn4.addGestureRecognizer(self.longPress4)
         self.btn5.addGestureRecognizer(self.longPress5)
         self.btn6.addGestureRecognizer(self.longPress6)
+    }
+
+    // MARK:  updateUI
+    private func updateUI() {
+        self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
+        self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
+        self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
     }
     
     // MARK:  setAction
@@ -223,6 +229,7 @@ class JKRadioViewController: JKViewController {
             .disposed(by: self.disposeBag)
         
     }
+
     
     
     @objc func valueChange() {

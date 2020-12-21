@@ -27,19 +27,23 @@ class JKMemoryViewController: JKViewController {
     @IBOutlet weak var slideForProgress: JKSlider!
     
     var type: DeviceStatus = .none
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-    }
+
     
     convenience init(type: DeviceStatus) {
         self.init()
         self.type = type
     }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.updateUI()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUI()
+        self.updateUI()
+        self.startRotate()
         self.setAction()
         self.setReceiveData()
     }
@@ -64,10 +68,14 @@ class JKMemoryViewController: JKViewController {
         }
         
         self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
+        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
+    }
+
+    // MARK:  updateUI
+    private func updateUI() {
         self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
         self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
         self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
-        self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
     }
     
     // MARK:  setAction
@@ -100,6 +108,19 @@ class JKMemoryViewController: JKViewController {
                 JKSettingHelper.previous()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
+
+        self.btnForPlay.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: {[weak self] element in
+                guard let self = self else { return }
+                if self.btnForPlay.isSelected {
+                    self.pauseRotate()
+                }else{
+                    self.resumeRotate()
+                }
+                self.btnForPlay.isSelected = !self.btnForPlay.isSelected
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+
         
         self.btnForNext.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {element in
@@ -140,6 +161,36 @@ class JKMemoryViewController: JKViewController {
         }
         JKSettingHelper.shared.currentVoiceValue = UInt8(self.slider.value)
         JKSettingHelper.setVoiceValue()
+    }
+
+
+    private func startRotate() {
+        // 1.创建动画
+        let rotationAnim = CABasicAnimation(keyPath: "transform.rotation.z")
+        // 2.设置动画的属性
+        rotationAnim.fromValue = 0
+        rotationAnim.toValue = Double.pi
+        rotationAnim.repeatCount = 0
+        rotationAnim.duration = 5
+        // 这个属性很重要 如果不设置当页面运行到后台再次进入该页面的时候 动画会停止
+        rotationAnim.isRemovedOnCompletion = false
+        // 3.将动画添加到layer中
+        self.imgVForType.layer.add(rotationAnim, forKey: nil)
+    }
+
+    func pauseRotate() {
+        let pauseTime = self.view.layer.convertTime(CACurrentMediaTime(), to: nil)
+        self.view.layer.speed = 0.0
+        self.view.layer.timeOffset = pauseTime
+    }
+
+    func resumeRotate() {
+        let pauseTime = self.view.layer.timeOffset
+        self.view.layer.speed = 1.0
+        self.view.layer.timeOffset = 0.0
+        self.view.layer.beginTime = 0.0
+        let timeSincePause = self.view.layer.convertTime(CACurrentMediaTime(), to: nil) - pauseTime
+        self.view.layer.beginTime = timeSincePause
     }
 
 }

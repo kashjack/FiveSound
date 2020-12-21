@@ -18,8 +18,6 @@ class JKFABAViewController: JKViewController {
     @IBOutlet weak var backView: UIView!
     @IBOutlet weak var btnForReset: UIButton!
     @IBOutlet weak var btnForConnect: UIButton!
-
-    
     
     private var faba = FABA()
     
@@ -36,6 +34,7 @@ class JKFABAViewController: JKViewController {
         super.viewWillAppear(animated)
         self.fd_interactivePopDisabled = true
         JKSettingHelper.getFaBaInfo()
+        self.updateUI()
     }
     
     override func viewDidLoad() {
@@ -43,6 +42,7 @@ class JKFABAViewController: JKViewController {
 
         self.setUI()
         self.setAction()
+        self.updateUI()
         self.setReceiveData()
     }
     
@@ -76,18 +76,31 @@ class JKFABAViewController: JKViewController {
         }
         
         for i in 0...2 {
-            let lab = UILabel()
-            lab.textColor = UIColor.white
-            lab.font = UIFont.systemFont(ofSize: 8)
-            self.view.addSubview(lab)
-            lab.snp.makeConstraints { (make) in
+            let lab1 = UILabel()
+            lab1.textColor = UIColor.white
+            lab1.font = UIFont.systemFont(ofSize: 10)
+            self.view.addSubview(lab1)
+            lab1.snp.makeConstraints { (make) in
                 make.bottom.equalTo(self.slider1).offset(-50)
                 make.left.equalTo(self.slider1).offset((JKSizeHelper.width - 145) / 2 * CGFloat(i) - 7.5)
                 make.width.equalTo(15)
                 make.height.equalTo(8)
             }
-            lab.text = "\(i * 7 - 7)"
-            lab.textAlignment = .center
+            lab1.text = "\(i * 7 - 7)"
+            lab1.textAlignment = .center
+
+            let lab2 = UILabel()
+            lab2.textColor = UIColor.white
+            lab2.font = UIFont.systemFont(ofSize: 10)
+            self.view.addSubview(lab2)
+            lab2.snp.makeConstraints { (make) in
+                make.bottom.equalTo(self.slider2).offset(-50)
+                make.left.equalTo(self.slider2).offset((JKSizeHelper.width - 145) / 2 * CGFloat(i) - 7.5)
+                make.width.equalTo(15)
+                make.height.equalTo(8)
+            }
+            lab2.text = "\(i * 7 - 7)"
+            lab2.textAlignment = .center
         }
         
         self.backView.addSubview(self.moveView)
@@ -100,12 +113,16 @@ class JKFABAViewController: JKViewController {
         self.moveView.addGestureRecognizer(self.pan)
         self.pan.addTarget(self, action: #selector(dragView(pan:)))
 
-        self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
-        self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
-        self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
         self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
         self.slider1.addTarget(self, action: #selector(slide1Action), for: UIControl.Event.valueChanged)
         self.slider2.addTarget(self, action: #selector(slide2Action), for: UIControl.Event.valueChanged)
+    }
+
+    // MARK:  updateUI
+    private func updateUI() {
+        self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
+        self.slider.minimumValue = Float(JKSettingHelper.shared.minVoiceValue)
+        self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
     }
     
     @objc func valueChange() {
@@ -141,7 +158,9 @@ class JKFABAViewController: JKViewController {
                 guard let self = self else { return }
                 self.slider1.value = 0
                 self.slider2.value = 0
-                self.moveView.center = CGPoint.init(x: 95, y: 170)
+                self.moveView.snp.updateConstraints { (make) in
+                    make.center.equalToSuperview()
+                }
                 self.setFafb()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
