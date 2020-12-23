@@ -70,8 +70,6 @@
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ozk-nR-Fhg" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="48" y="64" width="299" height="51"/>
                     <color key="tintColor" red="0.5587734580039978" green="0.16858544945716858" blue="0.73438984155654907" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </slider>
                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3_icon_1" translatesAutoresizingMaskIntoConstraints="NO" id="QKK-qP-T5f">
                     <rect key="frame" x="0.0" y="114" width="375" height="413"/>

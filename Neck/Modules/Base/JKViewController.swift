@@ -21,6 +21,7 @@ class JKViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.fd_interactivePopDisabled = true
         self.setUI()
     }
 

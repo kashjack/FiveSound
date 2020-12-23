@@ -167,15 +167,28 @@ class JKSettingHelper: NSObject {
     class func getBTMusic() {
         let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
         JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
-        
         let arr1: [UInt8] = [0x55, 0xaa, 1, 1, 2, 4, 0xf8]
         JKBlueToothHelper.shared.writeCharacteristice(value: arr1)
-        
         let loudArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x11, 0xed]
         JKBlueToothHelper.shared.writeCharacteristice(value: loudArr)
-        
         let startArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x13, 0xeb]
         JKBlueToothHelper.shared.writeCharacteristice(value: startArr)
+    }
+    
+    // MARK:  获取USB信息
+    class func getUSB() {
+        let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
+        JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
+        let loudArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x11, 0xed]
+        JKBlueToothHelper.shared.writeCharacteristice(value: loudArr)
+    }
+    
+    // MARK:  获取SDCard信息
+    class func getSDCard() {
+        let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
+        JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
+        let loudArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x11, 0xed]
+        JKBlueToothHelper.shared.writeCharacteristice(value: loudArr)
     }
     
     
@@ -209,6 +222,8 @@ class JKSettingHelper: NSObject {
     class func getAUXInfo() {
         let voiceArr: [UInt8] = [0x55, 0xaa, 0, 2, 4, 0xfa]
         JKBlueToothHelper.shared.writeCharacteristice(value: voiceArr)
+        let loudArr: [UInt8] = [0x55, 0xaa, 0, 2, 0x11, 0xed]
+        JKBlueToothHelper.shared.writeCharacteristice(value: loudArr)
     }
     
     // MARK:  获取TRBA信息

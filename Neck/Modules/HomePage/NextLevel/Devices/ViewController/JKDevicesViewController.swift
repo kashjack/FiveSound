@@ -30,13 +30,16 @@ class JKDevicesViewController: JKViewController {
     private let publishDataSource = PublishSubject<[CBPeripheral]>()
     private var dataSource = [CBPeripheral]()
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setReceiveData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setUI()
         self.setAction()
         self.requestData()
-        self.setReceiveData()
     }
 
     // MARK:  setUI

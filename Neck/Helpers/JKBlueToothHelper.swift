@@ -273,30 +273,51 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                 JKSettingHelper.shared.deviceStatus = .usb
                 type = .device
             }
-            //
-            if bytes[2] == 1 && bytes[3] == 130 && (bytes[4] == 5 || bytes[4] == 6){
+            // trba
+            if bytes[2] == 1 && bytes[3] == 130 && bytes[4] == 6{
                 if bytes[5] == 0{
                     JKSettingHelper.shared.trbaType = "USER"
                 }
                 else if bytes[5] == 1{
-                    JKSettingHelper.shared.trbaType = "POP" // -1 -1
+                    JKSettingHelper.shared.trbaType = "POP"
                 }
                 else if bytes[5] == 2{
-                    JKSettingHelper.shared.trbaType = "ROCK" //3. 4
+                    JKSettingHelper.shared.trbaType = "ROCK"
                 }
                 else if bytes[5] == 3{
-                    JKSettingHelper.shared.trbaType = "JAZZ"//0 -1
+                    JKSettingHelper.shared.trbaType = "JAZZ"
                 }
                 else if bytes[5] == 4{
-                    JKSettingHelper.shared.trbaType = "CLASSIC" //1 1
+                    JKSettingHelper.shared.trbaType = "CLASSIC"
+                }
+                else if bytes[5] == 5 {
+                    JKSettingHelper.shared.trbaType = "COUNTRY"
                 }
                 type = .trba
             }
-
-            
+            // trba
+            if bytes[2] == 1 && bytes[3] == 130 && bytes[4] == 5{
+                if bytes[5] == 0{
+                    JKSettingHelper.shared.trbaType = "USER"
+                }
+                else if bytes[5] == 1{
+                    JKSettingHelper.shared.trbaType = "POP"
+                }
+                else if bytes[5] == 2{
+                    JKSettingHelper.shared.trbaType = "ROCK"
+                }
+                else if bytes[5] == 3{
+                    JKSettingHelper.shared.trbaType = "JAZZ"
+                }
+                else if bytes[5] == 4{
+                    JKSettingHelper.shared.trbaType = "CLASSIC"
+                }
+                else if bytes[5] == 5 {
+                    JKSettingHelper.shared.trbaType = "COUNTRY"
+                }
+                type = .trba
+            }
         }
-        
-        
         if let closure = self.receiveUpdate {
             closure(type)
         }

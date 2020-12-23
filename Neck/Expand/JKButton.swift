@@ -32,6 +32,20 @@ class JKButton: UIButton {
         attTitle.setAttributes([NSAttributedString.Key.underlineStyle : NSNumber(value: NSUnderlineStyle.single.rawValue)], range: range)
         self.setAttributedTitle(attTitle, for: UIControl.State.normal)
     }
+    
+    public func setButtonColor(isSelected: Bool) {
+        if isSelected {
+            guard let title = self.titleLabel?.text else { return }
+            let attTitle = NSMutableAttributedString.init(string: title)
+            var range = NSRange()
+            range.location = 0
+            range.length = attTitle.length
+            attTitle.setAttributes([NSAttributedString.Key.underlineStyle : NSNumber(value: NSUnderlineStyle.single.rawValue), NSAttributedString.Key.underlineColor : UIColor.white, NSAttributedString.Key.foregroundColor : UIColor.white], range: range)
+            self.setAttributedTitle(attTitle, for: UIControl.State.normal)
+        }else{
+            self.setUI()
+        }
+    }
 
 
 }

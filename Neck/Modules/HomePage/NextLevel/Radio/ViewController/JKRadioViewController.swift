@@ -26,7 +26,7 @@ class JKRadioViewController: JKViewController {
     @IBOutlet weak var btnForMono: UIButton!
     @IBOutlet weak var btnForBand: UIButton!
     @IBOutlet weak var btnForSub: UIButton!
-    @IBOutlet weak var btnForLoud: UIButton!
+    @IBOutlet weak var btnForLoud: JKButton!
     @IBOutlet weak var btnForConnect: UIButton!
     @IBOutlet weak var btnForUser: UIButton!
     
@@ -47,6 +47,7 @@ class JKRadioViewController: JKViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.setReceiveData()
         JKSettingHelper.getRadioInfo()
         self.updateUI()
     }
@@ -57,7 +58,6 @@ class JKRadioViewController: JKViewController {
         self.setUI()
         self.updateUI()
         self.setAction()
-        self.setReceiveData()
     }
     
     // MARK:  setUI
@@ -80,6 +80,7 @@ class JKRadioViewController: JKViewController {
         self.btn4.addGestureRecognizer(self.longPress4)
         self.btn5.addGestureRecognizer(self.longPress5)
         self.btn6.addGestureRecognizer(self.longPress6)
+        
     }
 
     // MARK:  updateUI
@@ -206,7 +207,7 @@ class JKRadioViewController: JKViewController {
         }).disposed(by: self.disposeBag)
         
         self.btnForLoud.rx.tap.subscribe(onNext: { element in
-            JKSettingHelper.setLoud(isSel: self.btnForLoud.isSelected)
+            JKSettingHelper.setLoud(isSel: !JKSettingHelper.shared.loud)
         }).disposed(by: self.disposeBag)
                 
         self.btnForUp.rx.controlEvent(.touchUpInside)
@@ -250,7 +251,7 @@ class JKRadioViewController: JKViewController {
                 self.btnForMono.isSelected = JKSettingHelper.shared.mono
             }
             else if type == .loud {
-                self.btnForLoud.isSelected = JKSettingHelper.shared.loud
+                self.btnForLoud.setButtonColor(isSelected: JKSettingHelper.shared.loud)
             }
             else if type == .channel {
                 self.labForChannel.text = String(format: "%.1f", Double(JKSettingHelper.shared.currentChannel) / 100)

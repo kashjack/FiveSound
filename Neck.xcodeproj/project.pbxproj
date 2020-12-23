@@ -74,6 +74,7 @@
 		81A3D747257929DB007BDFF7 /* UIImageView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A3D746257929DB007BDFF7 /* UIImageView+Extension.swift */; };
 		81AA73CC256A9DB5001B1D3A /* JKHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */; };
 		81AA73E0256AA704001B1D3A /* JKHomePageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA73DF256AA704001B1D3A /* JKHomePageButton.swift */; };
+		81BE00822591160A00DB2EDC /* JKMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE00812591160A00DB2EDC /* JKMacro.swift */; };
 		9D4F0653257236AD0007B185 /* JKBlueToothHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0652257236AD0007B185 /* JKBlueToothHelper.swift */; };
 		9D4F068B2572674E0007B185 /* JKDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F06892572674E0007B185 /* JKDevicesViewController.swift */; };
 		9D4F068C2572674E0007B185 /* JKDevicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4F068A2572674E0007B185 /* JKDevicesViewController.xib */; };
@@ -155,6 +156,7 @@
 		81A3D746257929DB007BDFF7 /* UIImageView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extension.swift"; sourceTree = "<group>"; };
 		81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKHomePageViewController.xib; sourceTree = "<group>"; };
 		81AA73DF256AA704001B1D3A /* JKHomePageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageButton.swift; sourceTree = "<group>"; };
+		81BE00812591160A00DB2EDC /* JKMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKMacro.swift; sourceTree = "<group>"; };
 		85956F4D4CFE46E94AA3B560 /* Pods_Neck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4F0652257236AD0007B185 /* JKBlueToothHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKBlueToothHelper.swift; sourceTree = "<group>"; };
 		9D4F06892572674E0007B185 /* JKDevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDevicesViewController.swift; sourceTree = "<group>"; };
@@ -422,6 +424,7 @@
 				55E83F5C24A0BD92002EB229 /* WUHelper.swift */,
 				55E83F5D24A0BD92002EB229 /* JKSizeHelper.swift */,
 				55E83F5F24A0BD92002EB229 /* WULoadingView.swift */,
+				81BE00812591160A00DB2EDC /* JKMacro.swift */,
 				9D4F0652257236AD0007B185 /* JKBlueToothHelper.swift */,
 				81A3D743257912FE007BDFF7 /* JKSettingHelper.swift */,
 			);
@@ -660,6 +663,7 @@
 				55E83F1624A09226002EB229 /* UIViewController+Extension.swift in Sources */,
 				558F9B3D24A87AFD0036BC52 /* JKHandyJSON.swift in Sources */,
 				55E83F2024A09226002EB229 /* Date+Extension.swift in Sources */,
+				81BE00822591160A00DB2EDC /* JKMacro.swift in Sources */,
 				553C5B2D256BD7E500D8EF32 /* JKFABAViewController.swift in Sources */,
 				55E83F2724A09226002EB229 /* Double+Extension.swift in Sources */,
 				81A3D744257912FE007BDFF7 /* JKSettingHelper.swift in Sources */,

@@ -84,7 +84,7 @@
                     <state key="normal" title="L O U D">
                         <color key="titleColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
-                    <state key="selected" image="loud1">
+                    <state key="selected">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
                 </button>
@@ -140,8 +140,6 @@
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="lFg-B5-pPk" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="48" y="124" width="289" height="51"/>
                     <color key="tintColor" red="0.558773458" green="0.16858544950000001" blue="0.73438984159999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                    <color key="maximumTrackTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <color key="thumbTintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                 </slider>
                 <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="hxe-Ga-uq9" customClass="JKSlider" customModule="Neck" customModuleProvider="target">
                     <rect key="frame" x="78" y="517" width="219" height="31"/>
@@ -274,7 +272,6 @@
         <image name="icon_6" width="40" height="40"/>
         <image name="icon_7" width="22" height="22"/>
         <image name="icon_back" width="14" height="14"/>
-        <image name="loud1" width="42" height="11"/>
         <image name="music_2" width="25" height="25"/>
         <image name="sub2" width="29" height="11"/>
         <image name="zt_2" width="184.5" height="16.5"/>

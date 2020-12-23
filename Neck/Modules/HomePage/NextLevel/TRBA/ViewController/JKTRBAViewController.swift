@@ -8,6 +8,17 @@
 
 import UIKit
 
+class TrbaType {
+    var value = ""
+    var next = TrbaType()
+    
+    convenience init(value: String, next: TrbaType) {
+        self.init()
+        self.value = value
+        self.next = next
+    }
+}
+
 class JKTRBAViewController: JKViewController {
     
     @IBOutlet weak var btnForBack: UIButton!
@@ -19,7 +30,9 @@ class JKTRBAViewController: JKViewController {
     @IBOutlet weak var lab2: UILabel!
     @IBOutlet weak var imgV1: UIImageView!
     @IBOutlet weak var imgV2: UIImageView!
-
+    
+    private let types = ["USER", "POP", "ROCK", "JAZZ", "CLASSIC", "COUNTRY"]
+    private var index = 0
     private lazy var slide1: YHSlider = {
         let yhSlide = YHSlider()
         yhSlide.titleArray = Array(0...13)
@@ -37,6 +50,7 @@ class JKTRBAViewController: JKViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.fd_interactivePopDisabled = true
+        self.setReceiveData()
         JKSettingHelper.getTRBAInfo()
     }
 
@@ -45,7 +59,6 @@ class JKTRBAViewController: JKViewController {
 
         self.setUI()
         self.setAction()
-        self.setReceiveData()
     }
 
 
@@ -92,6 +105,13 @@ class JKTRBAViewController: JKViewController {
         self.btnForType.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {element in
                 JKSettingHelper.setTRBA()
+                if self.index >= 5 {
+                    self.index = 0
+                }else{
+                    self.index += 1
+                }
+                JKSettingHelper.shared.trbaType = self.types[self.index]
+                self.btnForType.setTitle(JKSettingHelper.shared.trbaType, for: UIControl.State.normal)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
@@ -121,7 +141,12 @@ class JKTRBAViewController: JKViewController {
                 self.slider.value = Float(JKSettingHelper.shared.currentVoiceValue)
             }
             else if type == .trba {
-                self.btnForType.setTitle(JKSettingHelper.shared.trbaType, for: UIControl.State.normal)
+                for i in 0..<self.types.count {
+                    if self.types[i] == JKSettingHelper.shared.trbaType {
+                        self.index = i
+                        self.btnForType.setTitle(JKSettingHelper.shared.trbaType, for: UIControl.State.normal)
+                    }
+                }
             }
             else if type == .fabaTrba {
                 self.lab1.text = "\(Int(JKSettingHelper.shared.trba.treble) - 7) dB"
