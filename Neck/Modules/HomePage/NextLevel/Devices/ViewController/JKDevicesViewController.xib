@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKDevicesViewController" customModule="Neck" customModuleProvider="target">
             <connections>
                 <outlet property="btnForBack" destination="nrg-aR-coQ" id="bkp-DY-FuG"/>
+                <outlet property="btnForSearch" destination="i6B-lA-eek" id="DuB-yM-ZRB"/>
                 <outlet property="view" destination="Amd-iA-KWM" id="JGk-eU-5OG"/>
             </connections>
         </placeholder>
@@ -38,14 +39,24 @@
                         <constraint firstAttribute="width" constant="44" id="GiZ-2l-jGD"/>
                     </constraints>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i6B-lA-eek">
+                    <rect key="frame" x="315" y="0.0" width="60" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="NQC-aA-YF8"/>
+                        <constraint firstAttribute="width" constant="60" id="ifE-Ze-wlO"/>
+                    </constraints>
+                    <state key="normal" image="icon_search"/>
+                </button>
             </subviews>
             <viewLayoutGuide key="safeArea" id="mww-8D-ufO"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="mww-8D-ufO" firstAttribute="trailing" secondItem="i6B-lA-eek" secondAttribute="trailing" id="1Dn-Wx-flz"/>
                 <constraint firstAttribute="bottom" secondItem="Sci-UF-Rct" secondAttribute="bottom" id="4pI-BJ-983"/>
                 <constraint firstItem="Sci-UF-Rct" firstAttribute="top" secondItem="Amd-iA-KWM" secondAttribute="top" id="ATw-EV-jVn"/>
                 <constraint firstItem="E8H-J2-cMc" firstAttribute="centerX" secondItem="Amd-iA-KWM" secondAttribute="centerX" id="CF9-4o-4DS"/>
                 <constraint firstItem="nrg-aR-coQ" firstAttribute="leading" secondItem="mww-8D-ufO" secondAttribute="leading" id="LJJ-ty-egQ"/>
+                <constraint firstItem="i6B-lA-eek" firstAttribute="top" secondItem="mww-8D-ufO" secondAttribute="top" id="gh7-Kh-t2Z"/>
                 <constraint firstItem="E8H-J2-cMc" firstAttribute="top" secondItem="mww-8D-ufO" secondAttribute="top" id="khW-YV-gtv"/>
                 <constraint firstItem="Sci-UF-Rct" firstAttribute="leading" secondItem="mww-8D-ufO" secondAttribute="leading" id="mze-zU-ZLP"/>
                 <constraint firstItem="nrg-aR-coQ" firstAttribute="top" secondItem="mww-8D-ufO" secondAttribute="top" id="r9F-JQ-gm4"/>
@@ -58,6 +69,7 @@
         <image name="bg_memory" width="375" height="667"/>
         <image name="icon_back" width="14" height="14"/>
         <image name="icon_logo" width="60" height="60"/>
+        <image name="icon_search" width="22" height="22"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

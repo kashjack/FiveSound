@@ -12,7 +12,8 @@ import CoreBluetooth
 class JKDevicesViewController: JKViewController {
     
     @IBOutlet weak var btnForBack: UIButton!
-    
+    @IBOutlet weak var btnForSearch: UIButton!
+
     private lazy var tableView: UITableView = {
         let tableView = UITableView.init(frame: CGRect.zero, style: UITableView.Style.grouped)
         tableView.separatorStyle = .none
@@ -64,6 +65,18 @@ class JKDevicesViewController: JKViewController {
             guard let self = self else { return }
             self.dismiss(animated: true, completion: nil)
         }).disposed(by: self.disposeBag)
+
+        self.btnForSearch.rx.controlEvent(.touchUpInside)
+            .subscribe(onNext: { element in
+                JKBlueToothHelper.shared.scanDevice()
+                self.dataSource.removeAll()
+                DispatchQueue.main.after(1) { [weak self] in
+                    guard let self = self else { return }
+                    self.tableView.endrefresh()
+                }
+            }, onError: nil, onCompleted: nil, onDisposed: nil)
+            .disposed(by: self.disposeBag)
+
         
         JKBlueToothHelper.shared.deviceUpdate = {[weak self] (peripheral) in
             guard let self = self else { return }
