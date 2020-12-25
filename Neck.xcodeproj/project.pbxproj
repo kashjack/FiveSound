@@ -75,6 +75,8 @@
 		81AA73CC256A9DB5001B1D3A /* JKHomePageViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */; };
 		81AA73E0256AA704001B1D3A /* JKHomePageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81AA73DF256AA704001B1D3A /* JKHomePageButton.swift */; };
 		81BE00822591160A00DB2EDC /* JKMacro.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81BE00812591160A00DB2EDC /* JKMacro.swift */; };
+		81CE5AA92594DBC200CB4263 /* JKBTMusicViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81CE5AA72594DBC200CB4263 /* JKBTMusicViewController.swift */; };
+		81CE5AAA2594DBC200CB4263 /* JKBTMusicViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81CE5AA82594DBC200CB4263 /* JKBTMusicViewController.xib */; };
 		9D4F0653257236AD0007B185 /* JKBlueToothHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F0652257236AD0007B185 /* JKBlueToothHelper.swift */; };
 		9D4F068B2572674E0007B185 /* JKDevicesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D4F06892572674E0007B185 /* JKDevicesViewController.swift */; };
 		9D4F068C2572674E0007B185 /* JKDevicesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D4F068A2572674E0007B185 /* JKDevicesViewController.xib */; };
@@ -157,6 +159,8 @@
 		81AA73CB256A9DB5001B1D3A /* JKHomePageViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKHomePageViewController.xib; sourceTree = "<group>"; };
 		81AA73DF256AA704001B1D3A /* JKHomePageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKHomePageButton.swift; sourceTree = "<group>"; };
 		81BE00812591160A00DB2EDC /* JKMacro.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKMacro.swift; sourceTree = "<group>"; };
+		81CE5AA72594DBC200CB4263 /* JKBTMusicViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKBTMusicViewController.swift; sourceTree = "<group>"; };
+		81CE5AA82594DBC200CB4263 /* JKBTMusicViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKBTMusicViewController.xib; sourceTree = "<group>"; };
 		85956F4D4CFE46E94AA3B560 /* Pods_Neck.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Neck.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D4F0652257236AD0007B185 /* JKBlueToothHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKBlueToothHelper.swift; sourceTree = "<group>"; };
 		9D4F06892572674E0007B185 /* JKDevicesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKDevicesViewController.swift; sourceTree = "<group>"; };
@@ -244,6 +248,7 @@
 				815215AE258FAE4900C95EFE /* AUX */,
 				553C5B27256BD79F00D8EF32 /* FABA */,
 				553C5B26256BD76900D8EF32 /* Radio */,
+				81CE5AA52594DB9F00CB4263 /* BTMusic */,
 				553C5B25256BD70E00D8EF32 /* Memory */,
 				81A160BE2588F19C00721463 /* TRBA */,
 			);
@@ -490,6 +495,23 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		81CE5AA52594DB9F00CB4263 /* BTMusic */ = {
+			isa = PBXGroup;
+			children = (
+				81CE5AA62594DBA600CB4263 /* ViewController */,
+			);
+			path = BTMusic;
+			sourceTree = "<group>";
+		};
+		81CE5AA62594DBA600CB4263 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				81CE5AA72594DBC200CB4263 /* JKBTMusicViewController.swift */,
+				81CE5AA82594DBC200CB4263 /* JKBTMusicViewController.xib */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
 		9D4F0687257267220007B185 /* Devices */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +614,7 @@
 				9D4F068C2572674E0007B185 /* JKDevicesViewController.xib in Resources */,
 				55E83EB024A08C27002EB229 /* LaunchScreen.storyboard in Resources */,
 				815215B3258FAE8500C95EFE /* JKAUXViewController.xib in Resources */,
+				81CE5AAA2594DBC200CB4263 /* JKBTMusicViewController.xib in Resources */,
 				9DE0D63C25726A13009DAA73 /* JKDeviceTableViewCell.xib in Resources */,
 				55B0A57E2577637900994221 /* JKDeviceTableViewHeader.xib in Resources */,
 				553C5B33256BD7F600D8EF32 /* JKRadioViewController.xib in Resources */,
@@ -701,6 +724,7 @@
 				55E83F2324A09226002EB229 /* DispatchQueue+Extension.swift in Sources */,
 				81A160C22588F1D200721463 /* JKTRBAViewController.swift in Sources */,
 				55E83F1024A09226002EB229 /* UIColor+Extension.swift in Sources */,
+				81CE5AA92594DBC200CB4263 /* JKBTMusicViewController.swift in Sources */,
 				55E83F1924A09226002EB229 /* UICollectionView+Extension.swift in Sources */,
 				55E83F1C24A09226002EB229 /* UIScrollView+Extension.swift in Sources */,
 				55E83F2424A09226002EB229 /* Range+Extention.swift in Sources */,

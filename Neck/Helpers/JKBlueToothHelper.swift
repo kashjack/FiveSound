@@ -8,6 +8,14 @@
 
 import UIKit
 import CoreBluetooth
+import CoreTelephony
+
+enum CallType {
+    case Dialing
+    case Connected
+    case Incoming
+    case Disconnected
+}
 
 enum ReceiveDataType {
     case voice
@@ -20,6 +28,9 @@ enum ReceiveDataType {
     case fabaTrba
     case trba
     case playProgress
+    case playAllProgress
+    case playStatus
+    case band
 }
 
 class JKBlueToothHelper: NSObject {
@@ -31,6 +42,30 @@ class JKBlueToothHelper: NSObject {
     var data: Data?
     var deviceUpdate: ((CBPeripheral) -> Void)?
     var receiveUpdate: ((ReceiveDataType) -> Void)?
+    private var callCenter = CTCallCenter()
+    var callType = CallType.Disconnected
+    
+    func isConnect() -> Bool{
+//        return true
+        return JKBlueToothHelper.shared.connectPeripheral != nil
+    }
+    //closure: @escaping ((CTCall) -> Void)
+    func setCallStatus(){
+        JKBlueToothHelper.shared.callCenter.callEventHandler = { call in
+            if call.callState == CTCallStateDialing {
+                JKBlueToothHelper.shared.callType = .Dialing
+            }
+            else if call.callState == CTCallStateIncoming {
+                JKBlueToothHelper.shared.callType = .Incoming
+            }
+            else if call.callState == CTCallStateConnected {
+                JKBlueToothHelper.shared.callType = .Connected
+            }
+            else if call.callState == CTCallStateDisconnected {
+                JKBlueToothHelper.shared.callType = .Disconnected
+            }
+        }
+    }
     
     
     func createCentralManager() {
@@ -203,19 +238,41 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
         }
         else if bytes.count == 10 {
             // 频道
-            if bytes[2] == 4 && bytes[4] == 2 && bytes[5] == 0 {
+            if bytes[2] == 4 && bytes[3] == 132 && bytes[4] == 2{
                 JKSettingHelper.shared.currentChannel = Int(bytes[7]) * 256 + Int(bytes[6])
+                if bytes[5] == 0{
+                    JKSettingHelper.shared.band = "FM1"
+                }
+                else if bytes[5] == 1{
+                    JKSettingHelper.shared.band = "FM2"
+                }
+                else if bytes[5] == 2{
+                    JKSettingHelper.shared.band = "FM3"
+                }
+                else if bytes[5] == 3{
+                    JKSettingHelper.shared.band = "AM1"
+                }
+                else if bytes[5] == 4 {
+                    JKSettingHelper.shared.band = "AM2"
+                }
                 type = .channel
             }
+            
+            
         }
         else if bytes.count == 9 {
             // 播放进度
-            if bytes[2] == 3 && bytes[3] == 133 && bytes[4] == 1 && bytes[5] == 0 {
-                JKSettingHelper.shared.playProgress = Int(bytes[6])
+            if bytes[2] == 3 && bytes[3] == 133 && bytes[4] == 1 {
+                JKSettingHelper.shared.playProgress = Int(bytes[5]) * 256 + Int(bytes[6])
                 type = .playProgress
             }
         }
         else if bytes.count == 8 {
+            // 播放总长度
+            if bytes[2] == 2 && bytes[3] == 133 && bytes[4] == 2 {
+                JKSettingHelper.shared.playAllProgress = Int(bytes[5]) * 256 + Int(bytes[6])
+                type = .playAllProgress
+            }
             // 音量
             if bytes[2] == 2 && bytes[3] == 130 && bytes[4] == 4 {
                 JKSettingHelper.shared.maxVoiceValue = bytes[5]
@@ -223,7 +280,7 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                 type = .voice
             }
             // Device
-            if bytes[2] == 2 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 4 && bytes[6] == 2 && bytes[7] == 116 {
+            if bytes[2] == 2 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 4 && bytes[6] + bytes[7] == 118 {
                 JKSettingHelper.shared.deviceStatus = .bt
                 type = .device
             }
@@ -264,14 +321,19 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
                 type = .device
             }
             // Device
-            if bytes[2] == 1 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 2 && bytes[6] == 121{
+            if bytes[2] == 1 && bytes[3] == 129 && bytes[5] == 2 && (bytes[6] + bytes[4] == 124){
                 JKSettingHelper.shared.deviceStatus = .sd
                 type = .device
             }
             // Device
-            if bytes[2] == 1 && bytes[3] == 129 && bytes[4] == 3 && bytes[5] == 1 && bytes[6] == 122{
+            if bytes[2] == 1 && bytes[3] == 129 && bytes[5] == 1 && (bytes[6] + bytes[4] == 125){
                 JKSettingHelper.shared.deviceStatus = .usb
                 type = .device
+            }
+            // playStatus
+            if bytes[2] == 1 && bytes[3] == 132 && bytes[4] == 4 {
+                JKSettingHelper.shared.playStatus = (bytes[5] == 0)
+                type = .playStatus
             }
             // trba
             if bytes[2] == 1 && bytes[3] == 130 && bytes[4] == 6{

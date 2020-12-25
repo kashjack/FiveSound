@@ -19,7 +19,11 @@ class JKHomePageViewController: JKViewController {
     @IBOutlet weak var btnForConnect: UIButton!
     
     private var index: UInt8 = 0
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.setReceiveData()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,8 +33,7 @@ class JKHomePageViewController: JKViewController {
 
     // MARK:  setUI
     private func setUI() {
-       
-
+        JKBlueToothHelper.shared.setCallStatus()
     }
 
 
@@ -49,60 +52,76 @@ class JKHomePageViewController: JKViewController {
         self.btn1.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-//                if JKBlueToothHelper.shared.connectPeripheral == nil {
-//                    WULoadingView.show("Bluetooth Disconnected")
-//                    return
-//                }
-                JKSettingHelper.setModel(index: 3)
-                self.navigationController?.pushViewController(JKAUXViewController(), animated: true)
+                if JKBlueToothHelper.shared.isConnect() && JKBlueToothHelper.shared.callType == .Disconnected {
+                    JKSettingHelper.setModel(index: 3)
+                    self.navigationController?.pushViewController(JKAUXViewController(), animated: true)
+                }else{
+                    if JKBlueToothHelper.shared.callType != .Disconnected {
+                        WULoadingView.show("The phone is in a call")
+                    }else{
+                        WULoadingView.show("Bluetooth Disconnected")
+                    }
+                }
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
         self.btn2.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-//                if JKBlueToothHelper.shared.connectPeripheral == nil {
-//                    WULoadingView.show("Bluetooth Disconnected")
-//                    return
-//                }
-                JKSettingHelper.setModel(index: 4)
-                self.navigationController?.pushViewController(JKMemoryViewController(type: .bt), animated: true)
+                if JKBlueToothHelper.shared.isConnect() && JKBlueToothHelper.shared.callType == .Disconnected {
+                    JKSettingHelper.setModel(index: 4)
+                    self.navigationController?.pushViewController(JKBTMusicViewController(), animated: true)
+                }else{
+                    if JKBlueToothHelper.shared.callType != .Disconnected {
+                        WULoadingView.show("The phone is in a call")
+                    }else{
+                        WULoadingView.show("Bluetooth Disconnected")
+                    }
+                }
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
         self.btn3.rx.controlEvent(.touchUpInside)
-            .subscribe(onNext: {[weak self] element in
-                guard let self = self else { return }
-//                if JKBlueToothHelper.shared.connectPeripheral == nil {
-//                    WULoadingView.show("Bluetooth Disconnected")
-//                    return
-//                }
-                JKSettingHelper.setModel(index: 1)
-                self.navigationController?.pushViewController(JKMemoryViewController(type: .usb), animated: true)
+            .subscribe(onNext: { element in
+                if JKBlueToothHelper.shared.isConnect() && JKBlueToothHelper.shared.callType == .Disconnected {
+                    JKSettingHelper.setModel(index: 1)
+                }else{
+                    if JKBlueToothHelper.shared.callType != .Disconnected {
+                        WULoadingView.show("The phone is in a call")
+                    }else{
+                        WULoadingView.show("Bluetooth Disconnected")
+                    }
+                }
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
         self.btn4.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-//                if JKBlueToothHelper.shared.connectPeripheral == nil {
-//                    WULoadingView.show("Bluetooth Disconnected")
-//                    return
-//                }
-                JKSettingHelper.setModel(index: 5)
-                self.navigationController?.pushViewController(JKRadioViewController(), animated: true)
+                if JKBlueToothHelper.shared.isConnect() && JKBlueToothHelper.shared.callType == .Disconnected {
+                    JKSettingHelper.setModel(index: 5)
+                    self.navigationController?.pushViewController(JKRadioViewController(), animated: true)
+                }else{
+                    if JKBlueToothHelper.shared.callType != .Disconnected {
+                        WULoadingView.show("The phone is in a call")
+                    }else{
+                        WULoadingView.show("Bluetooth Disconnected")
+                    }
+                }
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
         self.btn5.rx.controlEvent(.touchUpInside)
-            .subscribe(onNext: {[weak self] element in
-                guard let self = self else { return }
-//                if JKBlueToothHelper.shared.connectPeripheral == nil {
-//                    WULoadingView.show("Bluetooth Disconnected")
-//                    return
-//                }
-                JKSettingHelper.setModel(index: 2)
-                self.navigationController?.pushViewController(JKMemoryViewController(type: .sd), animated: true)
+            .subscribe(onNext: { element in
+                if JKBlueToothHelper.shared.isConnect() && JKBlueToothHelper.shared.callType == .Disconnected {
+                    JKSettingHelper.setModel(index: 2)
+                }else{
+                    if JKBlueToothHelper.shared.callType != .Disconnected {
+                        WULoadingView.show("The phone is in a call")
+                    }else{
+                        WULoadingView.show("Bluetooth Disconnected")
+                    }
+                }
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
         
@@ -114,6 +133,19 @@ class JKHomePageViewController: JKViewController {
         }).disposed(by: self.disposeBag)
 
     }
+    
+    func setReceiveData() {
+        JKBlueToothHelper.shared.receiveUpdate = { [weak self] type in
+            guard let self = self else { return }
+            if type == .device {
+                if JKSettingHelper.shared.deviceStatus == .usb || JKSettingHelper.shared.deviceStatus == .sd{
+                    self.navigationController?.pushViewController(JKMemoryViewController.init(type: JKSettingHelper.shared.deviceStatus), animated: true)
+                }
+            }
+
+        }
+    }
+    
     
 }
 

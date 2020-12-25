@@ -17,6 +17,7 @@
                 <outlet property="btnForLoud" destination="e2C-dP-84F" id="l2x-yt-2II"/>
                 <outlet property="btnForNext" destination="u3n-6m-dw4" id="nSq-Kk-urb"/>
                 <outlet property="btnForPlay" destination="iRy-9f-KGa" id="NY4-yC-1Kp"/>
+                <outlet property="btnForPlayType" destination="5ZB-lt-IEt" id="sGh-X7-nqv"/>
                 <outlet property="btnForPrevious" destination="uGJ-fc-1ZT" id="M1W-uS-J0j"/>
                 <outlet property="btnForSub" destination="lfc-dK-6sP" id="Ucs-pw-j37"/>
                 <outlet property="btnForUser" destination="VC8-J7-lqT" id="0wi-RF-BeV"/>
@@ -152,7 +153,8 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="H30-ve-E2O"/>
                     </constraints>
-                    <state key="normal" image="icon_7"/>
+                    <state key="normal" image="play"/>
+                    <state key="selected" image="pause"/>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00:00" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vz4-Fh-GIE">
                     <rect key="frame" x="5" y="517" width="75" height="30"/>
@@ -270,9 +272,10 @@
         <image name="icon_2" width="20" height="20"/>
         <image name="icon_5" width="40" height="40"/>
         <image name="icon_6" width="40" height="40"/>
-        <image name="icon_7" width="22" height="22"/>
         <image name="icon_back" width="14" height="14"/>
         <image name="music_2" width="25" height="25"/>
+        <image name="pause" width="64" height="64"/>
+        <image name="play" width="64" height="64"/>
         <image name="sub2" width="29" height="11"/>
         <image name="zt_2" width="184.5" height="16.5"/>
         <systemColor name="systemBackgroundColor">

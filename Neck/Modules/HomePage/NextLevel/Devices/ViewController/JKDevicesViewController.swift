@@ -128,7 +128,7 @@ class JKDevicesViewController: JKViewController {
                 }
                 else if JKSettingHelper.shared.deviceStatus == .bt{
                     self.dismiss(animated: false) {
-                        JKViewController.topViewController()?.navigationController?.pushViewController(JKMemoryViewController.init(type: .bt), animated: true)
+                        JKViewController.topViewController()?.navigationController?.pushViewController(JKBTMusicViewController(), animated: true)
                     }
                 }
                 else if JKSettingHelper.shared.deviceStatus == .usb || JKSettingHelper.shared.deviceStatus == .sd{

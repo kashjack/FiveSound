@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 class JKRadioViewController: JKViewController {
-
+    
     @IBOutlet weak var btnForBack: UIButton!
     @IBOutlet weak var btn1: UIButton!
     @IBOutlet weak var btn2: UIButton!
@@ -29,14 +29,14 @@ class JKRadioViewController: JKViewController {
     @IBOutlet weak var btnForLoud: JKButton!
     @IBOutlet weak var btnForConnect: UIButton!
     @IBOutlet weak var btnForUser: UIButton!
-    
+    @IBOutlet weak var labForTitle: UILabel!
     private let longPress1 = UILongPressGestureRecognizer()
     private let longPress2 = UILongPressGestureRecognizer()
     private let longPress3 = UILongPressGestureRecognizer()
     private let longPress4 = UILongPressGestureRecognizer()
     private let longPress5 = UILongPressGestureRecognizer()
     private let longPress6 = UILongPressGestureRecognizer()
-
+    
     @IBOutlet weak var labForChannel: UILabel!
     private lazy var slideView: UIView = {
         let view = UIView()
@@ -54,7 +54,7 @@ class JKRadioViewController: JKViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.setUI()
         self.updateUI()
         self.setAction()
@@ -63,7 +63,7 @@ class JKRadioViewController: JKViewController {
     // MARK:  setUI
     private func setUI() {
         self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
-
+        
         self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
         
         self.backView.addSubview(self.slideView)
@@ -82,7 +82,7 @@ class JKRadioViewController: JKViewController {
         self.btn6.addGestureRecognizer(self.longPress6)
         
     }
-
+    
     // MARK:  updateUI
     private func updateUI() {
         self.slider.maximumValue = Float(JKSettingHelper.shared.maxVoiceValue)
@@ -114,7 +114,7 @@ class JKRadioViewController: JKViewController {
                 self.navigationController?.pushViewController(JKFABAViewController(), animated: true)
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
-
+        
         self.btn1.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setChannel(index: 1)
@@ -209,13 +209,13 @@ class JKRadioViewController: JKViewController {
         self.btnForLoud.rx.tap.subscribe(onNext: { element in
             JKSettingHelper.setLoud(isSel: !JKSettingHelper.shared.loud)
         }).disposed(by: self.disposeBag)
-                
+        
         self.btnForUp.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setUpChannel()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
-
+        
         self.btnForDown.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {
                 JKSettingHelper.setDownChannel()
@@ -230,7 +230,7 @@ class JKRadioViewController: JKViewController {
             .disposed(by: self.disposeBag)
         
     }
-
+    
     
     
     @objc func valueChange() {
@@ -254,19 +254,38 @@ class JKRadioViewController: JKViewController {
                 self.btnForLoud.setButtonColor(isSelected: JKSettingHelper.shared.loud)
             }
             else if type == .channel {
-                self.labForChannel.text = String(format: "%.1f", Double(JKSettingHelper.shared.currentChannel) / 100)
-                let distance = CGFloat(JKSettingHelper.shared.currentChannel - 8700) / 10.0
-                self.slideView.snp.updateConstraints { (make) in
-                    make.left.equalToSuperview().offset(distance)
+                if JKSettingHelper.shared.band == "FM1" || JKSettingHelper.shared.band == "FM2" || JKSettingHelper.shared.band == "FM3"{
+                    self.labForChannel.text = String(format: "%.1f", Double(JKSettingHelper.shared.currentChannel) / 100)
+                    let distance = CGFloat(JKSettingHelper.shared.currentChannel - 8700) / 10.0
+                    self.slideView.snp.updateConstraints { (make) in
+                        make.left.equalToSuperview().offset(distance)
+                    }
+                }else{
+                    self.labForChannel.text = "\(JKSettingHelper.shared.currentChannel)"
+                    let distance = CGFloat(JKSettingHelper.shared.currentChannel - 520) / 5.0
+                    self.slideView.snp.updateConstraints { (make) in
+                        make.left.equalToSuperview().offset(distance)
+                    }
                 }
+
+                self.labForTitle.text = JKSettingHelper.shared.band
             }
             else if type == .sixChannel {
-                self.btn1.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel1) / 100), for: UIControl.State.normal)
-                self.btn2.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel2) / 100), for: UIControl.State.normal)
-                self.btn3.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel3) / 100), for: UIControl.State.normal)
-                self.btn4.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel4) / 100), for: UIControl.State.normal)
-                self.btn5.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel5) / 100), for: UIControl.State.normal)
-                self.btn6.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel6) / 100), for: UIControl.State.normal)
+                if JKSettingHelper.shared.band == "FM1" || JKSettingHelper.shared.band == "FM2" || JKSettingHelper.shared.band == "FM3"{
+                    self.btn1.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel1) / 100), for: UIControl.State.normal)
+                    self.btn2.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel2) / 100), for: UIControl.State.normal)
+                    self.btn3.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel3) / 100), for: UIControl.State.normal)
+                    self.btn4.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel4) / 100), for: UIControl.State.normal)
+                    self.btn5.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel5) / 100), for: UIControl.State.normal)
+                    self.btn6.setTitle(String(format: "%.1f", Double(JKSettingHelper.shared.channel6) / 100), for: UIControl.State.normal)
+                }else{
+                    self.btn1.setTitle("\(JKSettingHelper.shared.channel1)", for: UIControl.State.normal)
+                    self.btn2.setTitle("\(JKSettingHelper.shared.channel2)", for: UIControl.State.normal)
+                    self.btn3.setTitle("\(JKSettingHelper.shared.channel3)", for: UIControl.State.normal)
+                    self.btn4.setTitle("\(JKSettingHelper.shared.channel4)", for: UIControl.State.normal)
+                    self.btn5.setTitle("\(JKSettingHelper.shared.channel5)", for: UIControl.State.normal)
+                    self.btn6.setTitle("\(JKSettingHelper.shared.channel6)", for: UIControl.State.normal)
+                }
             }
         }
     }
