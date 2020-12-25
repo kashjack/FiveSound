@@ -23,8 +23,8 @@ class JKBTMusicViewController: JKViewController {
     @IBOutlet weak var slider: JKSlider!
     
     var type: DeviceStatus = .none
-    var isFirstComing = true
-    var isRotating = true
+    private var displayLink: CADisplayLink?
+    private var isAnimation = false
 
     
     convenience init(type: DeviceStatus) {
@@ -38,6 +38,11 @@ class JKBTMusicViewController: JKViewController {
         self.setReceiveData()
         JKSettingHelper.getBTMusic()
     }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        self.removeDisplayLink()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,6 +55,9 @@ class JKBTMusicViewController: JKViewController {
     private func setUI() {
         self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
         self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
+
+        self.displayLink  = CADisplayLink.init(target: self, selector: #selector(circle))
+        self.displayLink!.add(to: RunLoop.main, forMode: RunLoop.Mode.default)
     }
 
     // MARK:  updateUI
@@ -93,11 +101,7 @@ class JKBTMusicViewController: JKViewController {
         self.btnForPlay.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                if !self.btnForPlay.isSelected {
-                    self.startRotate()
-                }else{
-                    self.pauseRotate()
-                }
+                self.isAnimation = self.btnForPlay.isSelected
                 self.btnForPlay.isSelected = !self.btnForPlay.isSelected
                 JKSettingHelper.playOrPause()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
@@ -139,12 +143,7 @@ class JKBTMusicViewController: JKViewController {
             }
             else if type == .playStatus {
                 self.btnForPlay.isSelected = JKSettingHelper.shared.playStatus
-                if self.isFirstComing {
-                    self.startRotate()
-                    if !self.btnForPlay.isSelected {
-                        self.pauseRotate()
-                    }
-                }
+                self.isAnimation = JKSettingHelper.shared.playStatus
             }
         }
     }
@@ -157,43 +156,19 @@ class JKBTMusicViewController: JKViewController {
         JKSettingHelper.setVoiceValue()
     }
 
-
-    private func startRotate() {
-        if self.isFirstComing {
-            self.isFirstComing = false
-            let rotateAnimation = CABasicAnimation(keyPath: "transform.rotation.z")
-            rotateAnimation.isRemovedOnCompletion = false // 避免点击 Home 键返回,动画停止
-            rotateAnimation.fromValue = 0.0
-            rotateAnimation.toValue = Double.pi * 2
-            rotateAnimation.duration = 20
-            rotateAnimation.repeatCount = MAXFLOAT
-            self.imgVForType.layer.add(rotateAnimation, forKey: nil)
-        }else{
-            if self.isRotating {
-                return
-            }
-            if self.imgVForType.layer.timeOffset == 0 {
-                self.startRotate()
-                return
-            }
-            let pausedTime = self.imgVForType.layer.timeOffset
-            self.imgVForType.layer.speed = 1.0
-            self.imgVForType.layer.timeOffset = 5
-            self.imgVForType.layer.beginTime = 0.0
-            let timeWhenpause = self.imgVForType.layer.convertTime(CACurrentMediaTime(), from: nil) - pausedTime
-            self.imgVForType.layer.beginTime = timeWhenpause
+    @objc private func circle() {
+        if isAnimation {
+            self.imgVForType.transform = self.imgVForType.transform.rotated(by: CGFloat.pi / 100)
         }
-        self.isRotating = true
     }
 
-    func pauseRotate() {
-        if !self.isRotating {
-            return
-        }
-        let pauseTime = self.imgVForType.layer.convertTime(CACurrentMediaTime(), to: nil)
-        self.imgVForType.layer.speed = 0.0
-        self.imgVForType.layer.timeOffset = pauseTime
-        self.isRotating = false
+
+    private func removeDisplayLink() {
+        if self.displayLink == nil { return }
+        self.displayLink!.remove(from: RunLoop.main, forMode: RunLoop.Mode.default)
+        self.displayLink!.invalidate()
+        self.displayLink = nil
     }
+
 
 }

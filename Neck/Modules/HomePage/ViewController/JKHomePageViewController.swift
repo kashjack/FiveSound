@@ -68,6 +68,9 @@ class JKHomePageViewController: JKViewController {
         self.btn2.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
+                self.navigationController?.pushViewController(JKBTMusicViewController(), animated: true)
+                return
+
                 if JKBlueToothHelper.shared.isConnect() && JKBlueToothHelper.shared.callType == .Disconnected {
                     JKSettingHelper.setModel(index: 4)
                     self.navigationController?.pushViewController(JKBTMusicViewController(), animated: true)
