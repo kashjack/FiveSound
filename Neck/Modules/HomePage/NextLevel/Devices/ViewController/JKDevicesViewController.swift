@@ -66,7 +66,7 @@ class JKDevicesViewController: JKViewController {
     private func setAction() {
         self.btnForBack.rx.tap.subscribe(onNext: {[weak self] element in
             guard let self = self else { return }
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
 
         self.btnForSearch.rx.controlEvent(.touchUpInside)

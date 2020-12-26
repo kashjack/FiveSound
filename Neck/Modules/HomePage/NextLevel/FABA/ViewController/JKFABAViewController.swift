@@ -157,25 +157,30 @@ class JKFABAViewController: JKViewController {
                 guard let self = self else { return }
                 self.slider1.value = 0
                 self.slider2.value = 0
-                self.moveView.snp.updateConstraints { (make) in
-                    make.center.equalToSuperview()
-                }
+                self.moveView.center = CGPoint.init(x: 95, y: 170)
                 self.setFafb()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
     }
     
     @objc private func slide1Action() {
-        self.moveView.snp.updateConstraints { (make) in
-            make.centerY.equalToSuperview().offset(300 / 14 * CGFloat(self.slider1.value))
-        }
+        self.moveView.center = CGPoint.init(x: 150 / 14 * CGFloat(self.slider2.value + 7) + 20, y: 300 / 14 * CGFloat(self.slider1.value + 7) + 20)
+        print("\(self.slider1.value)" + "================" + "\(self.slider2.value)")
         self.setFafb()
     }
     
     @objc private func slide2Action() {
-        self.moveView.snp.updateConstraints { (make) in
-            make.centerX.equalToSuperview().offset(150 / 14 * CGFloat(self.slider2.value))
-        }
+        self.moveView.center = CGPoint.init(x: 150 / 14 * CGFloat(self.slider2.value + 7) + 20, y: 300 / 14 * CGFloat(self.slider1.value + 7) + 20)
+        print("\(self.slider1.value)" + "----------------" + "\(self.slider2.value)")
+
+//        var center = self.moveView.center
+//        center.x = 150 / 14 * CGFloat(self.slider2.value)
+//        self.moveView.center = CGPoint.init(x: 95, y: 170)
+//
+//
+//        self.moveView.snp.updateConstraints { (make) in
+//            make.centerX.equalToSuperview().offset(150 / 14 * CGFloat(self.slider2.value))
+//        }
         self.setFafb()
     }
     
