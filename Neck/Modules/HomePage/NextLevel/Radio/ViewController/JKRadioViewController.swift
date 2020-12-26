@@ -287,6 +287,9 @@ class JKRadioViewController: JKViewController {
                     self.btn6.setTitle("\(JKSettingHelper.shared.channel6)", for: UIControl.State.normal)
                 }
             }
+            else if type == .device {
+                self.jumpDeviceStatusVC()
+            }
         }
     }
 }

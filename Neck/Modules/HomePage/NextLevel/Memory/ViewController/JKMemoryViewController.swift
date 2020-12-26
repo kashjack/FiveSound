@@ -34,9 +34,7 @@ class JKMemoryViewController: JKViewController {
     private let longPress2 = UILongPressGestureRecognizer()
     
     var type: DeviceStatus = .none
-    
-    var index = 3
-    
+        
     convenience init(type: DeviceStatus) {
         self.init()
         self.type = type
@@ -72,6 +70,7 @@ class JKMemoryViewController: JKViewController {
             self.imgVForType.image = UIImage.init(named: "2_icon_1")
         }
         
+        self.setPlayModelBtn()
         self.labForAll.text = self.formatTime(time: JKSettingHelper.shared.playAllProgress)
         self.btnForConnect.isSelected = (JKBlueToothHelper.shared.connectPeripheral != nil)
         self.slider.addTarget(self, action: #selector(valueChange), for: UIControl.Event.valueChanged)
@@ -162,13 +161,20 @@ class JKMemoryViewController: JKViewController {
         }).disposed(by: self.disposeBag)
         
         self.btnForPlayType.rx.controlEvent(.touchUpInside)
-            .subscribe(onNext: {[weak self] element in
-                guard let self = self else { return }
-                self.btnForPlayType.setImage(UIImage.init(named: "music_\(self.index)"), for: UIControl.State.normal)
-                self.index += 1
-                if self.index == 4 {
-                    self.index = 1
+            .subscribe(onNext: { element in
+                if JKSettingHelper.shared.playModel == "none" {
+                    JKSettingHelper.setSingleCycle()
+                    JKSettingHelper.shared.playModel = "rep"
                 }
+                else if JKSettingHelper.shared.playModel == "rep" {
+                    JKSettingHelper.setRandom()
+                    JKSettingHelper.shared.playModel = "rom"
+                }
+                else if JKSettingHelper.shared.playModel == "rom" {
+                    JKSettingHelper.setCycle()
+                    JKSettingHelper.shared.playModel = "none"
+                }
+                self.setPlayModelBtn()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
@@ -202,6 +208,24 @@ class JKMemoryViewController: JKViewController {
             else if type == .playStatus {
                 self.btnForPlay.isSelected = JKSettingHelper.shared.playStatus
             }
+            else if type == .device {
+                self.jumpDeviceStatusVC()
+            }
+            else if type == .playModel {
+                self.setPlayModelBtn()
+            }
+        }
+    }
+    
+    private func setPlayModelBtn() {
+        if JKSettingHelper.shared.playModel == "none" {
+            self.btnForPlayType.setImage(UIImage.init(named: "music_2"), for: UIControl.State.normal)
+        }
+        else if JKSettingHelper.shared.playModel == "rep" {
+            self.btnForPlayType.setImage(UIImage.init(named: "music_1"), for: UIControl.State.normal)
+        }
+        else if JKSettingHelper.shared.playModel == "rom" {
+            self.btnForPlayType.setImage(UIImage.init(named: "music_3"), for: UIControl.State.normal)
         }
     }
     
@@ -213,6 +237,9 @@ class JKMemoryViewController: JKViewController {
     @objc func prograssIsEditEnd() {
         JKSettingHelper.setPrograss(intAll: Int32(Float(JKSettingHelper.shared.playAllProgress) * self.slideForProgress.value))
         self.sliderIsEditing = true
+        if !JKSettingHelper.shared.playStatus {
+            JKSettingHelper.playOrPause()
+        }
     }
     
     @objc func valueChange() {

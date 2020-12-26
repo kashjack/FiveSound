@@ -27,6 +27,12 @@ enum DeviceStatus {
     case aux
 }
 
+enum PlayModel {
+    case rom
+    case none
+    case rep
+}
+
 class JKSettingHelper: NSObject {
     
     static let shared = JKSettingHelper()
@@ -42,6 +48,16 @@ class JKSettingHelper: NSObject {
     var loud = false
     // 播放状态
     var playStatus = false
+    
+    // 播放模式
+    var playModel: String{
+        set {
+            UserDefaults.standard.setValue(newValue, forKey: "playModel")
+        }
+        get {
+            return UserDefaults.standard.string(forKey: "playModel") ?? "none"
+        }
+    }
     
     // Faba
     var faba = FABA()
@@ -72,7 +88,7 @@ class JKSettingHelper: NSObject {
             UserDefaults.standard.setValue(newValue, forKey: "playAllProgress")
         }
         get {
-            if UserDefaults.standard.integer(forKey: "") == 0 {
+            if UserDefaults.standard.integer(forKey: "playAllProgress") == 0 {
                 UserDefaults.standard.setValue(253, forKey: "playAllProgress")
             }
             return UserDefaults.standard.integer(forKey: "playAllProgress")
@@ -211,12 +227,12 @@ class JKSettingHelper: NSObject {
     
     // MARK:  设置单曲
     class func setSingleCycle() {
-        let arr: [UInt8] = [0x55, 0xaa, 1, 5, 7, 0, 0xf3]
+        let arr: [UInt8] = [0x55, 0xaa, 1, 5, 7, 1, 0xf2]
         JKBlueToothHelper.shared.writeCharacteristice(value: arr)
     }
     // MARK:  设置循环
     class func setCycle() {
-        let arr: [UInt8] = [0x55, 0xaa, 1, 5, 7, 1, 0xf2]
+        let arr: [UInt8] = [0x55, 0xaa, 1, 5, 7, 0, 0xf3]
         JKBlueToothHelper.shared.writeCharacteristice(value: arr)
     }
     // MARK:  设置随机
@@ -246,19 +262,17 @@ extension JKSettingHelper {
     class func getUSB() {
         self.getVoice()
         self.getLoud()
-        self.getSub()
-        self.getPlayStatus()
         self.getPlayModel()
+        self.getPlayStatus()
     }
     
     // MARK:  获取SDCard信息
     class func getSDCard() {
         self.getVoice()
         self.getLoud()
-        self.getSub()
-        self.getPlayStatus()
         self.getPlayModel()
-    }
+        self.getPlayStatus()
+     }
     
     
     
@@ -308,9 +322,9 @@ extension JKSettingHelper {
         JKBlueToothHelper.shared.writeCharacteristice(value: arr)
     }
     
-    private class func getSub() {
-        let arr: [UInt8] = [0x55, 0xaa, 1, 1, 2, 2, 0xfa]
-        JKBlueToothHelper.shared.writeCharacteristice(value: arr)
+    private class func getPlayModel() {
+//        let arr: [UInt8] = [0x55, 0xaa, 1, 1, 2, 2, 0xfa]
+//        JKBlueToothHelper.shared.writeCharacteristice(value: arr)
     }
     
     private class func getLoud() {
@@ -320,11 +334,6 @@ extension JKSettingHelper {
     
     private class func getPlayStatus() {
         let arr: [UInt8] = [0x55, 0xaa, 0, 4, 4, 0xf8]
-        JKBlueToothHelper.shared.writeCharacteristice(value: arr)
-    }
-    
-    private class func getPlayModel() {
-        let arr: [UInt8] = [0x55, 0xaa, 1, 5, 7, 1, 0xf2]
         JKBlueToothHelper.shared.writeCharacteristice(value: arr)
     }
     

@@ -189,6 +189,9 @@ class JKFABAViewController: JKViewController {
                 self.slider1.value = Float(JKSettingHelper.shared.faba.fa) - 7
                 self.slider2.value = Float(JKSettingHelper.shared.faba.fb) - 7
             }
+            else if type == .device {
+                self.jumpDeviceStatusVC()
+            }
         }
     }
     

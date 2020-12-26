@@ -93,6 +93,9 @@ class JKAUXViewController: JKViewController {
             else if type == .loud {
                 self.btnForLoud.setButtonColor(isSelected: JKSettingHelper.shared.loud)
             }
+            else if type == .device {
+                self.jumpDeviceStatusVC()
+            }
         }
     }
     
