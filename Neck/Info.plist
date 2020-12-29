@@ -154,7 +154,7 @@
 		<true/>
 	</dict>
 	<key>NSBluetoothAlwaysUsageDescription</key>
-	<string>Is bluetooth allowed for this app？</string>
+	<string>The APP needs your permission to access the Bluetooth paired stereo equipment. If you disable it, you will not be able to pair the hardware</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>remote-notification</string>
