@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>Five Sound</string>
+	<string>Five Sounds</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -155,8 +155,11 @@
 	</dict>
 	<key>NSBluetoothAlwaysUsageDescription</key>
 	<string>The APP needs your permission to access the Bluetooth paired stereo equipment. If you disable it, you will not be able to pair the hardware</string>
+	<key>NSBluetoothPeripheralUsageDescription</key>
+	<string>The APP needs your permission to access the Bluetooth paired stereo equipment. If you disable it, you will not be able to pair the hardware</string>
 	<key>UIBackgroundModes</key>
 	<array>
+		<string>bluetooth-central</string>
 		<string>remote-notification</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
