@@ -30,6 +30,7 @@ enum ReceiveDataType {
     case playProgress
     case playAllProgress
     case playStatus
+    case playModel
     case band
 }
 
@@ -334,6 +335,19 @@ extension JKBlueToothHelper: CBPeripheralDelegate {
             if bytes[2] == 1 && bytes[3] == 132 && bytes[4] == 4 {
                 JKSettingHelper.shared.playStatus = (bytes[5] == 0)
                 type = .playStatus
+            }
+            // playModel
+            if bytes[2] == 1 && bytes[3] == 133 && bytes[4] == 7 {
+                if bytes[5] == 1 {
+                    JKSettingHelper.shared.playModel = "rep"
+                }
+                else if bytes[5] == 4 {
+                    JKSettingHelper.shared.playModel = "rom"
+                }
+                else {
+                    JKSettingHelper.shared.playModel = "none"
+                }
+                type = .playModel
             }
             // trba
             if bytes[2] == 1 && bytes[3] == 130 && bytes[4] == 6{

@@ -39,8 +39,7 @@ class JKBTMusicViewController: JKViewController {
         JKSettingHelper.getBTMusic()
     }
 
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
+    deinit {
         self.removeDisplayLink()
     }
     
@@ -101,7 +100,7 @@ class JKBTMusicViewController: JKViewController {
         self.btnForPlay.rx.controlEvent(.touchUpInside)
             .subscribe(onNext: {[weak self] element in
                 guard let self = self else { return }
-                self.isAnimation = self.btnForPlay.isSelected
+                self.isAnimation = !self.btnForPlay.isSelected
                 self.btnForPlay.isSelected = !self.btnForPlay.isSelected
                 JKSettingHelper.playOrPause()
             }, onError: nil, onCompleted: nil, onDisposed: nil)
@@ -144,6 +143,9 @@ class JKBTMusicViewController: JKViewController {
             else if type == .playStatus {
                 self.btnForPlay.isSelected = JKSettingHelper.shared.playStatus
                 self.isAnimation = JKSettingHelper.shared.playStatus
+            }
+            else if type == .device {
+                self.jumpDeviceStatusVC()
             }
         }
     }

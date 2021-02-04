@@ -154,6 +154,9 @@ class JKTRBAViewController: JKViewController {
                 self.slide1.currentValue = Double(Int(Double(JKSettingHelper.shared.trba.treble) + 0.5)) - 0.1
                 self.slide2.currentValue = Double(Int(Double(JKSettingHelper.shared.trba.bass) + 0.5)) - 0.1
             }
+            else if type == .device {
+                self.jumpDeviceStatusVC()
+            }
         }
     }
     

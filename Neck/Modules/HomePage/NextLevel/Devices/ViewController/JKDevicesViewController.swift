@@ -66,7 +66,7 @@ class JKDevicesViewController: JKViewController {
     private func setAction() {
         self.btnForBack.rx.tap.subscribe(onNext: {[weak self] element in
             guard let self = self else { return }
-            self.dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
         }).disposed(by: self.disposeBag)
 
         self.btnForSearch.rx.controlEvent(.touchUpInside)
@@ -116,26 +116,7 @@ class JKDevicesViewController: JKViewController {
         JKBlueToothHelper.shared.receiveUpdate = { [weak self] type in
             guard let self = self else { return }
             if type == .device {
-                if JKSettingHelper.shared.deviceStatus == .radio {
-                    self.dismiss(animated: false) {
-                        JKViewController.topViewController()?.navigationController?.pushViewController(JKRadioViewController(), animated: true)
-                    }
-                }
-                else if JKSettingHelper.shared.deviceStatus == .aux {
-                    self.dismiss(animated: false) {
-                        JKViewController.topViewController()?.navigationController?.pushViewController(JKAUXViewController(), animated: true)
-                    }
-                }
-                else if JKSettingHelper.shared.deviceStatus == .bt{
-                    self.dismiss(animated: false) {
-                        JKViewController.topViewController()?.navigationController?.pushViewController(JKBTMusicViewController(), animated: true)
-                    }
-                }
-                else if JKSettingHelper.shared.deviceStatus == .usb || JKSettingHelper.shared.deviceStatus == .sd{
-                    self.dismiss(animated: false) {
-                        JKViewController.topViewController()?.navigationController?.pushViewController(JKMemoryViewController.init(type: JKSettingHelper.shared.deviceStatus), animated: true)
-                    }
-                }
+                self.jumpDeviceStatusVC()
             }
         }
     }

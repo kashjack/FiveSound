@@ -877,8 +877,14 @@
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 20200622;
 				DEVELOPMENT_TEAM = U8N25GN98X;
+=======
+				CURRENT_PROJECT_VERSION = 2020123107;
+				DEVELOPMENT_TEAM = 6RZC22962P;
+				ENABLE_BITCODE = NO;
+>>>>>>> 35ce667465fbdaaf7f6d2569dc3f07982cf4edb6
 				INFOPLIST_FILE = Neck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -886,7 +892,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.kashjack.Neck.www;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiveSound.kashjack.www;
+>>>>>>> 35ce667465fbdaaf7f6d2569dc3f07982cf4edb6
 				PRODUCT_NAME = Neck;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Neck/Macros/Neck-Bridge.h";
@@ -903,8 +913,14 @@
 				CLANG_ENABLE_CODE_COVERAGE = YES;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+<<<<<<< HEAD
 				CURRENT_PROJECT_VERSION = 20200622;
 				DEVELOPMENT_TEAM = U8N25GN98X;
+=======
+				CURRENT_PROJECT_VERSION = 2020123107;
+				DEVELOPMENT_TEAM = 6RZC22962P;
+				ENABLE_BITCODE = NO;
+>>>>>>> 35ce667465fbdaaf7f6d2569dc3f07982cf4edb6
 				INFOPLIST_FILE = Neck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -912,7 +928,11 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
+<<<<<<< HEAD
 				PRODUCT_BUNDLE_IDENTIFIER = com.kashjack.Neck.www;
+=======
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiveSound.kashjack.www;
+>>>>>>> 35ce667465fbdaaf7f6d2569dc3f07982cf4edb6
 				PRODUCT_NAME = Neck;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Neck/Macros/Neck-Bridge.h";

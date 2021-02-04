@@ -18,7 +18,7 @@ class JKViewController: UIViewController {
     }()
 
     public let disposeBag = DisposeBag()
-
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.fd_interactivePopDisabled = true
@@ -33,7 +33,6 @@ class JKViewController: UIViewController {
 
     // MARK:  移除通知
     deinit{
-//        self.disposeBag = DisposeBag()
         NotificationCenter.default.removeObserver(self)
         printLog("\(self)已释放")
     }
@@ -47,6 +46,7 @@ class JKViewController: UIViewController {
             || self is JKTRBAViewController
             || self is JKBTMusicViewController
             || self is JKAUXViewController
+            || self is JKDevicesViewController
         {
             self.navigationController?.setNavigationBarHidden(true, animated: false)
         }
@@ -77,6 +77,72 @@ class JKViewController: UIViewController {
                 }, onError: nil, onCompleted: nil, onDisposed: nil)
             .disposed(by: self.disposeBag)
 
+    }
+    
+    public func jumpDeviceStatusVC() {
+        if var vcs = self.navigationController?.viewControllers {
+            let first = vcs.first!
+            vcs.removeAll()
+            vcs.append(first)
+            if JKSettingHelper.shared.deviceStatus == .aux {
+                if self is JKAUXViewController {
+                    return
+                }
+                vcs.append(JKAUXViewController())
+            }
+            else if JKSettingHelper.shared.deviceStatus == .bt {
+                if self is JKBTMusicViewController {
+                    return
+                }
+                vcs.append(JKBTMusicViewController())
+            }
+            else if JKSettingHelper.shared.deviceStatus == .usb {
+                if self is JKMemoryViewController {
+                    return
+                }
+                vcs.append(JKMemoryViewController.init(type: .usb))
+            }
+            else if JKSettingHelper.shared.deviceStatus == .sd {
+                if self is JKMemoryViewController {
+                    return
+                }
+                vcs.append(JKMemoryViewController.init(type: .sd))
+            }
+            else if JKSettingHelper.shared.deviceStatus == .radio {
+                if self is JKRadioViewController {
+                    return
+                }
+                vcs.append(JKRadioViewController())
+            }
+            self.navigationController?.setViewControllers(vcs, animated: true)
+        }
+    }
+    private func setReceiveData(){
+        JKBlueToothHelper.shared.receiveUpdate = { [weak self] type in
+            guard let self = self else { return }
+            if type == .device {
+                if JKSettingHelper.shared.deviceStatus == .radio {
+                    self.dismiss(animated: false) {
+                        JKViewController.topViewController()?.navigationController?.pushViewController(JKRadioViewController(), animated: true)
+                    }
+                }
+                else if JKSettingHelper.shared.deviceStatus == .aux {
+                    self.dismiss(animated: false) {
+                        JKViewController.topViewController()?.navigationController?.pushViewController(JKAUXViewController(), animated: true)
+                    }
+                }
+                else if JKSettingHelper.shared.deviceStatus == .bt{
+                    self.dismiss(animated: false) {
+                        JKViewController.topViewController()?.navigationController?.pushViewController(JKBTMusicViewController(), animated: true)
+                    }
+                }
+                else if JKSettingHelper.shared.deviceStatus == .usb || JKSettingHelper.shared.deviceStatus == .sd{
+                    self.dismiss(animated: false) {
+                        JKViewController.topViewController()?.navigationController?.pushViewController(JKMemoryViewController.init(type: JKSettingHelper.shared.deviceStatus), animated: true)
+                    }
+                }
+            }
+        }
     }
 
     // MARK:  Push
