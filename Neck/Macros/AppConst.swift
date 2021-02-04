@@ -28,8 +28,6 @@ let kWXSecret: String = "ba4bbd34e9575905eee870124919cba1"
 // Bugly
 let kBuglyAppId = "5fcb81849e"
 
-// Bmob
-let kBmobAppId = "e209e44691e0e1b4a0815cd1825b0592"
 
 //UniversalLink
 let kUniversalLink = "https://adyd.t4m.cn/"
