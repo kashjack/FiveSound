@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="JKHomePageViewController" customModule="Neck" customModuleProvider="target">
+            <connections>
+                <outlet property="btn1" destination="YSS-6e-7nE" id="ftb-nC-e2s"/>
+                <outlet property="btn2" destination="iBT-7V-XHg" id="X5W-1H-BeK"/>
+                <outlet property="btn3" destination="YdG-F1-5my" id="6Aj-P6-bYM"/>
+                <outlet property="btn4" destination="XRa-dN-cnI" id="oNz-vu-v1S"/>
+                <outlet property="btn5" destination="JGR-Ma-cwR" id="kcS-We-lq3"/>
+                <outlet property="btnForConnect" destination="9nb-72-sII" id="Mn3-g6-b0v"/>
+                <outlet property="view" destination="iN0-l3-epB" id="tqd-yo-MLi"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg_homePage" translatesAutoresizingMaskIntoConstraints="NO" id="FB6-sk-aPb">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YSS-6e-7nE" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
+                    <rect key="frame" x="30" y="270" width="85" height="115"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="height" constant="-30" id="WUy-Ev-SOX"/>
+                    </constraints>
+                    <state key="normal" image="homePage_1_nor"/>
+                    <state key="highlighted" image="homePage_1_sel"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_1"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iBT-7V-XHg" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
+                    <rect key="frame" x="145" y="270" width="85" height="115"/>
+                    <state key="normal" image="homePage_2_nor"/>
+                    <state key="highlighted" image="homePage_2_sel"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_2"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YdG-F1-5my" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
+                    <rect key="frame" x="260" y="270" width="85" height="115"/>
+                    <state key="normal" image="homePage_3_nor"/>
+                    <state key="highlighted" image="homePage_3_sel"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_3"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XRa-dN-cnI" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
+                    <rect key="frame" x="87.5" y="435" width="85" height="115"/>
+                    <state key="normal" image="homePage_4_nor"/>
+                    <state key="highlighted" image="homePage_4_sel"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_4"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JGR-Ma-cwR" customClass="JKHomePageButton" customModule="Neck" customModuleProvider="target">
+                    <rect key="frame" x="202.5" y="435" width="85" height="115"/>
+                    <state key="normal" image="homePage_5_nor"/>
+                    <state key="highlighted" image="homePage_5_sel"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="image" keyPath="bottomImage" value="4_zt_5"/>
+                    </userDefinedRuntimeAttributes>
+                </button>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ehV-Nf-XKZ">
+                    <rect key="frame" x="186.5" y="385" width="2" height="282"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="2" id="6Oc-QU-FGb"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9nb-72-sII">
+                    <rect key="frame" x="277" y="0.0" width="88" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="O0r-in-L5P"/>
+                        <constraint firstAttribute="width" constant="88" id="cuh-hh-k17"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <state key="normal" title="C O N N E C T">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                    <state key="selected" image="icon_2"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="FB6-sk-aPb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="26l-kb-09n"/>
+                <constraint firstItem="YSS-6e-7nE" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" constant="270" id="2Oj-d9-XRb"/>
+                <constraint firstItem="JGR-Ma-cwR" firstAttribute="height" secondItem="YSS-6e-7nE" secondAttribute="height" id="2gq-zL-3mZ"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="FB6-sk-aPb" secondAttribute="trailing" id="3T6-gJ-fsh"/>
+                <constraint firstItem="XRa-dN-cnI" firstAttribute="top" secondItem="YSS-6e-7nE" secondAttribute="bottom" constant="50" id="4az-Dg-KZ2"/>
+                <constraint firstItem="FB6-sk-aPb" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="73A-gU-wye"/>
+                <constraint firstItem="JGR-Ma-cwR" firstAttribute="leading" secondItem="ehV-Nf-XKZ" secondAttribute="trailing" constant="14" id="7Us-Ce-Rxx"/>
+                <constraint firstItem="YdG-F1-5my" firstAttribute="top" secondItem="YSS-6e-7nE" secondAttribute="top" id="AHV-Nv-Uca"/>
+                <constraint firstItem="YdG-F1-5my" firstAttribute="height" secondItem="YSS-6e-7nE" secondAttribute="height" id="Axi-a7-Y9r"/>
+                <constraint firstItem="iBT-7V-XHg" firstAttribute="leading" secondItem="YSS-6e-7nE" secondAttribute="trailing" constant="30" id="Cbs-2I-vw9"/>
+                <constraint firstItem="iBT-7V-XHg" firstAttribute="top" secondItem="YSS-6e-7nE" secondAttribute="top" id="Cmh-64-ubZ"/>
+                <constraint firstItem="XRa-dN-cnI" firstAttribute="height" secondItem="YSS-6e-7nE" secondAttribute="height" id="LKH-QC-EX8"/>
+                <constraint firstItem="ehV-Nf-XKZ" firstAttribute="top" secondItem="iBT-7V-XHg" secondAttribute="bottom" id="LV4-Cd-Jh8"/>
+                <constraint firstItem="JGR-Ma-cwR" firstAttribute="top" secondItem="XRa-dN-cnI" secondAttribute="top" id="OLH-Kg-RhN"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="ehV-Nf-XKZ" secondAttribute="bottom" id="Sl9-Ml-uwY"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="9nb-72-sII" secondAttribute="trailing" constant="10" id="U6g-uJ-hZe"/>
+                <constraint firstAttribute="bottom" secondItem="FB6-sk-aPb" secondAttribute="bottom" id="VEO-S7-7Fm"/>
+                <constraint firstItem="9nb-72-sII" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="YAh-Zp-EWo"/>
+                <constraint firstItem="JGR-Ma-cwR" firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="width" id="b7G-Vq-33i"/>
+                <constraint firstItem="iBT-7V-XHg" firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="width" id="ccg-DV-tQ1"/>
+                <constraint firstItem="YdG-F1-5my" firstAttribute="leading" secondItem="iBT-7V-XHg" secondAttribute="trailing" constant="30" id="dVP-io-yy5"/>
+                <constraint firstItem="iBT-7V-XHg" firstAttribute="height" secondItem="YSS-6e-7nE" secondAttribute="height" id="hbH-0A-9Lk"/>
+                <constraint firstItem="YdG-F1-5my" firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="width" id="jBb-gh-Wuf"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="YdG-F1-5my" secondAttribute="trailing" constant="30" id="jV6-Kd-Bbf"/>
+                <constraint firstItem="XRa-dN-cnI" firstAttribute="width" secondItem="YSS-6e-7nE" secondAttribute="width" id="jYz-xf-88S"/>
+                <constraint firstItem="ehV-Nf-XKZ" firstAttribute="leading" secondItem="XRa-dN-cnI" secondAttribute="trailing" constant="14" id="l2w-T1-fZE"/>
+                <constraint firstItem="ehV-Nf-XKZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="vuF-lU-HMp"/>
+                <constraint firstItem="YSS-6e-7nE" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="30" id="w0s-cF-nJn"/>
+            </constraints>
+            <point key="canvasLocation" x="-66.400000000000006" y="71.514242878560722"/>
+        </view>
+    </objects>
+    <designables>
+        <designable name="JGR-Ma-cwR">
+            <size key="intrinsicContentSize" width="86.5" height="86.5"/>
+        </designable>
+        <designable name="XRa-dN-cnI">
+            <size key="intrinsicContentSize" width="86.5" height="86.5"/>
+        </designable>
+        <designable name="YSS-6e-7nE">
+            <size key="intrinsicContentSize" width="86.5" height="86.5"/>
+        </designable>
+        <designable name="YdG-F1-5my">
+            <size key="intrinsicContentSize" width="86.5" height="86.5"/>
+        </designable>
+        <designable name="iBT-7V-XHg">
+            <size key="intrinsicContentSize" width="86.5" height="86.5"/>
+        </designable>
+    </designables>
+    <resources>
+        <image name="4_zt_1" width="60" height="20"/>
+        <image name="4_zt_2" width="60" height="20"/>
+        <image name="4_zt_3" width="60" height="20"/>
+        <image name="4_zt_4" width="60" height="20"/>
+        <image name="4_zt_5" width="60" height="20"/>
+        <image name="bg_homePage" width="375" height="667"/>
+        <image name="homePage_1_nor" width="86.5" height="86.5"/>
+        <image name="homePage_1_sel" width="86.5" height="86.5"/>
+        <image name="homePage_2_nor" width="86.5" height="86.5"/>
+        <image name="homePage_2_sel" width="86.5" height="86.5"/>
+        <image name="homePage_3_nor" width="86.5" height="86.5"/>
+        <image name="homePage_3_sel" width="86.5" height="86.5"/>
+        <image name="homePage_4_nor" width="86.5" height="86.5"/>
+        <image name="homePage_4_sel" width="86.5" height="86.5"/>
+        <image name="homePage_5_nor" width="86.5" height="86.5"/>
+        <image name="homePage_5_sel" width="86.5" height="86.5"/>
+        <image name="icon_2" width="20" height="20"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
