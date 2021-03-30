@@ -878,7 +878,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2020123107;
-				DEVELOPMENT_TEAM = 6RZC22962P;
+				DEVELOPMENT_TEAM = CZ6J9D2K37;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Neck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -887,7 +887,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fiveSound.kashjack.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiveSound.carRadio.www;
 				PRODUCT_NAME = Neck;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Neck/Macros/Neck-Bridge.h";
@@ -905,7 +905,7 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2020123107;
-				DEVELOPMENT_TEAM = 6RZC22962P;
+				DEVELOPMENT_TEAM = CZ6J9D2K37;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = Neck/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -914,7 +914,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.fiveSound.kashjack.www;
+				PRODUCT_BUNDLE_IDENTIFIER = com.fiveSound.carRadio.www;
 				PRODUCT_NAME = Neck;
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/Neck/Macros/Neck-Bridge.h";
