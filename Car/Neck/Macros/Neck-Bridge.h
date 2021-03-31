@@ -15,16 +15,20 @@
 #import <BmobSDK/Bmob.h>
 
 
+//网络状态
+@import Reachability;
+
 //解析model
 @import SwiftyJSON;
+@import HandyJSON;
 
 // RxSwift
-//@import RxCocoa;
-//@import RxSwift;
+@import RxCocoa;
+@import RxSwift;
 
 @import PKHUD;
 
-//@import SnapKit;
+@import SnapKit;
 
 
 #endif 

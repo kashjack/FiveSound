@@ -3,13 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5524D7B72611A36900FF83C2 /* Cartfile in Resources */ = {isa = PBXBuildFile; fileRef = 5524D7B62611A36900FF83C2 /* Cartfile */; };
-		5524D7DA2612DA2200FF83C2 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5524D7B92611A5CA00FF83C2 /* SwiftyJSON.framework */; };
-		5524D7E22612DA2800FF83C2 /* PKHUD.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5524D7DF2612DA2300FF83C2 /* PKHUD.framework */; };
 		553C5B2D256BD7E500D8EF32 /* JKFABAViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553C5B2B256BD7E500D8EF32 /* JKFABAViewController.swift */; };
 		553C5B2E256BD7E500D8EF32 /* JKFABAViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 553C5B2C256BD7E500D8EF32 /* JKFABAViewController.xib */; };
 		553C5B32256BD7F600D8EF32 /* JKRadioViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553C5B30256BD7F600D8EF32 /* JKRadioViewController.swift */; };
@@ -89,13 +86,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5524D7B62611A36900FF83C2 /* Cartfile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = Cartfile; sourceTree = SOURCE_ROOT; };
-		5524D7B92611A5CA00FF83C2 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
-		5524D7DD2612DA2300FF83C2 /* 5195A52F-7C7E-32F0-8154-B29226F6F086.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; name = "5195A52F-7C7E-32F0-8154-B29226F6F086.bcsymbolmap"; path = "Carthage/Build/iOS/5195A52F-7C7E-32F0-8154-B29226F6F086.bcsymbolmap"; sourceTree = "<group>"; };
-		5524D7DE2612DA2300FF83C2 /* D1BBC6D6-C283-307B-84E0-C3BFF60D238B.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; name = "D1BBC6D6-C283-307B-84E0-C3BFF60D238B.bcsymbolmap"; path = "Carthage/Build/iOS/D1BBC6D6-C283-307B-84E0-C3BFF60D238B.bcsymbolmap"; sourceTree = "<group>"; };
-		5524D7DF2612DA2300FF83C2 /* PKHUD.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PKHUD.framework; path = Carthage/Build/iOS/PKHUD.framework; sourceTree = "<group>"; };
-		5524D7E02612DA2300FF83C2 /* 4C1CD5D1-DEF6-391F-B874-082E249C8AFF.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; name = "4C1CD5D1-DEF6-391F-B874-082E249C8AFF.bcsymbolmap"; path = "Carthage/Build/iOS/4C1CD5D1-DEF6-391F-B874-082E249C8AFF.bcsymbolmap"; sourceTree = "<group>"; };
-		5524D7E12612DA2300FF83C2 /* 85B68FEC-7254-3A3C-A6D7-5C7D87668282.bcsymbolmap */ = {isa = PBXFileReference; lastKnownFileType = text; name = "85B68FEC-7254-3A3C-A6D7-5C7D87668282.bcsymbolmap"; path = "Carthage/Build/iOS/85B68FEC-7254-3A3C-A6D7-5C7D87668282.bcsymbolmap"; sourceTree = "<group>"; };
 		553C5B2B256BD7E500D8EF32 /* JKFABAViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKFABAViewController.swift; sourceTree = "<group>"; };
 		553C5B2C256BD7E500D8EF32 /* JKFABAViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = JKFABAViewController.xib; sourceTree = "<group>"; };
 		553C5B30256BD7F600D8EF32 /* JKRadioViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JKRadioViewController.swift; sourceTree = "<group>"; };
@@ -185,8 +175,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5524D7E22612DA2800FF83C2 /* PKHUD.framework in Frameworks */,
-				5524D7DA2612DA2200FF83C2 /* SwiftyJSON.framework in Frameworks */,
 				A1F7DD8ABF6EA22BFFDFAC29 /* Pods_Neck.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,12 +185,6 @@
 		48C1F47860E757357128F238 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				5524D7E02612DA2300FF83C2 /* 4C1CD5D1-DEF6-391F-B874-082E249C8AFF.bcsymbolmap */,
-				5524D7E12612DA2300FF83C2 /* 85B68FEC-7254-3A3C-A6D7-5C7D87668282.bcsymbolmap */,
-				5524D7DD2612DA2300FF83C2 /* 5195A52F-7C7E-32F0-8154-B29226F6F086.bcsymbolmap */,
-				5524D7DE2612DA2300FF83C2 /* D1BBC6D6-C283-307B-84E0-C3BFF60D238B.bcsymbolmap */,
-				5524D7DF2612DA2300FF83C2 /* PKHUD.framework */,
-				5524D7B92611A5CA00FF83C2 /* SwiftyJSON.framework */,
 				85956F4D4CFE46E94AA3B560 /* Pods_Neck.framework */,
 			);
 			name = Frameworks;
@@ -303,7 +285,6 @@
 				55E83EAC24A08C27002EB229 /* Assets.xcassets */,
 				55E83EAE24A08C27002EB229 /* LaunchScreen.storyboard */,
 				55E83EB124A08C27002EB229 /* Info.plist */,
-				5524D7B62611A36900FF83C2 /* Cartfile */,
 			);
 			path = Neck;
 			sourceTree = "<group>";
@@ -580,6 +561,7 @@
 				55E83E9C24A08C23002EB229 /* Sources */,
 				55E83E9D24A08C23002EB229 /* Frameworks */,
 				55E83E9E24A08C23002EB229 /* Resources */,
+				8A9409FF95765C90306462B0 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -598,7 +580,7 @@
 			attributes = {
 				CLASSPREFIX = JK;
 				LastSwiftUpdateCheck = 1150;
-				LastUpgradeCheck = 1240;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = worldunionYellow;
 				TargetAttributes = {
 					55E83E9F24A08C23002EB229 = {
@@ -633,7 +615,6 @@
 				55E83EB024A08C27002EB229 /* LaunchScreen.storyboard in Resources */,
 				815215B3258FAE8500C95EFE /* JKAUXViewController.xib in Resources */,
 				81CE5AAA2594DBC200CB4263 /* JKBTMusicViewController.xib in Resources */,
-				5524D7B72611A36900FF83C2 /* Cartfile in Resources */,
 				9DE0D63C25726A13009DAA73 /* JKDeviceTableViewCell.xib in Resources */,
 				55B0A57E2577637900994221 /* JKDeviceTableViewHeader.xib in Resources */,
 				553C5B33256BD7F600D8EF32 /* JKRadioViewController.xib in Resources */,
@@ -648,6 +629,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		8A9409FF95765C90306462B0 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Neck/Pods-Neck-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Neck/Pods-Neck-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Neck/Pods-Neck-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		DFFD4A759DE6F1BF7B5E5EB4 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -783,7 +781,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -808,7 +805,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -844,7 +841,6 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -863,7 +859,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -884,12 +880,8 @@
 				CURRENT_PROJECT_VERSION = 2020123107;
 				DEVELOPMENT_TEAM = 6RZC22962P;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Neck/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -915,12 +907,8 @@
 				CURRENT_PROJECT_VERSION = 2020123107;
 				DEVELOPMENT_TEAM = 6RZC22962P;
 				ENABLE_BITCODE = NO;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/Carthage/Build/iOS",
-				);
 				INFOPLIST_FILE = Neck/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
